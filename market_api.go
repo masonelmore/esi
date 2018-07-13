@@ -28,7 +28,7 @@ type MarketApiService service
 
 
 /* MarketApiService List open orders from a character
- List open market orders placed by a character  --- Alternate route: &#x60;/dev/characters/{character_id}/orders/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/orders/&#x60;  --- This route is cached for up to 1200 seconds
+ List open market orders placed by a character  ---  This route is cached for up to 1200 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *MarketApiService) GetCharactersCharacterIdOrders(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/orders/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/orders/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *MarketApiService) GetCharactersCharacterIdOrders(ctx context.Context, c
 }
 
 /* MarketApiService List historical orders by a character
- List cancelled and expired market orders placed by a character up to 90 days in the past.  --- Alternate route: &#x60;/dev/characters/{character_id}/orders/history/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/orders/history/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/orders/history/&#x60;  --- This route is cached for up to 3600 seconds
+ List cancelled and expired market orders placed by a character up to 90 days in the past.  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -137,7 +137,7 @@ func (a *MarketApiService) GetCharactersCharacterIdOrdersHistory(ctx context.Con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/orders/history/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/orders/history/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -215,7 +215,7 @@ func (a *MarketApiService) GetCharactersCharacterIdOrdersHistory(ctx context.Con
 }
 
 /* MarketApiService List open orders from a corporation
- List open market orders placed on behalf of a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/orders/&#x60;  Alternate route: &#x60;/v3/corporations/{corporation_id}/orders/&#x60;  --- This route is cached for up to 1200 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Trader 
+ List open market orders placed on behalf of a corporation  ---  This route is cached for up to 1200 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Trader
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -234,7 +234,7 @@ func (a *MarketApiService) GetCorporationsCorporationIdOrders(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/orders/"
+	localVarPath := a.client.cfg.BasePath + "/v3/corporations/{corporation_id}/orders/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -312,7 +312,7 @@ func (a *MarketApiService) GetCorporationsCorporationIdOrders(ctx context.Contex
 }
 
 /* MarketApiService List historical orders from a corporation
- List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/orders/history/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/orders/history/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Trader 
+ List cancelled and expired market orders placed on behalf of a corporation up to 90 days in the past.  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Trader
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -331,7 +331,7 @@ func (a *MarketApiService) GetCorporationsCorporationIdOrdersHistory(ctx context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/orders/history/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/orders/history/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -409,7 +409,7 @@ func (a *MarketApiService) GetCorporationsCorporationIdOrdersHistory(ctx context
 }
 
 /* MarketApiService Get item groups
- Get a list of item groups  --- Alternate route: &#x60;/dev/markets/groups/&#x60;  Alternate route: &#x60;/legacy/markets/groups/&#x60;  Alternate route: &#x60;/v1/markets/groups/&#x60;  --- This route expires daily at 11:05
+ Get a list of item groups  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -425,7 +425,7 @@ func (a *MarketApiService) GetMarketsGroups(ctx context.Context, localVarOptiona
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/groups/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/groups/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -487,7 +487,7 @@ func (a *MarketApiService) GetMarketsGroups(ctx context.Context, localVarOptiona
 }
 
 /* MarketApiService Get item group information
- Get information on an item group  --- Alternate route: &#x60;/dev/markets/groups/{market_group_id}/&#x60;  Alternate route: &#x60;/legacy/markets/groups/{market_group_id}/&#x60;  Alternate route: &#x60;/v1/markets/groups/{market_group_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on an item group  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param marketGroupId An Eve item group ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -506,7 +506,7 @@ func (a *MarketApiService) GetMarketsGroupsMarketGroupId(ctx context.Context, ma
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/groups/{market_group_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/groups/{market_group_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"market_group_id"+"}", fmt.Sprintf("%v", marketGroupId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -581,7 +581,7 @@ func (a *MarketApiService) GetMarketsGroupsMarketGroupId(ctx context.Context, ma
 }
 
 /* MarketApiService List market prices
- Return a list of prices  --- Alternate route: &#x60;/dev/markets/prices/&#x60;  Alternate route: &#x60;/legacy/markets/prices/&#x60;  Alternate route: &#x60;/v1/markets/prices/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of prices  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -597,7 +597,7 @@ func (a *MarketApiService) GetMarketsPrices(ctx context.Context, localVarOptiona
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/prices/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/prices/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -659,7 +659,7 @@ func (a *MarketApiService) GetMarketsPrices(ctx context.Context, localVarOptiona
 }
 
 /* MarketApiService List historical market statistics in a region
- Return a list of historical market statistics for the specified type in a region  --- Alternate route: &#x60;/dev/markets/{region_id}/history/&#x60;  Alternate route: &#x60;/legacy/markets/{region_id}/history/&#x60;  Alternate route: &#x60;/v1/markets/{region_id}/history/&#x60;  --- This route expires daily at 11:05
+ Return a list of historical market statistics for the specified type in a region  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param regionId Return statistics in this region
  @param typeId Return statistics for this type
@@ -677,7 +677,7 @@ func (a *MarketApiService) GetMarketsRegionIdHistory(ctx context.Context, region
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/{region_id}/history/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/{region_id}/history/"
 	localVarPath = strings.Replace(localVarPath, "{"+"region_id"+"}", fmt.Sprintf("%v", regionId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -741,7 +741,7 @@ func (a *MarketApiService) GetMarketsRegionIdHistory(ctx context.Context, region
 }
 
 /* MarketApiService List orders in a region
- Return a list of orders in a region  --- Alternate route: &#x60;/dev/markets/{region_id}/orders/&#x60;  Alternate route: &#x60;/legacy/markets/{region_id}/orders/&#x60;  Alternate route: &#x60;/v1/markets/{region_id}/orders/&#x60;  --- This route is cached for up to 300 seconds
+ Return a list of orders in a region  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param orderType Filter buy/sell orders, return all orders by default. If you query without type_id, we always return both buy and sell orders.
  @param regionId Return orders in this region
@@ -761,7 +761,7 @@ func (a *MarketApiService) GetMarketsRegionIdOrders(ctx context.Context, orderTy
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/{region_id}/orders/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/{region_id}/orders/"
 	localVarPath = strings.Replace(localVarPath, "{"+"region_id"+"}", fmt.Sprintf("%v", regionId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -837,7 +837,7 @@ func (a *MarketApiService) GetMarketsRegionIdOrders(ctx context.Context, orderTy
 }
 
 /* MarketApiService List type IDs relevant to a market
- Return a list of type IDs that have active orders in the region, for efficient market indexing.  --- Alternate route: &#x60;/dev/markets/{region_id}/types/&#x60;  Alternate route: &#x60;/legacy/markets/{region_id}/types/&#x60;  Alternate route: &#x60;/v1/markets/{region_id}/types/&#x60;  --- This route is cached for up to 600 seconds
+ Return a list of type IDs that have active orders in the region, for efficient market indexing.  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param regionId Return statistics in this region
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -855,7 +855,7 @@ func (a *MarketApiService) GetMarketsRegionIdTypes(ctx context.Context, regionId
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/{region_id}/types/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/{region_id}/types/"
 	localVarPath = strings.Replace(localVarPath, "{"+"region_id"+"}", fmt.Sprintf("%v", regionId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -924,7 +924,7 @@ func (a *MarketApiService) GetMarketsRegionIdTypes(ctx context.Context, regionId
 }
 
 /* MarketApiService List orders in a structure
- Return all orders in a structure  --- Alternate route: &#x60;/dev/markets/structures/{structure_id}/&#x60;  Alternate route: &#x60;/legacy/markets/structures/{structure_id}/&#x60;  Alternate route: &#x60;/v1/markets/structures/{structure_id}/&#x60;  --- This route is cached for up to 300 seconds
+ Return all orders in a structure  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param structureId Return orders in this structure
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -943,7 +943,7 @@ func (a *MarketApiService) GetMarketsStructuresStructureId(ctx context.Context, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/markets/structures/{structure_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/markets/structures/{structure_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"structure_id"+"}", fmt.Sprintf("%v", structureId), -1)
 
 	localVarHeaderParams := make(map[string]string)

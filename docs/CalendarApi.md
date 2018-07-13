@@ -1,20 +1,20 @@
 # \CalendarApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdCalendar**](CalendarApi.md#GetCharactersCharacterIdCalendar) | **Get** /characters/{character_id}/calendar/ | List calendar event summaries
-[**GetCharactersCharacterIdCalendarEventId**](CalendarApi.md#GetCharactersCharacterIdCalendarEventId) | **Get** /characters/{character_id}/calendar/{event_id}/ | Get an event
-[**GetCharactersCharacterIdCalendarEventIdAttendees**](CalendarApi.md#GetCharactersCharacterIdCalendarEventIdAttendees) | **Get** /characters/{character_id}/calendar/{event_id}/attendees/ | Get attendees
-[**PutCharactersCharacterIdCalendarEventId**](CalendarApi.md#PutCharactersCharacterIdCalendarEventId) | **Put** /characters/{character_id}/calendar/{event_id}/ | Respond to an event
+[**GetCharactersCharacterIdCalendar**](CalendarApi.md#GetCharactersCharacterIdCalendar) | **Get** /v1/characters/{character_id}/calendar/ | List calendar event summaries
+[**GetCharactersCharacterIdCalendarEventId**](CalendarApi.md#GetCharactersCharacterIdCalendarEventId) | **Get** /v3/characters/{character_id}/calendar/{event_id}/ | Get an event
+[**GetCharactersCharacterIdCalendarEventIdAttendees**](CalendarApi.md#GetCharactersCharacterIdCalendarEventIdAttendees) | **Get** /v1/characters/{character_id}/calendar/{event_id}/attendees/ | Get attendees
+[**PutCharactersCharacterIdCalendarEventId**](CalendarApi.md#PutCharactersCharacterIdCalendarEventId) | **Put** /v3/characters/{character_id}/calendar/{event_id}/ | Respond to an event
 
 
 # **GetCharactersCharacterIdCalendar**
 > []GetCharactersCharacterIdCalendar200Ok GetCharactersCharacterIdCalendar(ctx, characterId, optional)
 List calendar event summaries
 
-Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.  --- Alternate route: `/dev/characters/{character_id}/calendar/`  Alternate route: `/legacy/characters/{character_id}/calendar/`  Alternate route: `/v1/characters/{character_id}/calendar/`  --- This route is cached for up to 5 seconds
+Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.  ---  This route is cached for up to 5 seconds
 
 ### Required Parameters
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 > GetCharactersCharacterIdCalendarEventIdOk GetCharactersCharacterIdCalendarEventId(ctx, characterId, eventId, optional)
 Get an event
 
-Get all the information for a specific event  --- Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/`  Alternate route: `/v3/characters/{character_id}/calendar/{event_id}/`  --- This route is cached for up to 5 seconds
+Get all the information for a specific event  ---  This route is cached for up to 5 seconds
 
 ### Required Parameters
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdCalendarEventIdAttendees200Ok GetCharactersCharacterIdCalendarEventIdAttendees(ctx, characterId, eventId, optional)
 Get attendees
 
-Get all invited attendees for a given event  --- Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/attendees/`  Alternate route: `/legacy/characters/{character_id}/calendar/{event_id}/attendees/`  Alternate route: `/v1/characters/{character_id}/calendar/{event_id}/attendees/`  --- This route is cached for up to 600 seconds
+Get all invited attendees for a given event  ---  This route is cached for up to 600 seconds
 
 ### Required Parameters
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 > PutCharactersCharacterIdCalendarEventId(ctx, characterId, eventId, response, optional)
 Respond to an event
 
-Set your response status to an event  --- Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/`  Alternate route: `/v3/characters/{character_id}/calendar/{event_id}/` 
+Set your response status to an event  --- 
 
 ### Required Parameters
 

@@ -28,7 +28,7 @@ type BookmarksApiService service
 
 
 /* BookmarksApiService List bookmarks
- A list of your character&#39;s personal bookmarks  --- Alternate route: &#x60;/dev/characters/{character_id}/bookmarks/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/bookmarks/&#x60;  --- This route is cached for up to 3600 seconds
+ A list of your character&#39;s personal bookmarks  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -47,7 +47,7 @@ func (a *BookmarksApiService) GetCharactersCharacterIdBookmarks(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/bookmarks/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/bookmarks/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -125,7 +125,7 @@ func (a *BookmarksApiService) GetCharactersCharacterIdBookmarks(ctx context.Cont
 }
 
 /* BookmarksApiService List bookmark folders
- A list of your character&#39;s personal bookmark folders  --- Alternate route: &#x60;/dev/characters/{character_id}/bookmarks/folders/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/bookmarks/folders/&#x60;  --- This route is cached for up to 3600 seconds
+ A list of your character&#39;s personal bookmark folders  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -144,7 +144,7 @@ func (a *BookmarksApiService) GetCharactersCharacterIdBookmarksFolders(ctx conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/bookmarks/folders/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/bookmarks/folders/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -222,7 +222,7 @@ func (a *BookmarksApiService) GetCharactersCharacterIdBookmarksFolders(ctx conte
 }
 
 /* BookmarksApiService List corporation bookmarks
- A list of your corporation&#39;s bookmarks  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/bookmarks/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/bookmarks/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/bookmarks/&#x60;  --- This route is cached for up to 3600 seconds
+ A list of your corporation&#39;s bookmarks  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -241,7 +241,7 @@ func (a *BookmarksApiService) GetCorporationsCorporationIdBookmarks(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/bookmarks/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/bookmarks/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -319,7 +319,7 @@ func (a *BookmarksApiService) GetCorporationsCorporationIdBookmarks(ctx context.
 }
 
 /* BookmarksApiService List corporation bookmark folders
- A list of your corporation&#39;s bookmark folders  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/bookmarks/folders/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/bookmarks/folders/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/bookmarks/folders/&#x60;  --- This route is cached for up to 3600 seconds
+ A list of your corporation&#39;s bookmark folders  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -338,7 +338,7 @@ func (a *BookmarksApiService) GetCorporationsCorporationIdBookmarksFolders(ctx c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/bookmarks/folders/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/bookmarks/folders/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)

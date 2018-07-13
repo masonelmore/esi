@@ -27,7 +27,7 @@ type InsuranceApiService service
 
 
 /* InsuranceApiService List insurance levels
- Return available insurance levels for all ship types  --- Alternate route: &#x60;/dev/insurance/prices/&#x60;  Alternate route: &#x60;/legacy/insurance/prices/&#x60;  Alternate route: &#x60;/v1/insurance/prices/&#x60;  --- This route is cached for up to 3600 seconds
+ Return available insurance levels for all ship types  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "acceptLanguage" (string) Language to use in the response
@@ -45,7 +45,7 @@ func (a *InsuranceApiService) GetInsurancePrices(ctx context.Context, localVarOp
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/insurance/prices/"
+	localVarPath := a.client.cfg.BasePath + "/v1/insurance/prices/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

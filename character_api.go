@@ -28,7 +28,7 @@ type CharacterApiService service
 
 
 /* CharacterApiService Get character&#39;s public information
- Public information about a character  --- Alternate route: &#x60;/dev/characters/{character_id}/&#x60;  Alternate route: &#x60;/v4/characters/{character_id}/&#x60;  --- This route is cached for up to 3600 seconds
+ Public information about a character  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -45,7 +45,7 @@ func (a *CharacterApiService) GetCharactersCharacterId(ctx context.Context, char
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v4/characters/{character_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -111,7 +111,7 @@ func (a *CharacterApiService) GetCharactersCharacterId(ctx context.Context, char
 }
 
 /* CharacterApiService Get agents research
- Return a list of agents research information for a character. The formula for finding the current research points with an agent is: currentPoints &#x3D; remainderPoints + pointsPerDay * days(currentTime - researchStartDate)  --- Alternate route: &#x60;/dev/characters/{character_id}/agents_research/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/agents_research/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/agents_research/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of agents research information for a character. The formula for finding the current research points with an agent is: currentPoints &#x3D; remainderPoints + pointsPerDay * days(currentTime - researchStartDate)  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -129,7 +129,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdAgentsResearch(ctx context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/agents_research/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/agents_research/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -201,7 +201,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdAgentsResearch(ctx context
 }
 
 /* CharacterApiService Get blueprints
- Return a list of blueprints the character owns  --- Alternate route: &#x60;/dev/characters/{character_id}/blueprints/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/blueprints/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of blueprints the character owns  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -220,7 +220,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdBlueprints(ctx context.Con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/blueprints/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/blueprints/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -298,7 +298,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdBlueprints(ctx context.Con
 }
 
 /* CharacterApiService Get corporation history
- Get a list of all the corporations a character has been a member of  --- Alternate route: &#x60;/dev/characters/{character_id}/corporationhistory/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/corporationhistory/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/corporationhistory/&#x60;  --- This route is cached for up to 3600 seconds
+ Get a list of all the corporations a character has been a member of  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -315,7 +315,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdCorporationhistory(ctx con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/corporationhistory/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/corporationhistory/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -381,7 +381,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdCorporationhistory(ctx con
 }
 
 /* CharacterApiService Get jump fatigue
- Return a character&#39;s jump activation and fatigue information  --- Alternate route: &#x60;/dev/characters/{character_id}/fatigue/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/fatigue/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/fatigue/&#x60;  --- This route is cached for up to 300 seconds
+ Return a character&#39;s jump activation and fatigue information  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -399,7 +399,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdFatigue(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/fatigue/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fatigue/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -471,7 +471,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdFatigue(ctx context.Contex
 }
 
 /* CharacterApiService Get medals
- Return a list of medals the character has  --- Alternate route: &#x60;/dev/characters/{character_id}/medals/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/medals/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/medals/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of medals the character has  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -489,7 +489,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdMedals(ctx context.Context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/medals/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/medals/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -561,7 +561,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdMedals(ctx context.Context
 }
 
 /* CharacterApiService Get character notifications
- Return character notifications  --- Alternate route: &#x60;/dev/characters/{character_id}/notifications/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/notifications/&#x60;  --- This route is cached for up to 600 seconds
+ Return character notifications  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -579,7 +579,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdNotifications(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/notifications/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/notifications/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -651,7 +651,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdNotifications(ctx context.
 }
 
 /* CharacterApiService Get new contact notifications
- Return notifications about having been added to someone&#39;s contact list  --- Alternate route: &#x60;/dev/characters/{character_id}/notifications/contacts/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/notifications/contacts/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/notifications/contacts/&#x60;  --- This route is cached for up to 600 seconds
+ Return notifications about having been added to someone&#39;s contact list  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -669,7 +669,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdNotificationsContacts(ctx 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/notifications/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/notifications/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -741,7 +741,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdNotificationsContacts(ctx 
 }
 
 /* CharacterApiService Get character portraits
- Get portrait urls for a character  --- Alternate route: &#x60;/dev/characters/{character_id}/portrait/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/portrait/&#x60;  --- This route is cached for up to 3600 seconds
+ Get portrait urls for a character  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -758,7 +758,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdPortrait(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/portrait/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/portrait/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -824,7 +824,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdPortrait(ctx context.Conte
 }
 
 /* CharacterApiService Get character corporation roles
- Returns a character&#39;s corporation roles  --- Alternate route: &#x60;/dev/characters/{character_id}/roles/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/roles/&#x60;  --- This route is cached for up to 3600 seconds
+ Returns a character&#39;s corporation roles  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -842,7 +842,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdRoles(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/roles/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/roles/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -914,7 +914,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdRoles(ctx context.Context,
 }
 
 /* CharacterApiService Get standings
- Return character standings from agents, NPC corporations, and factions  --- Alternate route: &#x60;/dev/characters/{character_id}/standings/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/standings/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/standings/&#x60;  --- This route is cached for up to 3600 seconds
+ Return character standings from agents, NPC corporations, and factions  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -932,7 +932,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdStandings(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/standings/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/standings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1004,7 +1004,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdStandings(ctx context.Cont
 }
 
 /* CharacterApiService Yearly aggregate stats
- Returns aggregate yearly stats for a character  --- Alternate route: &#x60;/dev/characters/{character_id}/stats/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/stats/&#x60;  --- This route is cached for up to 86400 seconds
+ Returns aggregate yearly stats for a character  ---  This route is cached for up to 86400 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1022,7 +1022,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdStats(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/stats/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/stats/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1094,7 +1094,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdStats(ctx context.Context,
 }
 
 /* CharacterApiService Get character corporation titles
- Returns a character&#39;s titles  --- Alternate route: &#x60;/dev/characters/{character_id}/titles/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/titles/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/titles/&#x60;  --- This route is cached for up to 3600 seconds
+ Returns a character&#39;s titles  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1112,7 +1112,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdTitles(ctx context.Context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/titles/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/titles/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1184,7 +1184,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdTitles(ctx context.Context
 }
 
 /* CharacterApiService Character affiliation
- Bulk lookup of character IDs to corporation, alliance and faction  --- Alternate route: &#x60;/dev/characters/affiliation/&#x60;  Alternate route: &#x60;/legacy/characters/affiliation/&#x60;  Alternate route: &#x60;/v1/characters/affiliation/&#x60;  --- This route is cached for up to 3600 seconds
+ Bulk lookup of character IDs to corporation, alliance and faction  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characters The character IDs to fetch affiliations for. All characters must exist, or none will be returned.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1200,7 +1200,7 @@ func (a *CharacterApiService) PostCharactersAffiliation(ctx context.Context, cha
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/affiliation/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/affiliation/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1258,7 +1258,7 @@ func (a *CharacterApiService) PostCharactersAffiliation(ctx context.Context, cha
 }
 
 /* CharacterApiService Calculate a CSPA charge cost
- Takes a source character ID in the url and a set of target character ID&#39;s in the body, returns a CSPA charge cost  --- Alternate route: &#x60;/dev/characters/{character_id}/cspa/&#x60;  Alternate route: &#x60;/v4/characters/{character_id}/cspa/&#x60; 
+ Takes a source character ID in the url and a set of target character ID&#39;s in the body, returns a CSPA charge cost  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param characters The target characters to calculate the charge for
@@ -1276,7 +1276,7 @@ func (a *CharacterApiService) PostCharactersCharacterIdCspa(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/cspa/"
+	localVarPath := a.client.cfg.BasePath + "/v4/characters/{character_id}/cspa/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

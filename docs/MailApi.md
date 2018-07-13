@@ -1,25 +1,25 @@
 # \MailApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteCharactersCharacterIdMailLabelsLabelId**](MailApi.md#DeleteCharactersCharacterIdMailLabelsLabelId) | **Delete** /characters/{character_id}/mail/labels/{label_id}/ | Delete a mail label
-[**DeleteCharactersCharacterIdMailMailId**](MailApi.md#DeleteCharactersCharacterIdMailMailId) | **Delete** /characters/{character_id}/mail/{mail_id}/ | Delete a mail
-[**GetCharactersCharacterIdMail**](MailApi.md#GetCharactersCharacterIdMail) | **Get** /characters/{character_id}/mail/ | Return mail headers
-[**GetCharactersCharacterIdMailLabels**](MailApi.md#GetCharactersCharacterIdMailLabels) | **Get** /characters/{character_id}/mail/labels/ | Get mail labels and unread counts
-[**GetCharactersCharacterIdMailLists**](MailApi.md#GetCharactersCharacterIdMailLists) | **Get** /characters/{character_id}/mail/lists/ | Return mailing list subscriptions
-[**GetCharactersCharacterIdMailMailId**](MailApi.md#GetCharactersCharacterIdMailMailId) | **Get** /characters/{character_id}/mail/{mail_id}/ | Return a mail
-[**PostCharactersCharacterIdMail**](MailApi.md#PostCharactersCharacterIdMail) | **Post** /characters/{character_id}/mail/ | Send a new mail
-[**PostCharactersCharacterIdMailLabels**](MailApi.md#PostCharactersCharacterIdMailLabels) | **Post** /characters/{character_id}/mail/labels/ | Create a mail label
-[**PutCharactersCharacterIdMailMailId**](MailApi.md#PutCharactersCharacterIdMailMailId) | **Put** /characters/{character_id}/mail/{mail_id}/ | Update metadata about a mail
+[**DeleteCharactersCharacterIdMailLabelsLabelId**](MailApi.md#DeleteCharactersCharacterIdMailLabelsLabelId) | **Delete** /v1/characters/{character_id}/mail/labels/{label_id}/ | Delete a mail label
+[**DeleteCharactersCharacterIdMailMailId**](MailApi.md#DeleteCharactersCharacterIdMailMailId) | **Delete** /v1/characters/{character_id}/mail/{mail_id}/ | Delete a mail
+[**GetCharactersCharacterIdMail**](MailApi.md#GetCharactersCharacterIdMail) | **Get** /v1/characters/{character_id}/mail/ | Return mail headers
+[**GetCharactersCharacterIdMailLabels**](MailApi.md#GetCharactersCharacterIdMailLabels) | **Get** /v3/characters/{character_id}/mail/labels/ | Get mail labels and unread counts
+[**GetCharactersCharacterIdMailLists**](MailApi.md#GetCharactersCharacterIdMailLists) | **Get** /v1/characters/{character_id}/mail/lists/ | Return mailing list subscriptions
+[**GetCharactersCharacterIdMailMailId**](MailApi.md#GetCharactersCharacterIdMailMailId) | **Get** /v1/characters/{character_id}/mail/{mail_id}/ | Return a mail
+[**PostCharactersCharacterIdMail**](MailApi.md#PostCharactersCharacterIdMail) | **Post** /v1/characters/{character_id}/mail/ | Send a new mail
+[**PostCharactersCharacterIdMailLabels**](MailApi.md#PostCharactersCharacterIdMailLabels) | **Post** /v2/characters/{character_id}/mail/labels/ | Create a mail label
+[**PutCharactersCharacterIdMailMailId**](MailApi.md#PutCharactersCharacterIdMailMailId) | **Put** /v1/characters/{character_id}/mail/{mail_id}/ | Update metadata about a mail
 
 
 # **DeleteCharactersCharacterIdMailLabelsLabelId**
 > DeleteCharactersCharacterIdMailLabelsLabelId(ctx, characterId, labelId, optional)
 Delete a mail label
 
-Delete a mail label  --- Alternate route: `/dev/characters/{character_id}/mail/labels/{label_id}/`  Alternate route: `/legacy/characters/{character_id}/mail/labels/{label_id}/`  Alternate route: `/v1/characters/{character_id}/mail/labels/{label_id}/` 
+Delete a mail label  --- 
 
 ### Required Parameters
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 > DeleteCharactersCharacterIdMailMailId(ctx, characterId, mailId, optional)
 Delete a mail
 
-Delete a mail  --- Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`  Alternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`  Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/` 
+Delete a mail  --- 
 
 ### Required Parameters
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdMail200Ok GetCharactersCharacterIdMail(ctx, characterId, optional)
 Return mail headers
 
-Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.  --- Alternate route: `/dev/characters/{character_id}/mail/`  Alternate route: `/legacy/characters/{character_id}/mail/`  Alternate route: `/v1/characters/{character_id}/mail/`  --- This route is cached for up to 30 seconds
+Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.  ---  This route is cached for up to 30 seconds
 
 ### Required Parameters
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 > GetCharactersCharacterIdMailLabelsOk GetCharactersCharacterIdMailLabels(ctx, characterId, optional)
 Get mail labels and unread counts
 
-Return a list of the users mail labels, unread counts for each label and a total unread count.  --- Alternate route: `/dev/characters/{character_id}/mail/labels/`  Alternate route: `/v3/characters/{character_id}/mail/labels/`  --- This route is cached for up to 30 seconds
+Return a list of the users mail labels, unread counts for each label and a total unread count.  ---  This route is cached for up to 30 seconds
 
 ### Required Parameters
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdMailLists200Ok GetCharactersCharacterIdMailLists(ctx, characterId, optional)
 Return mailing list subscriptions
 
-Return all mailing lists that the character is subscribed to  --- Alternate route: `/dev/characters/{character_id}/mail/lists/`  Alternate route: `/legacy/characters/{character_id}/mail/lists/`  Alternate route: `/v1/characters/{character_id}/mail/lists/`  --- This route is cached for up to 120 seconds
+Return all mailing lists that the character is subscribed to  ---  This route is cached for up to 120 seconds
 
 ### Required Parameters
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 > GetCharactersCharacterIdMailMailIdOk GetCharactersCharacterIdMailMailId(ctx, characterId, mailId, optional)
 Return a mail
 
-Return the contents of an EVE mail  --- Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`  Alternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`  Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/`  --- This route is cached for up to 30 seconds
+Return the contents of an EVE mail  ---  This route is cached for up to 30 seconds
 
 ### Required Parameters
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 > int32 PostCharactersCharacterIdMail(ctx, characterId, mail, optional)
 Send a new mail
 
-Create and send a new mail  --- Alternate route: `/dev/characters/{character_id}/mail/`  Alternate route: `/legacy/characters/{character_id}/mail/`  Alternate route: `/v1/characters/{character_id}/mail/` 
+Create and send a new mail  --- 
 
 ### Required Parameters
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 > int32 PostCharactersCharacterIdMailLabels(ctx, characterId, label, optional)
 Create a mail label
 
-Create a mail label  --- Alternate route: `/dev/characters/{character_id}/mail/labels/`  Alternate route: `/legacy/characters/{character_id}/mail/labels/`  Alternate route: `/v2/characters/{character_id}/mail/labels/` 
+Create a mail label  --- 
 
 ### Required Parameters
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 > PutCharactersCharacterIdMailMailId(ctx, characterId, contents, mailId, optional)
 Update metadata about a mail
 
-Update metadata about a mail  --- Alternate route: `/dev/characters/{character_id}/mail/{mail_id}/`  Alternate route: `/legacy/characters/{character_id}/mail/{mail_id}/`  Alternate route: `/v1/characters/{character_id}/mail/{mail_id}/` 
+Update metadata about a mail  --- 
 
 ### Required Parameters
 

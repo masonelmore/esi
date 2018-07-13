@@ -27,7 +27,7 @@ type StatusApiService service
 
 
 /* StatusApiService Retrieve the uptime and player counts
- EVE Server status  --- Alternate route: &#x60;/dev/status/&#x60;  Alternate route: &#x60;/legacy/status/&#x60;  Alternate route: &#x60;/v1/status/&#x60;  --- This route is cached for up to 30 seconds
+ EVE Server status  ---  This route is cached for up to 30 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -43,7 +43,7 @@ func (a *StatusApiService) GetStatus(ctx context.Context, localVarOptionals map[
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/status/"
+	localVarPath := a.client.cfg.BasePath + "/v1/status/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

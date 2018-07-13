@@ -28,7 +28,7 @@ type MailApiService service
 
 
 /* MailApiService Delete a mail label
- Delete a mail label  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/labels/{label_id}/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/labels/{label_id}/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/labels/{label_id}/&#x60; 
+ Delete a mail label  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param labelId An EVE label id
@@ -45,7 +45,7 @@ func (a *MailApiService) DeleteCharactersCharacterIdMailLabelsLabelId(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/labels/{label_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/labels/{label_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"label_id"+"}", fmt.Sprintf("%v", labelId), -1)
 
@@ -107,7 +107,7 @@ func (a *MailApiService) DeleteCharactersCharacterIdMailLabelsLabelId(ctx contex
 }
 
 /* MailApiService Delete a mail
- Delete a mail  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/{mail_id}/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/{mail_id}/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/{mail_id}/&#x60; 
+ Delete a mail  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param mailId An EVE mail ID
@@ -124,7 +124,7 @@ func (a *MailApiService) DeleteCharactersCharacterIdMailMailId(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/{mail_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/{mail_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"mail_id"+"}", fmt.Sprintf("%v", mailId), -1)
 
@@ -186,7 +186,7 @@ func (a *MailApiService) DeleteCharactersCharacterIdMailMailId(ctx context.Conte
 }
 
 /* MailApiService Return mail headers
- Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/&#x60;  --- This route is cached for up to 30 seconds
+ Return the 50 most recent mail headers belonging to the character that match the query criteria. Queries can be filtered by label, and last_mail_id can be used to paginate backwards.  ---  This route is cached for up to 30 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -206,7 +206,7 @@ func (a *MailApiService) GetCharactersCharacterIdMail(ctx context.Context, chara
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -287,7 +287,7 @@ func (a *MailApiService) GetCharactersCharacterIdMail(ctx context.Context, chara
 }
 
 /* MailApiService Get mail labels and unread counts
- Return a list of the users mail labels, unread counts for each label and a total unread count.  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/labels/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/mail/labels/&#x60;  --- This route is cached for up to 30 seconds
+ Return a list of the users mail labels, unread counts for each label and a total unread count.  ---  This route is cached for up to 30 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -305,7 +305,7 @@ func (a *MailApiService) GetCharactersCharacterIdMailLabels(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/labels/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/mail/labels/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -377,7 +377,7 @@ func (a *MailApiService) GetCharactersCharacterIdMailLabels(ctx context.Context,
 }
 
 /* MailApiService Return mailing list subscriptions
- Return all mailing lists that the character is subscribed to  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/lists/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/lists/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/lists/&#x60;  --- This route is cached for up to 120 seconds
+ Return all mailing lists that the character is subscribed to  ---  This route is cached for up to 120 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -395,7 +395,7 @@ func (a *MailApiService) GetCharactersCharacterIdMailLists(ctx context.Context, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/lists/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/lists/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -467,7 +467,7 @@ func (a *MailApiService) GetCharactersCharacterIdMailLists(ctx context.Context, 
 }
 
 /* MailApiService Return a mail
- Return the contents of an EVE mail  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/{mail_id}/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/{mail_id}/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/{mail_id}/&#x60;  --- This route is cached for up to 30 seconds
+ Return the contents of an EVE mail  ---  This route is cached for up to 30 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param mailId An EVE mail ID
@@ -486,7 +486,7 @@ func (a *MailApiService) GetCharactersCharacterIdMailMailId(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/{mail_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/{mail_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"mail_id"+"}", fmt.Sprintf("%v", mailId), -1)
 
@@ -559,7 +559,7 @@ func (a *MailApiService) GetCharactersCharacterIdMailMailId(ctx context.Context,
 }
 
 /* MailApiService Send a new mail
- Create and send a new mail  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/&#x60; 
+ Create and send a new mail  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param mail The mail to send
@@ -577,7 +577,7 @@ func (a *MailApiService) PostCharactersCharacterIdMail(ctx context.Context, char
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -645,7 +645,7 @@ func (a *MailApiService) PostCharactersCharacterIdMail(ctx context.Context, char
 }
 
 /* MailApiService Create a mail label
- Create a mail label  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/labels/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/labels/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/mail/labels/&#x60; 
+ Create a mail label  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param label Label to create
@@ -663,7 +663,7 @@ func (a *MailApiService) PostCharactersCharacterIdMailLabels(ctx context.Context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/labels/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/mail/labels/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -731,7 +731,7 @@ func (a *MailApiService) PostCharactersCharacterIdMailLabels(ctx context.Context
 }
 
 /* MailApiService Update metadata about a mail
- Update metadata about a mail  --- Alternate route: &#x60;/dev/characters/{character_id}/mail/{mail_id}/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mail/{mail_id}/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mail/{mail_id}/&#x60; 
+ Update metadata about a mail  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param contents Data used to update the mail
@@ -749,7 +749,7 @@ func (a *MailApiService) PutCharactersCharacterIdMailMailId(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mail/{mail_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mail/{mail_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"mail_id"+"}", fmt.Sprintf("%v", mailId), -1)
 

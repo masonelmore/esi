@@ -1,19 +1,19 @@
 # \FittingsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteCharactersCharacterIdFittingsFittingId**](FittingsApi.md#DeleteCharactersCharacterIdFittingsFittingId) | **Delete** /characters/{character_id}/fittings/{fitting_id}/ | Delete fitting
-[**GetCharactersCharacterIdFittings**](FittingsApi.md#GetCharactersCharacterIdFittings) | **Get** /characters/{character_id}/fittings/ | Get fittings
-[**PostCharactersCharacterIdFittings**](FittingsApi.md#PostCharactersCharacterIdFittings) | **Post** /characters/{character_id}/fittings/ | Create fitting
+[**DeleteCharactersCharacterIdFittingsFittingId**](FittingsApi.md#DeleteCharactersCharacterIdFittingsFittingId) | **Delete** /v1/characters/{character_id}/fittings/{fitting_id}/ | Delete fitting
+[**GetCharactersCharacterIdFittings**](FittingsApi.md#GetCharactersCharacterIdFittings) | **Get** /v1/characters/{character_id}/fittings/ | Get fittings
+[**PostCharactersCharacterIdFittings**](FittingsApi.md#PostCharactersCharacterIdFittings) | **Post** /v1/characters/{character_id}/fittings/ | Create fitting
 
 
 # **DeleteCharactersCharacterIdFittingsFittingId**
 > DeleteCharactersCharacterIdFittingsFittingId(ctx, characterId, fittingId, optional)
 Delete fitting
 
-Delete a fitting from a character  --- Alternate route: `/dev/characters/{character_id}/fittings/{fitting_id}/`  Alternate route: `/legacy/characters/{character_id}/fittings/{fitting_id}/`  Alternate route: `/v1/characters/{character_id}/fittings/{fitting_id}/` 
+Delete a fitting from a character  --- 
 
 ### Required Parameters
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdFittings200Ok GetCharactersCharacterIdFittings(ctx, characterId, optional)
 Get fittings
 
-Return fittings of a character  --- Alternate route: `/dev/characters/{character_id}/fittings/`  Alternate route: `/legacy/characters/{character_id}/fittings/`  Alternate route: `/v1/characters/{character_id}/fittings/`  --- This route is cached for up to 300 seconds
+Return fittings of a character  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 > PostCharactersCharacterIdFittingsCreated PostCharactersCharacterIdFittings(ctx, characterId, fitting, optional)
 Create fitting
 
-Save a new fitting for a character  --- Alternate route: `/dev/characters/{character_id}/fittings/`  Alternate route: `/legacy/characters/{character_id}/fittings/`  Alternate route: `/v1/characters/{character_id}/fittings/` 
+Save a new fitting for a character  --- 
 
 ### Required Parameters
 

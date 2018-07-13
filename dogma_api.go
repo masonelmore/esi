@@ -28,7 +28,7 @@ type DogmaApiService service
 
 
 /* DogmaApiService Get attributes
- Get a list of dogma attribute ids  --- Alternate route: &#x60;/dev/dogma/attributes/&#x60;  Alternate route: &#x60;/legacy/dogma/attributes/&#x60;  Alternate route: &#x60;/v1/dogma/attributes/&#x60;  --- This route expires daily at 11:05
+ Get a list of dogma attribute ids  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -44,7 +44,7 @@ func (a *DogmaApiService) GetDogmaAttributes(ctx context.Context, localVarOption
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/dogma/attributes/"
+	localVarPath := a.client.cfg.BasePath + "/v1/dogma/attributes/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -106,7 +106,7 @@ func (a *DogmaApiService) GetDogmaAttributes(ctx context.Context, localVarOption
 }
 
 /* DogmaApiService Get attribute information
- Get information on a dogma attribute  --- Alternate route: &#x60;/dev/dogma/attributes/{attribute_id}/&#x60;  Alternate route: &#x60;/legacy/dogma/attributes/{attribute_id}/&#x60;  Alternate route: &#x60;/v1/dogma/attributes/{attribute_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a dogma attribute  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param attributeId A dogma attribute ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -123,7 +123,7 @@ func (a *DogmaApiService) GetDogmaAttributesAttributeId(ctx context.Context, att
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/dogma/attributes/{attribute_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/dogma/attributes/{attribute_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"attribute_id"+"}", fmt.Sprintf("%v", attributeId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -186,7 +186,7 @@ func (a *DogmaApiService) GetDogmaAttributesAttributeId(ctx context.Context, att
 }
 
 /* DogmaApiService Get dynamic item information
- Returns info about a dynamic item resulting from mutation with a mutaplasmid.  --- Alternate route: &#x60;/dev/dogma/dynamic/items/{type_id}/{item_id}/&#x60;  Alternate route: &#x60;/legacy/dogma/dynamic/items/{type_id}/{item_id}/&#x60;  Alternate route: &#x60;/v1/dogma/dynamic/items/{type_id}/{item_id}/&#x60;  --- This route expires daily at 11:05
+ Returns info about a dynamic item resulting from mutation with a mutaplasmid.  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param itemId item_id integer
  @param typeId type_id integer
@@ -204,7 +204,7 @@ func (a *DogmaApiService) GetDogmaDynamicItemsTypeIdItemId(ctx context.Context, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/dogma/dynamic/items/{type_id}/{item_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/dogma/dynamic/items/{type_id}/{item_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"item_id"+"}", fmt.Sprintf("%v", itemId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"type_id"+"}", fmt.Sprintf("%v", typeId), -1)
 
@@ -268,7 +268,7 @@ func (a *DogmaApiService) GetDogmaDynamicItemsTypeIdItemId(ctx context.Context, 
 }
 
 /* DogmaApiService Get effects
- Get a list of dogma effect ids  --- Alternate route: &#x60;/dev/dogma/effects/&#x60;  Alternate route: &#x60;/legacy/dogma/effects/&#x60;  Alternate route: &#x60;/v1/dogma/effects/&#x60;  --- This route expires daily at 11:05
+ Get a list of dogma effect ids  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -284,7 +284,7 @@ func (a *DogmaApiService) GetDogmaEffects(ctx context.Context, localVarOptionals
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/dogma/effects/"
+	localVarPath := a.client.cfg.BasePath + "/v1/dogma/effects/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -346,7 +346,7 @@ func (a *DogmaApiService) GetDogmaEffects(ctx context.Context, localVarOptionals
 }
 
 /* DogmaApiService Get effect information
- Get information on a dogma effect  --- Alternate route: &#x60;/dev/dogma/effects/{effect_id}/&#x60;  Alternate route: &#x60;/v2/dogma/effects/{effect_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a dogma effect  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param effectId A dogma effect ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -363,7 +363,7 @@ func (a *DogmaApiService) GetDogmaEffectsEffectId(ctx context.Context, effectId 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/dogma/effects/{effect_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v2/dogma/effects/{effect_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"effect_id"+"}", fmt.Sprintf("%v", effectId), -1)
 
 	localVarHeaderParams := make(map[string]string)

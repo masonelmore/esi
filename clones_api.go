@@ -28,7 +28,7 @@ type ClonesApiService service
 
 
 /* ClonesApiService Get clones
- A list of the character&#39;s clones  --- Alternate route: &#x60;/dev/characters/{character_id}/clones/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/clones/&#x60;  --- This route is cached for up to 120 seconds
+ A list of the character&#39;s clones  ---  This route is cached for up to 120 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *ClonesApiService) GetCharactersCharacterIdClones(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/clones/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/clones/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *ClonesApiService) GetCharactersCharacterIdClones(ctx context.Context, c
 }
 
 /* ClonesApiService Get active implants
- Return implants on the active clone of a character  --- Alternate route: &#x60;/dev/characters/{character_id}/implants/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/implants/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/implants/&#x60;  --- This route is cached for up to 300 seconds
+ Return implants on the active clone of a character  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -136,7 +136,7 @@ func (a *ClonesApiService) GetCharactersCharacterIdImplants(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/implants/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/implants/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

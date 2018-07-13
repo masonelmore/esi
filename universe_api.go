@@ -28,7 +28,7 @@ type UniverseApiService service
 
 
 /* UniverseApiService Get ancestries
- Get all character ancestries  --- Alternate route: &#x60;/dev/universe/ancestries/&#x60;  Alternate route: &#x60;/legacy/universe/ancestries/&#x60;  Alternate route: &#x60;/v1/universe/ancestries/&#x60;  --- This route expires daily at 11:05
+ Get all character ancestries  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "acceptLanguage" (string) Language to use in the response
@@ -46,7 +46,7 @@ func (a *UniverseApiService) GetUniverseAncestries(ctx context.Context, localVar
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/ancestries/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/ancestries/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -120,7 +120,7 @@ func (a *UniverseApiService) GetUniverseAncestries(ctx context.Context, localVar
 }
 
 /* UniverseApiService Get asteroid belt information
- Get information on an asteroid belt  --- Alternate route: &#x60;/dev/universe/asteroid_belts/{asteroid_belt_id}/&#x60;  Alternate route: &#x60;/legacy/universe/asteroid_belts/{asteroid_belt_id}/&#x60;  Alternate route: &#x60;/v1/universe/asteroid_belts/{asteroid_belt_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on an asteroid belt  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param asteroidBeltId asteroid_belt_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -137,7 +137,7 @@ func (a *UniverseApiService) GetUniverseAsteroidBeltsAsteroidBeltId(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/asteroid_belts/{asteroid_belt_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/asteroid_belts/{asteroid_belt_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"asteroid_belt_id"+"}", fmt.Sprintf("%v", asteroidBeltId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -200,7 +200,7 @@ func (a *UniverseApiService) GetUniverseAsteroidBeltsAsteroidBeltId(ctx context.
 }
 
 /* UniverseApiService Get bloodlines
- Get a list of bloodlines  --- Alternate route: &#x60;/dev/universe/bloodlines/&#x60;  Alternate route: &#x60;/legacy/universe/bloodlines/&#x60;  Alternate route: &#x60;/v1/universe/bloodlines/&#x60;  --- This route expires daily at 11:05
+ Get a list of bloodlines  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "acceptLanguage" (string) Language to use in the response
@@ -218,7 +218,7 @@ func (a *UniverseApiService) GetUniverseBloodlines(ctx context.Context, localVar
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/bloodlines/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/bloodlines/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -292,7 +292,7 @@ func (a *UniverseApiService) GetUniverseBloodlines(ctx context.Context, localVar
 }
 
 /* UniverseApiService Get item categories
- Get a list of item categories  --- Alternate route: &#x60;/dev/universe/categories/&#x60;  Alternate route: &#x60;/legacy/universe/categories/&#x60;  Alternate route: &#x60;/v1/universe/categories/&#x60;  --- This route expires daily at 11:05
+ Get a list of item categories  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -308,7 +308,7 @@ func (a *UniverseApiService) GetUniverseCategories(ctx context.Context, localVar
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/categories/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/categories/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -370,7 +370,7 @@ func (a *UniverseApiService) GetUniverseCategories(ctx context.Context, localVar
 }
 
 /* UniverseApiService Get item category information
- Get information of an item category  --- Alternate route: &#x60;/dev/universe/categories/{category_id}/&#x60;  Alternate route: &#x60;/legacy/universe/categories/{category_id}/&#x60;  Alternate route: &#x60;/v1/universe/categories/{category_id}/&#x60;  --- This route expires daily at 11:05
+ Get information of an item category  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param categoryId An Eve item category ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -389,7 +389,7 @@ func (a *UniverseApiService) GetUniverseCategoriesCategoryId(ctx context.Context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/categories/{category_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/categories/{category_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"category_id"+"}", fmt.Sprintf("%v", categoryId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -464,7 +464,7 @@ func (a *UniverseApiService) GetUniverseCategoriesCategoryId(ctx context.Context
 }
 
 /* UniverseApiService Get constellations
- Get a list of constellations  --- Alternate route: &#x60;/dev/universe/constellations/&#x60;  Alternate route: &#x60;/legacy/universe/constellations/&#x60;  Alternate route: &#x60;/v1/universe/constellations/&#x60;  --- This route expires daily at 11:05
+ Get a list of constellations  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -480,7 +480,7 @@ func (a *UniverseApiService) GetUniverseConstellations(ctx context.Context, loca
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/constellations/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/constellations/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -542,7 +542,7 @@ func (a *UniverseApiService) GetUniverseConstellations(ctx context.Context, loca
 }
 
 /* UniverseApiService Get constellation information
- Get information on a constellation  --- Alternate route: &#x60;/dev/universe/constellations/{constellation_id}/&#x60;  Alternate route: &#x60;/legacy/universe/constellations/{constellation_id}/&#x60;  Alternate route: &#x60;/v1/universe/constellations/{constellation_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a constellation  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param constellationId constellation_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -561,7 +561,7 @@ func (a *UniverseApiService) GetUniverseConstellationsConstellationId(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/constellations/{constellation_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/constellations/{constellation_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"constellation_id"+"}", fmt.Sprintf("%v", constellationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -636,7 +636,7 @@ func (a *UniverseApiService) GetUniverseConstellationsConstellationId(ctx contex
 }
 
 /* UniverseApiService Get factions
- Get a list of factions  --- Alternate route: &#x60;/dev/universe/factions/&#x60;  Alternate route: &#x60;/v2/universe/factions/&#x60;  --- This route expires daily at 11:05
+ Get a list of factions  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "acceptLanguage" (string) Language to use in the response
@@ -654,7 +654,7 @@ func (a *UniverseApiService) GetUniverseFactions(ctx context.Context, localVarOp
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/factions/"
+	localVarPath := a.client.cfg.BasePath + "/v2/universe/factions/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -728,7 +728,7 @@ func (a *UniverseApiService) GetUniverseFactions(ctx context.Context, localVarOp
 }
 
 /* UniverseApiService Get graphics
- Get a list of graphics  --- Alternate route: &#x60;/dev/universe/graphics/&#x60;  Alternate route: &#x60;/legacy/universe/graphics/&#x60;  Alternate route: &#x60;/v1/universe/graphics/&#x60;  --- This route expires daily at 11:05
+ Get a list of graphics  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -744,7 +744,7 @@ func (a *UniverseApiService) GetUniverseGraphics(ctx context.Context, localVarOp
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/graphics/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/graphics/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -806,7 +806,7 @@ func (a *UniverseApiService) GetUniverseGraphics(ctx context.Context, localVarOp
 }
 
 /* UniverseApiService Get graphic information
- Get information on a graphic  --- Alternate route: &#x60;/dev/universe/graphics/{graphic_id}/&#x60;  Alternate route: &#x60;/legacy/universe/graphics/{graphic_id}/&#x60;  Alternate route: &#x60;/v1/universe/graphics/{graphic_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a graphic  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param graphicId graphic_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -823,7 +823,7 @@ func (a *UniverseApiService) GetUniverseGraphicsGraphicId(ctx context.Context, g
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/graphics/{graphic_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/graphics/{graphic_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"graphic_id"+"}", fmt.Sprintf("%v", graphicId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -886,7 +886,7 @@ func (a *UniverseApiService) GetUniverseGraphicsGraphicId(ctx context.Context, g
 }
 
 /* UniverseApiService Get item groups
- Get a list of item groups  --- Alternate route: &#x60;/dev/universe/groups/&#x60;  Alternate route: &#x60;/legacy/universe/groups/&#x60;  Alternate route: &#x60;/v1/universe/groups/&#x60;  --- This route expires daily at 11:05
+ Get a list of item groups  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -903,7 +903,7 @@ func (a *UniverseApiService) GetUniverseGroups(ctx context.Context, localVarOpti
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/groups/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/groups/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -971,7 +971,7 @@ func (a *UniverseApiService) GetUniverseGroups(ctx context.Context, localVarOpti
 }
 
 /* UniverseApiService Get item group information
- Get information on an item group  --- Alternate route: &#x60;/dev/universe/groups/{group_id}/&#x60;  Alternate route: &#x60;/legacy/universe/groups/{group_id}/&#x60;  Alternate route: &#x60;/v1/universe/groups/{group_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on an item group  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param groupId An Eve item group ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -990,7 +990,7 @@ func (a *UniverseApiService) GetUniverseGroupsGroupId(ctx context.Context, group
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/groups/{group_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/groups/{group_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"group_id"+"}", fmt.Sprintf("%v", groupId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1065,7 +1065,7 @@ func (a *UniverseApiService) GetUniverseGroupsGroupId(ctx context.Context, group
 }
 
 /* UniverseApiService Get moon information
- Get information on a moon  --- Alternate route: &#x60;/dev/universe/moons/{moon_id}/&#x60;  Alternate route: &#x60;/legacy/universe/moons/{moon_id}/&#x60;  Alternate route: &#x60;/v1/universe/moons/{moon_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a moon  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param moonId moon_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1082,7 +1082,7 @@ func (a *UniverseApiService) GetUniverseMoonsMoonId(ctx context.Context, moonId 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/moons/{moon_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/moons/{moon_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"moon_id"+"}", fmt.Sprintf("%v", moonId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1145,7 +1145,7 @@ func (a *UniverseApiService) GetUniverseMoonsMoonId(ctx context.Context, moonId 
 }
 
 /* UniverseApiService Get planet information
- Get information on a planet  --- Alternate route: &#x60;/dev/universe/planets/{planet_id}/&#x60;  Alternate route: &#x60;/legacy/universe/planets/{planet_id}/&#x60;  Alternate route: &#x60;/v1/universe/planets/{planet_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a planet  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param planetId planet_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1162,7 +1162,7 @@ func (a *UniverseApiService) GetUniversePlanetsPlanetId(ctx context.Context, pla
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/planets/{planet_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/planets/{planet_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"planet_id"+"}", fmt.Sprintf("%v", planetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1225,7 +1225,7 @@ func (a *UniverseApiService) GetUniversePlanetsPlanetId(ctx context.Context, pla
 }
 
 /* UniverseApiService Get character races
- Get a list of character races  --- Alternate route: &#x60;/dev/universe/races/&#x60;  Alternate route: &#x60;/legacy/universe/races/&#x60;  Alternate route: &#x60;/v1/universe/races/&#x60;  --- This route expires daily at 11:05
+ Get a list of character races  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "acceptLanguage" (string) Language to use in the response
@@ -1243,7 +1243,7 @@ func (a *UniverseApiService) GetUniverseRaces(ctx context.Context, localVarOptio
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/races/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/races/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1317,7 +1317,7 @@ func (a *UniverseApiService) GetUniverseRaces(ctx context.Context, localVarOptio
 }
 
 /* UniverseApiService Get regions
- Get a list of regions  --- Alternate route: &#x60;/dev/universe/regions/&#x60;  Alternate route: &#x60;/legacy/universe/regions/&#x60;  Alternate route: &#x60;/v1/universe/regions/&#x60;  --- This route expires daily at 11:05
+ Get a list of regions  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -1333,7 +1333,7 @@ func (a *UniverseApiService) GetUniverseRegions(ctx context.Context, localVarOpt
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/regions/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/regions/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1395,7 +1395,7 @@ func (a *UniverseApiService) GetUniverseRegions(ctx context.Context, localVarOpt
 }
 
 /* UniverseApiService Get region information
- Get information on a region  --- Alternate route: &#x60;/dev/universe/regions/{region_id}/&#x60;  Alternate route: &#x60;/legacy/universe/regions/{region_id}/&#x60;  Alternate route: &#x60;/v1/universe/regions/{region_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a region  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param regionId region_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1414,7 +1414,7 @@ func (a *UniverseApiService) GetUniverseRegionsRegionId(ctx context.Context, reg
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/regions/{region_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/regions/{region_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"region_id"+"}", fmt.Sprintf("%v", regionId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1489,7 +1489,7 @@ func (a *UniverseApiService) GetUniverseRegionsRegionId(ctx context.Context, reg
 }
 
 /* UniverseApiService Get stargate information
- Get information on a stargate  --- Alternate route: &#x60;/dev/universe/stargates/{stargate_id}/&#x60;  Alternate route: &#x60;/legacy/universe/stargates/{stargate_id}/&#x60;  Alternate route: &#x60;/v1/universe/stargates/{stargate_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a stargate  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param stargateId stargate_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1506,7 +1506,7 @@ func (a *UniverseApiService) GetUniverseStargatesStargateId(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/stargates/{stargate_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/stargates/{stargate_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"stargate_id"+"}", fmt.Sprintf("%v", stargateId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1569,7 +1569,7 @@ func (a *UniverseApiService) GetUniverseStargatesStargateId(ctx context.Context,
 }
 
 /* UniverseApiService Get star information
- Get information on a star  --- Alternate route: &#x60;/dev/universe/stars/{star_id}/&#x60;  Alternate route: &#x60;/legacy/universe/stars/{star_id}/&#x60;  Alternate route: &#x60;/v1/universe/stars/{star_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a star  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param starId star_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1586,7 +1586,7 @@ func (a *UniverseApiService) GetUniverseStarsStarId(ctx context.Context, starId 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/stars/{star_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/stars/{star_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"star_id"+"}", fmt.Sprintf("%v", starId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1649,7 +1649,7 @@ func (a *UniverseApiService) GetUniverseStarsStarId(ctx context.Context, starId 
 }
 
 /* UniverseApiService Get station information
- Get information on a station  --- Alternate route: &#x60;/dev/universe/stations/{station_id}/&#x60;  Alternate route: &#x60;/v2/universe/stations/{station_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a station  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param stationId station_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1666,7 +1666,7 @@ func (a *UniverseApiService) GetUniverseStationsStationId(ctx context.Context, s
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/stations/{station_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v2/universe/stations/{station_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"station_id"+"}", fmt.Sprintf("%v", stationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1729,7 +1729,7 @@ func (a *UniverseApiService) GetUniverseStationsStationId(ctx context.Context, s
 }
 
 /* UniverseApiService List all public structures
- List all public structures  --- Alternate route: &#x60;/dev/universe/structures/&#x60;  Alternate route: &#x60;/legacy/universe/structures/&#x60;  Alternate route: &#x60;/v1/universe/structures/&#x60;  --- This route is cached for up to 3600 seconds
+ List all public structures  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -1745,7 +1745,7 @@ func (a *UniverseApiService) GetUniverseStructures(ctx context.Context, localVar
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/structures/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/structures/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1807,7 +1807,7 @@ func (a *UniverseApiService) GetUniverseStructures(ctx context.Context, localVar
 }
 
 /* UniverseApiService Get structure information
- Returns information on requested structure if you are on the ACL. Otherwise, returns \&quot;Forbidden\&quot; for all inputs.  --- Alternate route: &#x60;/dev/universe/structures/{structure_id}/&#x60;  Alternate route: &#x60;/v2/universe/structures/{structure_id}/&#x60;  --- This route is cached for up to 3600 seconds
+ Returns information on requested structure if you are on the ACL. Otherwise, returns \&quot;Forbidden\&quot; for all inputs.  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param structureId An Eve structure ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1825,7 +1825,7 @@ func (a *UniverseApiService) GetUniverseStructuresStructureId(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/structures/{structure_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v2/universe/structures/{structure_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"structure_id"+"}", fmt.Sprintf("%v", structureId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1894,7 +1894,7 @@ func (a *UniverseApiService) GetUniverseStructuresStructureId(ctx context.Contex
 }
 
 /* UniverseApiService Get system jumps
- Get the number of jumps in solar systems within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with jumps will be listed  --- Alternate route: &#x60;/dev/universe/system_jumps/&#x60;  Alternate route: &#x60;/legacy/universe/system_jumps/&#x60;  Alternate route: &#x60;/v1/universe/system_jumps/&#x60;  --- This route is cached for up to 3600 seconds
+ Get the number of jumps in solar systems within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with jumps will be listed  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -1910,7 +1910,7 @@ func (a *UniverseApiService) GetUniverseSystemJumps(ctx context.Context, localVa
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/system_jumps/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/system_jumps/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1972,7 +1972,7 @@ func (a *UniverseApiService) GetUniverseSystemJumps(ctx context.Context, localVa
 }
 
 /* UniverseApiService Get system kills
- Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed  --- Alternate route: &#x60;/dev/universe/system_kills/&#x60;  Alternate route: &#x60;/v2/universe/system_kills/&#x60;  --- This route is cached for up to 3600 seconds
+ Get the number of ship, pod and NPC kills per solar system within the last hour ending at the timestamp of the Last-Modified header, excluding wormhole space. Only systems with kills will be listed  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -1988,7 +1988,7 @@ func (a *UniverseApiService) GetUniverseSystemKills(ctx context.Context, localVa
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/system_kills/"
+	localVarPath := a.client.cfg.BasePath + "/v2/universe/system_kills/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2050,7 +2050,7 @@ func (a *UniverseApiService) GetUniverseSystemKills(ctx context.Context, localVa
 }
 
 /* UniverseApiService Get solar systems
- Get a list of solar systems  --- Alternate route: &#x60;/dev/universe/systems/&#x60;  Alternate route: &#x60;/legacy/universe/systems/&#x60;  Alternate route: &#x60;/v1/universe/systems/&#x60;  --- This route expires daily at 11:05
+ Get a list of solar systems  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -2066,7 +2066,7 @@ func (a *UniverseApiService) GetUniverseSystems(ctx context.Context, localVarOpt
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/systems/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/systems/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2128,7 +2128,7 @@ func (a *UniverseApiService) GetUniverseSystems(ctx context.Context, localVarOpt
 }
 
 /* UniverseApiService Get solar system information
- Get information on a solar system.  --- Alternate route: &#x60;/dev/universe/systems/{system_id}/&#x60;  Alternate route: &#x60;/v4/universe/systems/{system_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a solar system.  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param systemId system_id integer
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2147,7 +2147,7 @@ func (a *UniverseApiService) GetUniverseSystemsSystemId(ctx context.Context, sys
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/systems/{system_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v4/universe/systems/{system_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"system_id"+"}", fmt.Sprintf("%v", systemId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2222,7 +2222,7 @@ func (a *UniverseApiService) GetUniverseSystemsSystemId(ctx context.Context, sys
 }
 
 /* UniverseApiService Get types
- Get a list of type ids  --- Alternate route: &#x60;/dev/universe/types/&#x60;  Alternate route: &#x60;/legacy/universe/types/&#x60;  Alternate route: &#x60;/v1/universe/types/&#x60;  --- This route expires daily at 11:05
+ Get a list of type ids  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -2239,7 +2239,7 @@ func (a *UniverseApiService) GetUniverseTypes(ctx context.Context, localVarOptio
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/types/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/types/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2307,7 +2307,7 @@ func (a *UniverseApiService) GetUniverseTypes(ctx context.Context, localVarOptio
 }
 
 /* UniverseApiService Get type information
- Get information on a type  --- Alternate route: &#x60;/dev/universe/types/{type_id}/&#x60;  Alternate route: &#x60;/v3/universe/types/{type_id}/&#x60;  --- This route expires daily at 11:05
+ Get information on a type  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param typeId An Eve item type ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2326,7 +2326,7 @@ func (a *UniverseApiService) GetUniverseTypesTypeId(ctx context.Context, typeId 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/types/{type_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v3/universe/types/{type_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"type_id"+"}", fmt.Sprintf("%v", typeId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2401,7 +2401,7 @@ func (a *UniverseApiService) GetUniverseTypesTypeId(ctx context.Context, typeId 
 }
 
 /* UniverseApiService Bulk names to IDs
- Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours.  --- Alternate route: &#x60;/dev/universe/ids/&#x60;  Alternate route: &#x60;/legacy/universe/ids/&#x60;  Alternate route: &#x60;/v1/universe/ids/&#x60; 
+ Resolve a set of names to IDs in the following categories: agents, alliances, characters, constellations, corporations factions, inventory_types, regions, stations, and systems. Only exact matches will be returned. All names searched for are cached for 12 hours.  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param names The names to resolve
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2419,7 +2419,7 @@ func (a *UniverseApiService) PostUniverseIds(ctx context.Context, names []string
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/ids/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/ids/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2489,7 +2489,7 @@ func (a *UniverseApiService) PostUniverseIds(ctx context.Context, names []string
 }
 
 /* UniverseApiService Get names and categories for a set of ID&#39;s
- Resolve a set of IDs to names and categories. Supported ID&#39;s for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types.  --- Alternate route: &#x60;/dev/universe/names/&#x60;  Alternate route: &#x60;/v2/universe/names/&#x60; 
+ Resolve a set of IDs to names and categories. Supported ID&#39;s for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types.  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param ids The ids to resolve
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2505,7 +2505,7 @@ func (a *UniverseApiService) PostUniverseNames(ctx context.Context, ids []int32,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/names/"
+	localVarPath := a.client.cfg.BasePath + "/v2/universe/names/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -28,7 +28,7 @@ type IndustryApiService service
 
 
 /* IndustryApiService List character industry jobs
- List industry jobs placed by a character  --- Alternate route: &#x60;/dev/characters/{character_id}/industry/jobs/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/industry/jobs/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/industry/jobs/&#x60;  --- This route is cached for up to 300 seconds
+ List industry jobs placed by a character  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -47,7 +47,7 @@ func (a *IndustryApiService) GetCharactersCharacterIdIndustryJobs(ctx context.Co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/industry/jobs/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/industry/jobs/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -125,7 +125,7 @@ func (a *IndustryApiService) GetCharactersCharacterIdIndustryJobs(ctx context.Co
 }
 
 /* IndustryApiService Character mining ledger
- Paginated record of all mining done by a character for the past 30 days   --- Alternate route: &#x60;/dev/characters/{character_id}/mining/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/mining/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/mining/&#x60;  --- This route is cached for up to 600 seconds
+ Paginated record of all mining done by a character for the past 30 days  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -144,7 +144,7 @@ func (a *IndustryApiService) GetCharactersCharacterIdMining(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/mining/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/mining/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -222,7 +222,7 @@ func (a *IndustryApiService) GetCharactersCharacterIdMining(ctx context.Context,
 }
 
 /* IndustryApiService Moon extraction timers
- Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.   --- Alternate route: &#x60;/dev/corporation/{corporation_id}/mining/extractions/&#x60;  Alternate route: &#x60;/legacy/corporation/{corporation_id}/mining/extractions/&#x60;  Alternate route: &#x60;/v1/corporation/{corporation_id}/mining/extractions/&#x60;  --- This route is cached for up to 1800 seconds  --- Requires one of the following EVE corporation role(s): Structure_manager 
+ Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.  ---  This route is cached for up to 1800 seconds  --- Requires one of the following EVE corporation role(s): Structure_manager
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -241,7 +241,7 @@ func (a *IndustryApiService) GetCorporationCorporationIdMiningExtractions(ctx co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporation/{corporation_id}/mining/extractions/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporation/{corporation_id}/mining/extractions/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -319,7 +319,7 @@ func (a *IndustryApiService) GetCorporationCorporationIdMiningExtractions(ctx co
 }
 
 /* IndustryApiService Corporation mining observers
- Paginated list of all entities capable of observing and recording mining for a corporation   --- Alternate route: &#x60;/dev/corporation/{corporation_id}/mining/observers/&#x60;  Alternate route: &#x60;/legacy/corporation/{corporation_id}/mining/observers/&#x60;  Alternate route: &#x60;/v1/corporation/{corporation_id}/mining/observers/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant 
+ Paginated list of all entities capable of observing and recording mining for a corporation  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -338,7 +338,7 @@ func (a *IndustryApiService) GetCorporationCorporationIdMiningObservers(ctx cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporation/{corporation_id}/mining/observers/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporation/{corporation_id}/mining/observers/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -416,7 +416,7 @@ func (a *IndustryApiService) GetCorporationCorporationIdMiningObservers(ctx cont
 }
 
 /* IndustryApiService Observed corporation mining
- Paginated record of all mining seen by an observer   --- Alternate route: &#x60;/dev/corporation/{corporation_id}/mining/observers/{observer_id}/&#x60;  Alternate route: &#x60;/legacy/corporation/{corporation_id}/mining/observers/{observer_id}/&#x60;  Alternate route: &#x60;/v1/corporation/{corporation_id}/mining/observers/{observer_id}/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant 
+ Paginated record of all mining seen by an observer  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param observerId A mining observer id
@@ -436,7 +436,7 @@ func (a *IndustryApiService) GetCorporationCorporationIdMiningObserversObserverI
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporation/{corporation_id}/mining/observers/{observer_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporation/{corporation_id}/mining/observers/{observer_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"observer_id"+"}", fmt.Sprintf("%v", observerId), -1)
 
@@ -515,7 +515,7 @@ func (a *IndustryApiService) GetCorporationCorporationIdMiningObserversObserverI
 }
 
 /* IndustryApiService List corporation industry jobs
- List industry jobs run by a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/industry/jobs/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/industry/jobs/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/industry/jobs/&#x60;  --- This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): FactoryManager 
+ List industry jobs run by a corporation  ---  This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): FactoryManager
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -535,7 +535,7 @@ func (a *IndustryApiService) GetCorporationsCorporationIdIndustryJobs(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/industry/jobs/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/industry/jobs/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -619,7 +619,7 @@ func (a *IndustryApiService) GetCorporationsCorporationIdIndustryJobs(ctx contex
 }
 
 /* IndustryApiService List industry facilities
- Return a list of industry facilities  --- Alternate route: &#x60;/dev/industry/facilities/&#x60;  Alternate route: &#x60;/legacy/industry/facilities/&#x60;  Alternate route: &#x60;/v1/industry/facilities/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of industry facilities  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -635,7 +635,7 @@ func (a *IndustryApiService) GetIndustryFacilities(ctx context.Context, localVar
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/industry/facilities/"
+	localVarPath := a.client.cfg.BasePath + "/v1/industry/facilities/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -697,7 +697,7 @@ func (a *IndustryApiService) GetIndustryFacilities(ctx context.Context, localVar
 }
 
 /* IndustryApiService List solar system cost indices
- Return cost indices for solar systems  --- Alternate route: &#x60;/dev/industry/systems/&#x60;  Alternate route: &#x60;/legacy/industry/systems/&#x60;  Alternate route: &#x60;/v1/industry/systems/&#x60;  --- This route is cached for up to 3600 seconds
+ Return cost indices for solar systems  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -713,7 +713,7 @@ func (a *IndustryApiService) GetIndustrySystems(ctx context.Context, localVarOpt
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/industry/systems/"
+	localVarPath := a.client.cfg.BasePath + "/v1/industry/systems/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

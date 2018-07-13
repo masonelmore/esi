@@ -28,7 +28,7 @@ type AssetsApiService service
 
 
 /* AssetsApiService Get character assets
- Return a list of the characters assets  --- Alternate route: &#x60;/dev/characters/{character_id}/assets/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/assets/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of the characters assets  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -47,7 +47,7 @@ func (a *AssetsApiService) GetCharactersCharacterIdAssets(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/assets/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/assets/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -125,7 +125,7 @@ func (a *AssetsApiService) GetCharactersCharacterIdAssets(ctx context.Context, c
 }
 
 /* AssetsApiService Get corporation assets
- Return a list of the corporation assets  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/assets/&#x60;  Alternate route: &#x60;/v3/corporations/{corporation_id}/assets/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Return a list of the corporation assets  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -144,7 +144,7 @@ func (a *AssetsApiService) GetCorporationsCorporationIdAssets(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/assets/"
+	localVarPath := a.client.cfg.BasePath + "/v3/corporations/{corporation_id}/assets/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -222,7 +222,7 @@ func (a *AssetsApiService) GetCorporationsCorporationIdAssets(ctx context.Contex
 }
 
 /* AssetsApiService Get character asset locations
- Return locations for a set of item ids, which you can get from character assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  --- Alternate route: &#x60;/dev/characters/{character_id}/assets/locations/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/assets/locations/&#x60; 
+ Return locations for a set of item ids, which you can get from character assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param itemIds A list of item ids
@@ -240,7 +240,7 @@ func (a *AssetsApiService) PostCharactersCharacterIdAssetsLocations(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/assets/locations/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/assets/locations/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -308,7 +308,7 @@ func (a *AssetsApiService) PostCharactersCharacterIdAssetsLocations(ctx context.
 }
 
 /* AssetsApiService Get character asset names
- Return names for a set of item ids, which you can get from character assets endpoint. Typically used for items that can customize names, like containers or ships.  --- Alternate route: &#x60;/dev/characters/{character_id}/assets/names/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/assets/names/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/assets/names/&#x60; 
+ Return names for a set of item ids, which you can get from character assets endpoint. Typically used for items that can customize names, like containers or ships.  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param itemIds A list of item ids
@@ -326,7 +326,7 @@ func (a *AssetsApiService) PostCharactersCharacterIdAssetsNames(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/assets/names/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/assets/names/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -394,7 +394,7 @@ func (a *AssetsApiService) PostCharactersCharacterIdAssetsNames(ctx context.Cont
 }
 
 /* AssetsApiService Get corporation asset locations
- Return locations for a set of item ids, which you can get from corporation assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/assets/locations/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/assets/locations/&#x60;   --- Requires one of the following EVE corporation role(s): Director 
+ Return locations for a set of item ids, which you can get from corporation assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  ---  Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param itemIds A list of item ids
@@ -412,7 +412,7 @@ func (a *AssetsApiService) PostCorporationsCorporationIdAssetsLocations(ctx cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/assets/locations/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/assets/locations/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -480,7 +480,7 @@ func (a *AssetsApiService) PostCorporationsCorporationIdAssetsLocations(ctx cont
 }
 
 /* AssetsApiService Get coporation asset names
- Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/assets/names/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/assets/names/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/assets/names/&#x60;   --- Requires one of the following EVE corporation role(s): Director 
+ Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.  ---  Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param itemIds A list of item ids
@@ -498,7 +498,7 @@ func (a *AssetsApiService) PostCorporationsCorporationIdAssetsNames(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/assets/names/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/assets/names/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)

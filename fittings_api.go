@@ -28,7 +28,7 @@ type FittingsApiService service
 
 
 /* FittingsApiService Delete fitting
- Delete a fitting from a character  --- Alternate route: &#x60;/dev/characters/{character_id}/fittings/{fitting_id}/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/fittings/{fitting_id}/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/fittings/{fitting_id}/&#x60; 
+ Delete a fitting from a character  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param fittingId ID for a fitting of this character
@@ -45,7 +45,7 @@ func (a *FittingsApiService) DeleteCharactersCharacterIdFittingsFittingId(ctx co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/fittings/{fitting_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fittings/{fitting_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"fitting_id"+"}", fmt.Sprintf("%v", fittingId), -1)
 
@@ -107,7 +107,7 @@ func (a *FittingsApiService) DeleteCharactersCharacterIdFittingsFittingId(ctx co
 }
 
 /* FittingsApiService Get fittings
- Return fittings of a character  --- Alternate route: &#x60;/dev/characters/{character_id}/fittings/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/fittings/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/fittings/&#x60;  --- This route is cached for up to 300 seconds
+ Return fittings of a character  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -125,7 +125,7 @@ func (a *FittingsApiService) GetCharactersCharacterIdFittings(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/fittings/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fittings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -197,7 +197,7 @@ func (a *FittingsApiService) GetCharactersCharacterIdFittings(ctx context.Contex
 }
 
 /* FittingsApiService Create fitting
- Save a new fitting for a character  --- Alternate route: &#x60;/dev/characters/{character_id}/fittings/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/fittings/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/fittings/&#x60; 
+ Save a new fitting for a character  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param fitting Details about the new fitting
@@ -215,7 +215,7 @@ func (a *FittingsApiService) PostCharactersCharacterIdFittings(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/fittings/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fittings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

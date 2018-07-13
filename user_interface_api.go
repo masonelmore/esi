@@ -26,7 +26,7 @@ type UserInterfaceApiService service
 
 
 /* UserInterfaceApiService Set Autopilot Waypoint
- Set a solar system as autopilot waypoint  --- Alternate route: &#x60;/dev/ui/autopilot/waypoint/&#x60;  Alternate route: &#x60;/v2/ui/autopilot/waypoint/&#x60; 
+ Set a solar system as autopilot waypoint  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param addToBeginning Whether this solar system should be added to the beginning of all waypoints
  @param clearOtherWaypoints Whether clean other waypoints beforing adding this one
@@ -44,7 +44,7 @@ func (a *UserInterfaceApiService) PostUiAutopilotWaypoint(ctx context.Context, a
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/ui/autopilot/waypoint/"
+	localVarPath := a.client.cfg.BasePath + "/v2/ui/autopilot/waypoint/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -104,7 +104,7 @@ func (a *UserInterfaceApiService) PostUiAutopilotWaypoint(ctx context.Context, a
 }
 
 /* UserInterfaceApiService Open Contract Window
- Open the contract window inside the client  --- Alternate route: &#x60;/dev/ui/openwindow/contract/&#x60;  Alternate route: &#x60;/legacy/ui/openwindow/contract/&#x60;  Alternate route: &#x60;/v1/ui/openwindow/contract/&#x60; 
+ Open the contract window inside the client  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param contractId The contract to open
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -120,7 +120,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowContract(ctx context.Context, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/ui/openwindow/contract/"
+	localVarPath := a.client.cfg.BasePath + "/v1/ui/openwindow/contract/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -178,7 +178,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowContract(ctx context.Context, 
 }
 
 /* UserInterfaceApiService Open Information Window
- Open the information window for a character, corporation or alliance inside the client  --- Alternate route: &#x60;/dev/ui/openwindow/information/&#x60;  Alternate route: &#x60;/legacy/ui/openwindow/information/&#x60;  Alternate route: &#x60;/v1/ui/openwindow/information/&#x60; 
+ Open the information window for a character, corporation or alliance inside the client  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param targetId The target to open
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -194,7 +194,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowInformation(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/ui/openwindow/information/"
+	localVarPath := a.client.cfg.BasePath + "/v1/ui/openwindow/information/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -252,7 +252,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowInformation(ctx context.Contex
 }
 
 /* UserInterfaceApiService Open Market Details
- Open the market details window for a specific typeID inside the client  --- Alternate route: &#x60;/dev/ui/openwindow/marketdetails/&#x60;  Alternate route: &#x60;/legacy/ui/openwindow/marketdetails/&#x60;  Alternate route: &#x60;/v1/ui/openwindow/marketdetails/&#x60; 
+ Open the market details window for a specific typeID inside the client  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param typeId The item type to open in market window
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -268,7 +268,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowMarketdetails(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/ui/openwindow/marketdetails/"
+	localVarPath := a.client.cfg.BasePath + "/v1/ui/openwindow/marketdetails/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -326,7 +326,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowMarketdetails(ctx context.Cont
 }
 
 /* UserInterfaceApiService Open New Mail Window
- Open the New Mail window, according to settings from the request if applicable  --- Alternate route: &#x60;/dev/ui/openwindow/newmail/&#x60;  Alternate route: &#x60;/legacy/ui/openwindow/newmail/&#x60;  Alternate route: &#x60;/v1/ui/openwindow/newmail/&#x60; 
+ Open the New Mail window, according to settings from the request if applicable  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param newMail The details of mail to create
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -342,7 +342,7 @@ func (a *UserInterfaceApiService) PostUiOpenwindowNewmail(ctx context.Context, n
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/ui/openwindow/newmail/"
+	localVarPath := a.client.cfg.BasePath + "/v1/ui/openwindow/newmail/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

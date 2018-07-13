@@ -28,7 +28,7 @@ type CalendarApiService service
 
 
 /* CalendarApiService List calendar event summaries
- Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.  --- Alternate route: &#x60;/dev/characters/{character_id}/calendar/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/calendar/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/calendar/&#x60;  --- This route is cached for up to 5 seconds
+ Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -47,7 +47,7 @@ func (a *CalendarApiService) GetCharactersCharacterIdCalendar(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/calendar/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/calendar/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -125,7 +125,7 @@ func (a *CalendarApiService) GetCharactersCharacterIdCalendar(ctx context.Contex
 }
 
 /* CalendarApiService Get an event
- Get all the information for a specific event  --- Alternate route: &#x60;/dev/characters/{character_id}/calendar/{event_id}/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/calendar/{event_id}/&#x60;  --- This route is cached for up to 5 seconds
+ Get all the information for a specific event  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param eventId The id of the event requested
@@ -144,7 +144,7 @@ func (a *CalendarApiService) GetCharactersCharacterIdCalendarEventId(ctx context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/calendar/{event_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/calendar/{event_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"event_id"+"}", fmt.Sprintf("%v", eventId), -1)
 
@@ -217,7 +217,7 @@ func (a *CalendarApiService) GetCharactersCharacterIdCalendarEventId(ctx context
 }
 
 /* CalendarApiService Get attendees
- Get all invited attendees for a given event  --- Alternate route: &#x60;/dev/characters/{character_id}/calendar/{event_id}/attendees/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/calendar/{event_id}/attendees/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/calendar/{event_id}/attendees/&#x60;  --- This route is cached for up to 600 seconds
+ Get all invited attendees for a given event  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param eventId The id of the event requested
@@ -236,7 +236,7 @@ func (a *CalendarApiService) GetCharactersCharacterIdCalendarEventIdAttendees(ct
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/calendar/{event_id}/attendees/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/calendar/{event_id}/attendees/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"event_id"+"}", fmt.Sprintf("%v", eventId), -1)
 
@@ -309,7 +309,7 @@ func (a *CalendarApiService) GetCharactersCharacterIdCalendarEventIdAttendees(ct
 }
 
 /* CalendarApiService Respond to an event
- Set your response status to an event  --- Alternate route: &#x60;/dev/characters/{character_id}/calendar/{event_id}/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/calendar/{event_id}/&#x60; 
+ Set your response status to an event  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param eventId The ID of the event requested
@@ -327,7 +327,7 @@ func (a *CalendarApiService) PutCharactersCharacterIdCalendarEventId(ctx context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/calendar/{event_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/calendar/{event_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"event_id"+"}", fmt.Sprintf("%v", eventId), -1)
 

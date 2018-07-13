@@ -1,22 +1,22 @@
 # \AssetsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdAssets**](AssetsApi.md#GetCharactersCharacterIdAssets) | **Get** /characters/{character_id}/assets/ | Get character assets
-[**GetCorporationsCorporationIdAssets**](AssetsApi.md#GetCorporationsCorporationIdAssets) | **Get** /corporations/{corporation_id}/assets/ | Get corporation assets
-[**PostCharactersCharacterIdAssetsLocations**](AssetsApi.md#PostCharactersCharacterIdAssetsLocations) | **Post** /characters/{character_id}/assets/locations/ | Get character asset locations
-[**PostCharactersCharacterIdAssetsNames**](AssetsApi.md#PostCharactersCharacterIdAssetsNames) | **Post** /characters/{character_id}/assets/names/ | Get character asset names
-[**PostCorporationsCorporationIdAssetsLocations**](AssetsApi.md#PostCorporationsCorporationIdAssetsLocations) | **Post** /corporations/{corporation_id}/assets/locations/ | Get corporation asset locations
-[**PostCorporationsCorporationIdAssetsNames**](AssetsApi.md#PostCorporationsCorporationIdAssetsNames) | **Post** /corporations/{corporation_id}/assets/names/ | Get coporation asset names
+[**GetCharactersCharacterIdAssets**](AssetsApi.md#GetCharactersCharacterIdAssets) | **Get** /v3/characters/{character_id}/assets/ | Get character assets
+[**GetCorporationsCorporationIdAssets**](AssetsApi.md#GetCorporationsCorporationIdAssets) | **Get** /v3/corporations/{corporation_id}/assets/ | Get corporation assets
+[**PostCharactersCharacterIdAssetsLocations**](AssetsApi.md#PostCharactersCharacterIdAssetsLocations) | **Post** /v2/characters/{character_id}/assets/locations/ | Get character asset locations
+[**PostCharactersCharacterIdAssetsNames**](AssetsApi.md#PostCharactersCharacterIdAssetsNames) | **Post** /v1/characters/{character_id}/assets/names/ | Get character asset names
+[**PostCorporationsCorporationIdAssetsLocations**](AssetsApi.md#PostCorporationsCorporationIdAssetsLocations) | **Post** /v2/corporations/{corporation_id}/assets/locations/ | Get corporation asset locations
+[**PostCorporationsCorporationIdAssetsNames**](AssetsApi.md#PostCorporationsCorporationIdAssetsNames) | **Post** /v1/corporations/{corporation_id}/assets/names/ | Get coporation asset names
 
 
 # **GetCharactersCharacterIdAssets**
 > []GetCharactersCharacterIdAssets200Ok GetCharactersCharacterIdAssets(ctx, characterId, optional)
 Get character assets
 
-Return a list of the characters assets  --- Alternate route: `/dev/characters/{character_id}/assets/`  Alternate route: `/v3/characters/{character_id}/assets/`  --- This route is cached for up to 3600 seconds
+Return a list of the characters assets  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdAssets200Ok GetCorporationsCorporationIdAssets(ctx, corporationId, optional)
 Get corporation assets
 
-Return a list of the corporation assets  --- Alternate route: `/dev/corporations/{corporation_id}/assets/`  Alternate route: `/v3/corporations/{corporation_id}/assets/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Return a list of the corporation assets  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 > []PostCharactersCharacterIdAssetsLocations200Ok PostCharactersCharacterIdAssetsLocations(ctx, characterId, itemIds, optional)
 Get character asset locations
 
-Return locations for a set of item ids, which you can get from character assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  --- Alternate route: `/dev/characters/{character_id}/assets/locations/`  Alternate route: `/v2/characters/{character_id}/assets/locations/` 
+Return locations for a set of item ids, which you can get from character assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  --- 
 
 ### Required Parameters
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 > []PostCharactersCharacterIdAssetsNames200Ok PostCharactersCharacterIdAssetsNames(ctx, characterId, itemIds, optional)
 Get character asset names
 
-Return names for a set of item ids, which you can get from character assets endpoint. Typically used for items that can customize names, like containers or ships.  --- Alternate route: `/dev/characters/{character_id}/assets/names/`  Alternate route: `/legacy/characters/{character_id}/assets/names/`  Alternate route: `/v1/characters/{character_id}/assets/names/` 
+Return names for a set of item ids, which you can get from character assets endpoint. Typically used for items that can customize names, like containers or ships.  --- 
 
 ### Required Parameters
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 > []PostCorporationsCorporationIdAssetsLocations200Ok PostCorporationsCorporationIdAssetsLocations(ctx, corporationId, itemIds, optional)
 Get corporation asset locations
 
-Return locations for a set of item ids, which you can get from corporation assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  --- Alternate route: `/dev/corporations/{corporation_id}/assets/locations/`  Alternate route: `/v2/corporations/{corporation_id}/assets/locations/`   --- Requires one of the following EVE corporation role(s): Director 
+Return locations for a set of item ids, which you can get from corporation assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)  ---  Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 > []PostCorporationsCorporationIdAssetsNames200Ok PostCorporationsCorporationIdAssetsNames(ctx, corporationId, itemIds, optional)
 Get coporation asset names
 
-Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.  --- Alternate route: `/dev/corporations/{corporation_id}/assets/names/`  Alternate route: `/legacy/corporations/{corporation_id}/assets/names/`  Alternate route: `/v1/corporations/{corporation_id}/assets/names/`   --- Requires one of the following EVE corporation role(s): Director 
+Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.  ---  Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 

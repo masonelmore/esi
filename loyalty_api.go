@@ -28,7 +28,7 @@ type LoyaltyApiService service
 
 
 /* LoyaltyApiService Get loyalty points
- Return a list of loyalty points for all corporations the character has worked for  --- Alternate route: &#x60;/dev/characters/{character_id}/loyalty/points/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/loyalty/points/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/loyalty/points/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of loyalty points for all corporations the character has worked for  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *LoyaltyApiService) GetCharactersCharacterIdLoyaltyPoints(ctx context.Co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/loyalty/points/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/loyalty/points/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *LoyaltyApiService) GetCharactersCharacterIdLoyaltyPoints(ctx context.Co
 }
 
 /* LoyaltyApiService List loyalty store offers
- Return a list of offers from a specific corporation&#39;s loyalty store  --- Alternate route: &#x60;/dev/loyalty/stores/{corporation_id}/offers/&#x60;  Alternate route: &#x60;/legacy/loyalty/stores/{corporation_id}/offers/&#x60;  Alternate route: &#x60;/v1/loyalty/stores/{corporation_id}/offers/&#x60;  --- This route expires daily at 11:05
+ Return a list of offers from a specific corporation&#39;s loyalty store  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -135,7 +135,7 @@ func (a *LoyaltyApiService) GetLoyaltyStoresCorporationIdOffers(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/loyalty/stores/{corporation_id}/offers/"
+	localVarPath := a.client.cfg.BasePath + "/v1/loyalty/stores/{corporation_id}/offers/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)

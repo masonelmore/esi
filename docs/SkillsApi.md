@@ -1,19 +1,19 @@
 # \SkillsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdAttributes**](SkillsApi.md#GetCharactersCharacterIdAttributes) | **Get** /characters/{character_id}/attributes/ | Get character attributes
-[**GetCharactersCharacterIdSkillqueue**](SkillsApi.md#GetCharactersCharacterIdSkillqueue) | **Get** /characters/{character_id}/skillqueue/ | Get character&#39;s skill queue
-[**GetCharactersCharacterIdSkills**](SkillsApi.md#GetCharactersCharacterIdSkills) | **Get** /characters/{character_id}/skills/ | Get character skills
+[**GetCharactersCharacterIdAttributes**](SkillsApi.md#GetCharactersCharacterIdAttributes) | **Get** /v1/characters/{character_id}/attributes/ | Get character attributes
+[**GetCharactersCharacterIdSkillqueue**](SkillsApi.md#GetCharactersCharacterIdSkillqueue) | **Get** /v2/characters/{character_id}/skillqueue/ | Get character&#39;s skill queue
+[**GetCharactersCharacterIdSkills**](SkillsApi.md#GetCharactersCharacterIdSkills) | **Get** /v4/characters/{character_id}/skills/ | Get character skills
 
 
 # **GetCharactersCharacterIdAttributes**
 > GetCharactersCharacterIdAttributesOk GetCharactersCharacterIdAttributes(ctx, characterId, optional)
 Get character attributes
 
-Return attributes of a character  --- Alternate route: `/dev/characters/{character_id}/attributes/`  Alternate route: `/legacy/characters/{character_id}/attributes/`  Alternate route: `/v1/characters/{character_id}/attributes/`  --- This route is cached for up to 3600 seconds
+Return attributes of a character  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdSkillqueue200Ok GetCharactersCharacterIdSkillqueue(ctx, characterId, optional)
 Get character's skill queue
 
-List the configured skill queue for the given character  --- Alternate route: `/dev/characters/{character_id}/skillqueue/`  Alternate route: `/legacy/characters/{character_id}/skillqueue/`  Alternate route: `/v2/characters/{character_id}/skillqueue/`  --- This route is cached for up to 120 seconds
+List the configured skill queue for the given character  ---  This route is cached for up to 120 seconds
 
 ### Required Parameters
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 > GetCharactersCharacterIdSkillsOk GetCharactersCharacterIdSkills(ctx, characterId, optional)
 Get character skills
 
-List all trained skills for the given character  --- Alternate route: `/dev/characters/{character_id}/skills/`  Alternate route: `/v4/characters/{character_id}/skills/`  --- This route is cached for up to 120 seconds
+List all trained skills for the given character  ---  This route is cached for up to 120 seconds
 
 ### Required Parameters
 

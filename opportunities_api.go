@@ -28,7 +28,7 @@ type OpportunitiesApiService service
 
 
 /* OpportunitiesApiService Get a character&#39;s completed tasks
- Return a list of tasks finished by a character  --- Alternate route: &#x60;/dev/characters/{character_id}/opportunities/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/opportunities/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/opportunities/&#x60;  --- This route is cached for up to 3600 seconds
+ Return a list of tasks finished by a character  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *OpportunitiesApiService) GetCharactersCharacterIdOpportunities(ctx cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/opportunities/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/opportunities/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *OpportunitiesApiService) GetCharactersCharacterIdOpportunities(ctx cont
 }
 
 /* OpportunitiesApiService Get opportunities groups
- Return a list of opportunities groups  --- Alternate route: &#x60;/dev/opportunities/groups/&#x60;  Alternate route: &#x60;/legacy/opportunities/groups/&#x60;  Alternate route: &#x60;/v1/opportunities/groups/&#x60;  --- This route expires daily at 11:05
+ Return a list of opportunities groups  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -134,7 +134,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesGroups(ctx context.Context, lo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/opportunities/groups/"
+	localVarPath := a.client.cfg.BasePath + "/v1/opportunities/groups/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -196,7 +196,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesGroups(ctx context.Context, lo
 }
 
 /* OpportunitiesApiService Get opportunities group
- Return information of an opportunities group  --- Alternate route: &#x60;/dev/opportunities/groups/{group_id}/&#x60;  Alternate route: &#x60;/legacy/opportunities/groups/{group_id}/&#x60;  Alternate route: &#x60;/v1/opportunities/groups/{group_id}/&#x60;  --- This route expires daily at 11:05
+ Return information of an opportunities group  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param groupId ID of an opportunities group
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -215,7 +215,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesGroupsGroupId(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/opportunities/groups/{group_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/opportunities/groups/{group_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"group_id"+"}", fmt.Sprintf("%v", groupId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -290,7 +290,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesGroupsGroupId(ctx context.Cont
 }
 
 /* OpportunitiesApiService Get opportunities tasks
- Return a list of opportunities tasks  --- Alternate route: &#x60;/dev/opportunities/tasks/&#x60;  Alternate route: &#x60;/legacy/opportunities/tasks/&#x60;  Alternate route: &#x60;/v1/opportunities/tasks/&#x60;  --- This route expires daily at 11:05
+ Return a list of opportunities tasks  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -306,7 +306,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesTasks(ctx context.Context, loc
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/opportunities/tasks/"
+	localVarPath := a.client.cfg.BasePath + "/v1/opportunities/tasks/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -368,7 +368,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesTasks(ctx context.Context, loc
 }
 
 /* OpportunitiesApiService Get opportunities task
- Return information of an opportunities task  --- Alternate route: &#x60;/dev/opportunities/tasks/{task_id}/&#x60;  Alternate route: &#x60;/legacy/opportunities/tasks/{task_id}/&#x60;  Alternate route: &#x60;/v1/opportunities/tasks/{task_id}/&#x60;  --- This route expires daily at 11:05
+ Return information of an opportunities task  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param taskId ID of an opportunities task
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -385,7 +385,7 @@ func (a *OpportunitiesApiService) GetOpportunitiesTasksTaskId(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/opportunities/tasks/{task_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/opportunities/tasks/{task_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"task_id"+"}", fmt.Sprintf("%v", taskId), -1)
 
 	localVarHeaderParams := make(map[string]string)

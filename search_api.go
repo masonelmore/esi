@@ -28,7 +28,7 @@ type SearchApiService service
 
 
 /* SearchApiService Search on a string
- Search for entities that match a given sub-string.  --- Alternate route: &#x60;/dev/characters/{character_id}/search/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/search/&#x60;  --- This route is cached for up to 3600 seconds
+ Search for entities that match a given sub-string.  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param categories Type of entities to search for
  @param characterId An EVE character ID
@@ -51,7 +51,7 @@ func (a *SearchApiService) GetCharactersCharacterIdSearch(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/search/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/search/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -152,7 +152,7 @@ func (a *SearchApiService) GetCharactersCharacterIdSearch(ctx context.Context, c
 }
 
 /* SearchApiService Search on a string
- Search for entities that match a given sub-string.  --- Alternate route: &#x60;/dev/search/&#x60;  Alternate route: &#x60;/v2/search/&#x60;  --- This route is cached for up to 3600 seconds
+ Search for entities that match a given sub-string.  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param categories Type of entities to search for
  @param search The string to search on
@@ -173,7 +173,7 @@ func (a *SearchApiService) GetSearch(ctx context.Context, categories []string, s
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/search/"
+	localVarPath := a.client.cfg.BasePath + "/v2/search/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

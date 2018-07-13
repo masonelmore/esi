@@ -28,7 +28,7 @@ type ContactsApiService service
 
 
 /* ContactsApiService Delete contacts
- Bulk delete contacts  --- Alternate route: &#x60;/dev/characters/{character_id}/contacts/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/contacts/&#x60; 
+ Bulk delete contacts  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param contactIds A list of contacts to delete
@@ -45,7 +45,7 @@ func (a *ContactsApiService) DeleteCharactersCharacterIdContacts(ctx context.Con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -113,7 +113,7 @@ func (a *ContactsApiService) DeleteCharactersCharacterIdContacts(ctx context.Con
 }
 
 /* ContactsApiService Get alliance contacts
- Return contacts of an alliance  --- Alternate route: &#x60;/dev/alliances/{alliance_id}/contacts/&#x60;  Alternate route: &#x60;/v2/alliances/{alliance_id}/contacts/&#x60;  --- This route is cached for up to 300 seconds
+ Return contacts of an alliance  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param allianceId An EVE alliance ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -132,7 +132,7 @@ func (a *ContactsApiService) GetAlliancesAllianceIdContacts(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/alliances/{alliance_id}/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v2/alliances/{alliance_id}/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"alliance_id"+"}", fmt.Sprintf("%v", allianceId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -210,7 +210,7 @@ func (a *ContactsApiService) GetAlliancesAllianceIdContacts(ctx context.Context,
 }
 
 /* ContactsApiService Get alliance contact labels
- Return custom labels for an alliance&#39;s contacts  --- Alternate route: &#x60;/dev/alliances/{alliance_id}/contacts/labels/&#x60;  Alternate route: &#x60;/legacy/alliances/{alliance_id}/contacts/labels/&#x60;  Alternate route: &#x60;/v1/alliances/{alliance_id}/contacts/labels/&#x60;  --- This route is cached for up to 300 seconds
+ Return custom labels for an alliance&#39;s contacts  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param allianceId An EVE alliance ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -228,7 +228,7 @@ func (a *ContactsApiService) GetAlliancesAllianceIdContactsLabels(ctx context.Co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/alliances/{alliance_id}/contacts/labels/"
+	localVarPath := a.client.cfg.BasePath + "/v1/alliances/{alliance_id}/contacts/labels/"
 	localVarPath = strings.Replace(localVarPath, "{"+"alliance_id"+"}", fmt.Sprintf("%v", allianceId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -300,7 +300,7 @@ func (a *ContactsApiService) GetAlliancesAllianceIdContactsLabels(ctx context.Co
 }
 
 /* ContactsApiService Get contacts
- Return contacts of a character  --- Alternate route: &#x60;/dev/characters/{character_id}/contacts/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/contacts/&#x60;  --- This route is cached for up to 300 seconds
+ Return contacts of a character  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -319,7 +319,7 @@ func (a *ContactsApiService) GetCharactersCharacterIdContacts(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -397,7 +397,7 @@ func (a *ContactsApiService) GetCharactersCharacterIdContacts(ctx context.Contex
 }
 
 /* ContactsApiService Get contact labels
- Return custom labels for a character&#39;s contacts  --- Alternate route: &#x60;/dev/characters/{character_id}/contacts/labels/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/contacts/labels/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/contacts/labels/&#x60;  --- This route is cached for up to 300 seconds
+ Return custom labels for a character&#39;s contacts  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -415,7 +415,7 @@ func (a *ContactsApiService) GetCharactersCharacterIdContactsLabels(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contacts/labels/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/contacts/labels/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -487,7 +487,7 @@ func (a *ContactsApiService) GetCharactersCharacterIdContactsLabels(ctx context.
 }
 
 /* ContactsApiService Get corporation contacts
- Return contacts of a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/contacts/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/contacts/&#x60;  --- This route is cached for up to 300 seconds
+ Return contacts of a corporation  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -506,7 +506,7 @@ func (a *ContactsApiService) GetCorporationsCorporationIdContacts(ctx context.Co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -584,7 +584,7 @@ func (a *ContactsApiService) GetCorporationsCorporationIdContacts(ctx context.Co
 }
 
 /* ContactsApiService Get corporation contact labels
- Return custom labels for a corporation&#39;s contacts  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/contacts/labels/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/contacts/labels/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/contacts/labels/&#x60;  --- This route is cached for up to 300 seconds
+ Return custom labels for a corporation&#39;s contacts  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -602,7 +602,7 @@ func (a *ContactsApiService) GetCorporationsCorporationIdContactsLabels(ctx cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/contacts/labels/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/contacts/labels/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -674,7 +674,7 @@ func (a *ContactsApiService) GetCorporationsCorporationIdContactsLabels(ctx cont
 }
 
 /* ContactsApiService Add contacts
- Bulk add contacts with same settings  --- Alternate route: &#x60;/dev/characters/{character_id}/contacts/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/contacts/&#x60; 
+ Bulk add contacts with same settings  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param contactIds A list of contacts
@@ -695,7 +695,7 @@ func (a *ContactsApiService) PostCharactersCharacterIdContacts(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -779,7 +779,7 @@ func (a *ContactsApiService) PostCharactersCharacterIdContacts(ctx context.Conte
 }
 
 /* ContactsApiService Edit contacts
- Bulk edit contacts with same settings  --- Alternate route: &#x60;/dev/characters/{character_id}/contacts/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/contacts/&#x60; 
+ Bulk edit contacts with same settings  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param contactIds A list of contacts
@@ -799,7 +799,7 @@ func (a *ContactsApiService) PutCharactersCharacterIdContacts(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contacts/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/contacts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

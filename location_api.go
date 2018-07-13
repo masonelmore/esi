@@ -28,7 +28,7 @@ type LocationApiService service
 
 
 /* LocationApiService Get character location
- Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable.  --- Alternate route: &#x60;/dev/characters/{character_id}/location/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/location/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/location/&#x60;  --- This route is cached for up to 5 seconds
+ Information about the characters current location. Returns the current solar system id, and also the current station or structure ID if applicable.  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *LocationApiService) GetCharactersCharacterIdLocation(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/location/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/location/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *LocationApiService) GetCharactersCharacterIdLocation(ctx context.Contex
 }
 
 /* LocationApiService Get character online
- Checks if the character is currently online  --- Alternate route: &#x60;/dev/characters/{character_id}/online/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/online/&#x60;  --- This route is cached for up to 60 seconds
+ Checks if the character is currently online  ---  This route is cached for up to 60 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -136,7 +136,7 @@ func (a *LocationApiService) GetCharactersCharacterIdOnline(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/online/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/online/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -208,7 +208,7 @@ func (a *LocationApiService) GetCharactersCharacterIdOnline(ctx context.Context,
 }
 
 /* LocationApiService Get current ship
- Get the current ship type, name and id  --- Alternate route: &#x60;/dev/characters/{character_id}/ship/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/ship/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/ship/&#x60;  --- This route is cached for up to 5 seconds
+ Get the current ship type, name and id  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -226,7 +226,7 @@ func (a *LocationApiService) GetCharactersCharacterIdShip(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/ship/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/ship/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

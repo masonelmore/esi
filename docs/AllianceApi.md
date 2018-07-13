@@ -1,20 +1,20 @@
 # \AllianceApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAlliances**](AllianceApi.md#GetAlliances) | **Get** /alliances/ | List all alliances
-[**GetAlliancesAllianceId**](AllianceApi.md#GetAlliancesAllianceId) | **Get** /alliances/{alliance_id}/ | Get alliance information
-[**GetAlliancesAllianceIdCorporations**](AllianceApi.md#GetAlliancesAllianceIdCorporations) | **Get** /alliances/{alliance_id}/corporations/ | List alliance&#39;s corporations
-[**GetAlliancesAllianceIdIcons**](AllianceApi.md#GetAlliancesAllianceIdIcons) | **Get** /alliances/{alliance_id}/icons/ | Get alliance icon
+[**GetAlliances**](AllianceApi.md#GetAlliances) | **Get** /v1/alliances/ | List all alliances
+[**GetAlliancesAllianceId**](AllianceApi.md#GetAlliancesAllianceId) | **Get** /v3/alliances/{alliance_id}/ | Get alliance information
+[**GetAlliancesAllianceIdCorporations**](AllianceApi.md#GetAlliancesAllianceIdCorporations) | **Get** /v1/alliances/{alliance_id}/corporations/ | List alliance&#39;s corporations
+[**GetAlliancesAllianceIdIcons**](AllianceApi.md#GetAlliancesAllianceIdIcons) | **Get** /v1/alliances/{alliance_id}/icons/ | Get alliance icon
 
 
 # **GetAlliances**
 > []int32 GetAlliances(ctx, optional)
 List all alliances
 
-List all active player alliances  --- Alternate route: `/dev/alliances/`  Alternate route: `/legacy/alliances/`  Alternate route: `/v1/alliances/`  --- This route is cached for up to 3600 seconds
+List all active player alliances  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -50,7 +50,7 @@ No authorization required
 > GetAlliancesAllianceIdOk GetAlliancesAllianceId(ctx, allianceId, optional)
 Get alliance information
 
-Public information about an alliance  --- Alternate route: `/dev/alliances/{alliance_id}/`  Alternate route: `/v3/alliances/{alliance_id}/`  --- This route is cached for up to 3600 seconds
+Public information about an alliance  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -88,7 +88,7 @@ No authorization required
 > []int32 GetAlliancesAllianceIdCorporations(ctx, allianceId, optional)
 List alliance's corporations
 
-List all current member corporations of an alliance  --- Alternate route: `/dev/alliances/{alliance_id}/corporations/`  Alternate route: `/legacy/alliances/{alliance_id}/corporations/`  Alternate route: `/v1/alliances/{alliance_id}/corporations/`  --- This route is cached for up to 3600 seconds
+List all current member corporations of an alliance  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -126,7 +126,7 @@ No authorization required
 > GetAlliancesAllianceIdIconsOk GetAlliancesAllianceIdIcons(ctx, allianceId, optional)
 Get alliance icon
 
-Get the icon urls for a alliance  --- Alternate route: `/dev/alliances/{alliance_id}/icons/`  Alternate route: `/legacy/alliances/{alliance_id}/icons/`  Alternate route: `/v1/alliances/{alliance_id}/icons/`  --- This route is cached for up to 3600 seconds
+Get the icon urls for a alliance  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 

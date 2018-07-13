@@ -27,7 +27,7 @@ type IncursionsApiService service
 
 
 /* IncursionsApiService List incursions
- Return a list of current incursions  --- Alternate route: &#x60;/dev/incursions/&#x60;  Alternate route: &#x60;/legacy/incursions/&#x60;  Alternate route: &#x60;/v1/incursions/&#x60;  --- This route is cached for up to 300 seconds
+ Return a list of current incursions  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -43,7 +43,7 @@ func (a *IncursionsApiService) GetIncursions(ctx context.Context, localVarOption
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/incursions/"
+	localVarPath := a.client.cfg.BasePath + "/v1/incursions/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

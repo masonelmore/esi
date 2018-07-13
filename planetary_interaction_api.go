@@ -28,7 +28,7 @@ type PlanetaryInteractionApiService service
 
 
 /* PlanetaryInteractionApiService Get colonies
- Returns a list of all planetary colonies owned by a character.  --- Alternate route: &#x60;/dev/characters/{character_id}/planets/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/planets/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/planets/&#x60;  --- This route is cached for up to 600 seconds
+ Returns a list of all planetary colonies owned by a character.  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *PlanetaryInteractionApiService) GetCharactersCharacterIdPlanets(ctx con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/planets/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/planets/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *PlanetaryInteractionApiService) GetCharactersCharacterIdPlanets(ctx con
 }
 
 /* PlanetaryInteractionApiService Get colony layout
- Returns full details on the layout of a single planetary colony, including links, pins and routes. Note: Planetary information is only recalculated when the colony is viewed through the client. Information will not update until this criteria is met.  --- Alternate route: &#x60;/dev/characters/{character_id}/planets/{planet_id}/&#x60;  Alternate route: &#x60;/v3/characters/{character_id}/planets/{planet_id}/&#x60;  --- This route is cached for up to 600 seconds
+ Returns full details on the layout of a single planetary colony, including links, pins and routes. Note: Planetary information is only recalculated when the colony is viewed through the client. Information will not update until this criteria is met.  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param planetId Planet id of the target planet
@@ -137,7 +137,7 @@ func (a *PlanetaryInteractionApiService) GetCharactersCharacterIdPlanetsPlanetId
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/planets/{planet_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v3/characters/{character_id}/planets/{planet_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"planet_id"+"}", fmt.Sprintf("%v", planetId), -1)
 
@@ -210,7 +210,7 @@ func (a *PlanetaryInteractionApiService) GetCharactersCharacterIdPlanetsPlanetId
 }
 
 /* PlanetaryInteractionApiService List corporation customs offices
- List customs offices owned by a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/customs_offices/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/customs_offices/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/customs_offices/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ List customs offices owned by a corporation  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -229,7 +229,7 @@ func (a *PlanetaryInteractionApiService) GetCorporationsCorporationIdCustomsOffi
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/customs_offices/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/customs_offices/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -307,7 +307,7 @@ func (a *PlanetaryInteractionApiService) GetCorporationsCorporationIdCustomsOffi
 }
 
 /* PlanetaryInteractionApiService Get schematic information
- Get information on a planetary factory schematic  --- Alternate route: &#x60;/dev/universe/schematics/{schematic_id}/&#x60;  Alternate route: &#x60;/legacy/universe/schematics/{schematic_id}/&#x60;  Alternate route: &#x60;/v1/universe/schematics/{schematic_id}/&#x60;  --- This route is cached for up to 3600 seconds
+ Get information on a planetary factory schematic  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param schematicId A PI schematic ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -324,7 +324,7 @@ func (a *PlanetaryInteractionApiService) GetUniverseSchematicsSchematicId(ctx co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/universe/schematics/{schematic_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/universe/schematics/{schematic_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"schematic_id"+"}", fmt.Sprintf("%v", schematicId), -1)
 
 	localVarHeaderParams := make(map[string]string)

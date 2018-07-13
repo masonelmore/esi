@@ -1,19 +1,19 @@
 # \WarsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetWars**](WarsApi.md#GetWars) | **Get** /wars/ | List wars
-[**GetWarsWarId**](WarsApi.md#GetWarsWarId) | **Get** /wars/{war_id}/ | Get war information
-[**GetWarsWarIdKillmails**](WarsApi.md#GetWarsWarIdKillmails) | **Get** /wars/{war_id}/killmails/ | List kills for a war
+[**GetWars**](WarsApi.md#GetWars) | **Get** /v1/wars/ | List wars
+[**GetWarsWarId**](WarsApi.md#GetWarsWarId) | **Get** /v1/wars/{war_id}/ | Get war information
+[**GetWarsWarIdKillmails**](WarsApi.md#GetWarsWarIdKillmails) | **Get** /v1/wars/{war_id}/killmails/ | List kills for a war
 
 
 # **GetWars**
 > []int32 GetWars(ctx, optional)
 List wars
 
-Return a list of wars  --- Alternate route: `/dev/wars/`  Alternate route: `/legacy/wars/`  Alternate route: `/v1/wars/`  --- This route is cached for up to 3600 seconds
+Return a list of wars  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -50,7 +50,7 @@ No authorization required
 > GetWarsWarIdOk GetWarsWarId(ctx, warId, optional)
 Get war information
 
-Return details about a war  --- Alternate route: `/dev/wars/{war_id}/`  Alternate route: `/legacy/wars/{war_id}/`  Alternate route: `/v1/wars/{war_id}/`  --- This route is cached for up to 3600 seconds
+Return details about a war  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -88,7 +88,7 @@ No authorization required
 > []GetWarsWarIdKillmails200Ok GetWarsWarIdKillmails(ctx, warId, optional)
 List kills for a war
 
-Return a list of kills related to a war  --- Alternate route: `/dev/wars/{war_id}/killmails/`  Alternate route: `/legacy/wars/{war_id}/killmails/`  Alternate route: `/v1/wars/{war_id}/killmails/`  --- This route is cached for up to 3600 seconds
+Return a list of kills related to a war  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 

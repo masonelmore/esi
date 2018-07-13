@@ -28,7 +28,7 @@ type RoutesApiService service
 
 
 /* RoutesApiService Get route
- Get the systems between origin and destination  --- Alternate route: &#x60;/dev/route/{origin}/{destination}/&#x60;  Alternate route: &#x60;/legacy/route/{origin}/{destination}/&#x60;  Alternate route: &#x60;/v1/route/{origin}/{destination}/&#x60;  --- This route is cached for up to 86400 seconds
+ Get the systems between origin and destination  ---  This route is cached for up to 86400 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param destination destination solar system ID
  @param origin origin solar system ID
@@ -49,7 +49,7 @@ func (a *RoutesApiService) GetRouteOriginDestination(ctx context.Context, destin
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/route/{origin}/{destination}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/route/{origin}/{destination}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"destination"+"}", fmt.Sprintf("%v", destination), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"origin"+"}", fmt.Sprintf("%v", origin), -1)
 

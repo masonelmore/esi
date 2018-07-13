@@ -1,18 +1,18 @@
 # \ClonesApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdClones**](ClonesApi.md#GetCharactersCharacterIdClones) | **Get** /characters/{character_id}/clones/ | Get clones
-[**GetCharactersCharacterIdImplants**](ClonesApi.md#GetCharactersCharacterIdImplants) | **Get** /characters/{character_id}/implants/ | Get active implants
+[**GetCharactersCharacterIdClones**](ClonesApi.md#GetCharactersCharacterIdClones) | **Get** /v3/characters/{character_id}/clones/ | Get clones
+[**GetCharactersCharacterIdImplants**](ClonesApi.md#GetCharactersCharacterIdImplants) | **Get** /v1/characters/{character_id}/implants/ | Get active implants
 
 
 # **GetCharactersCharacterIdClones**
 > GetCharactersCharacterIdClonesOk GetCharactersCharacterIdClones(ctx, characterId, optional)
 Get clones
 
-A list of the character's clones  --- Alternate route: `/dev/characters/{character_id}/clones/`  Alternate route: `/v3/characters/{character_id}/clones/`  --- This route is cached for up to 120 seconds
+A list of the character's clones  ---  This route is cached for up to 120 seconds
 
 ### Required Parameters
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 > []int32 GetCharactersCharacterIdImplants(ctx, characterId, optional)
 Get active implants
 
-Return implants on the active clone of a character  --- Alternate route: `/dev/characters/{character_id}/implants/`  Alternate route: `/legacy/characters/{character_id}/implants/`  Alternate route: `/v1/characters/{character_id}/implants/`  --- This route is cached for up to 300 seconds
+Return implants on the active clone of a character  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 

@@ -28,7 +28,7 @@ type WalletApiService service
 
 
 /* WalletApiService Get a character&#39;s wallet balance
- Returns a character&#39;s wallet balance  --- Alternate route: &#x60;/dev/characters/{character_id}/wallet/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/wallet/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/wallet/&#x60;  --- This route is cached for up to 120 seconds
+ Returns a character&#39;s wallet balance  ---  This route is cached for up to 120 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *WalletApiService) GetCharactersCharacterIdWallet(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/wallet/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/wallet/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *WalletApiService) GetCharactersCharacterIdWallet(ctx context.Context, c
 }
 
 /* WalletApiService Get character wallet journal
- Retrieve the given character&#39;s wallet journal going 30 days back  --- Alternate route: &#x60;/dev/characters/{character_id}/wallet/journal/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/wallet/journal/&#x60;  Alternate route: &#x60;/v4/characters/{character_id}/wallet/journal/&#x60;  --- This route is cached for up to 3600 seconds
+ Retrieve the given character&#39;s wallet journal going 30 days back  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -137,7 +137,7 @@ func (a *WalletApiService) GetCharactersCharacterIdWalletJournal(ctx context.Con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/wallet/journal/"
+	localVarPath := a.client.cfg.BasePath + "/v4/characters/{character_id}/wallet/journal/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -215,7 +215,7 @@ func (a *WalletApiService) GetCharactersCharacterIdWalletJournal(ctx context.Con
 }
 
 /* WalletApiService Get wallet transactions
- Get wallet transactions of a character  --- Alternate route: &#x60;/dev/characters/{character_id}/wallet/transactions/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/wallet/transactions/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/wallet/transactions/&#x60;  --- This route is cached for up to 3600 seconds
+ Get wallet transactions of a character  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -234,7 +234,7 @@ func (a *WalletApiService) GetCharactersCharacterIdWalletTransactions(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/wallet/transactions/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/wallet/transactions/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -312,7 +312,7 @@ func (a *WalletApiService) GetCharactersCharacterIdWalletTransactions(ctx contex
 }
 
 /* WalletApiService Returns a corporation&#39;s wallet balance
- Get a corporation&#39;s wallets  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/wallets/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/wallets/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/wallets/&#x60;  --- This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant 
+ Get a corporation&#39;s wallets  ---  This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -330,7 +330,7 @@ func (a *WalletApiService) GetCorporationsCorporationIdWallets(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/wallets/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/wallets/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -402,7 +402,7 @@ func (a *WalletApiService) GetCorporationsCorporationIdWallets(ctx context.Conte
 }
 
 /* WalletApiService Get corporation wallet journal
- Retrieve the given corporation&#39;s wallet journal for the given division going 30 days back  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/wallets/{division}/journal/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/wallets/{division}/journal/&#x60;  Alternate route: &#x60;/v3/corporations/{corporation_id}/wallets/{division}/journal/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant 
+ Retrieve the given corporation&#39;s wallet journal for the given division going 30 days back  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param division Wallet key of the division to fetch journals from
@@ -422,7 +422,7 @@ func (a *WalletApiService) GetCorporationsCorporationIdWalletsDivisionJournal(ct
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/wallets/{division}/journal/"
+	localVarPath := a.client.cfg.BasePath + "/v3/corporations/{corporation_id}/wallets/{division}/journal/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"division"+"}", fmt.Sprintf("%v", division), -1)
 
@@ -507,7 +507,7 @@ func (a *WalletApiService) GetCorporationsCorporationIdWalletsDivisionJournal(ct
 }
 
 /* WalletApiService Get corporation wallet transactions
- Get wallet transactions of a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/wallets/{division}/transactions/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/wallets/{division}/transactions/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/wallets/{division}/transactions/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant 
+ Get wallet transactions of a corporation  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param division Wallet key of the division to fetch journals from
@@ -527,7 +527,7 @@ func (a *WalletApiService) GetCorporationsCorporationIdWalletsDivisionTransactio
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/wallets/{division}/transactions/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/wallets/{division}/transactions/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"division"+"}", fmt.Sprintf("%v", division), -1)
 

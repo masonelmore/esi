@@ -28,7 +28,7 @@ type FactionWarfareApiService service
 
 
 /* FactionWarfareApiService Overview of a character involved in faction warfare
- Statistical overview of a character involved in faction warfare  --- Alternate route: &#x60;/dev/characters/{character_id}/fw/stats/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/fw/stats/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/fw/stats/&#x60;  --- This route expires daily at 11:05
+ Statistical overview of a character involved in faction warfare  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *FactionWarfareApiService) GetCharactersCharacterIdFwStats(ctx context.C
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/fw/stats/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fw/stats/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *FactionWarfareApiService) GetCharactersCharacterIdFwStats(ctx context.C
 }
 
 /* FactionWarfareApiService Overview of a corporation involved in faction warfare
- Statistics about a corporation involved in faction warfare  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/fw/stats/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/fw/stats/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/fw/stats/&#x60;  --- This route expires daily at 11:05
+ Statistics about a corporation involved in faction warfare  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -136,7 +136,7 @@ func (a *FactionWarfareApiService) GetCorporationsCorporationIdFwStats(ctx conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/fw/stats/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/fw/stats/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -208,7 +208,7 @@ func (a *FactionWarfareApiService) GetCorporationsCorporationIdFwStats(ctx conte
 }
 
 /* FactionWarfareApiService List of the top factions in faction warfare
- Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.  --- Alternate route: &#x60;/dev/fw/leaderboards/&#x60;  Alternate route: &#x60;/legacy/fw/leaderboards/&#x60;  Alternate route: &#x60;/v1/fw/leaderboards/&#x60;  --- This route expires daily at 11:05
+ Top 4 leaderboard of factions for kills and victory points separated by total, last week and yesterday.  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -224,7 +224,7 @@ func (a *FactionWarfareApiService) GetFwLeaderboards(ctx context.Context, localV
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fw/leaderboards/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fw/leaderboards/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -286,7 +286,7 @@ func (a *FactionWarfareApiService) GetFwLeaderboards(ctx context.Context, localV
 }
 
 /* FactionWarfareApiService List of the top pilots in faction warfare
- Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday.  --- Alternate route: &#x60;/dev/fw/leaderboards/characters/&#x60;  Alternate route: &#x60;/legacy/fw/leaderboards/characters/&#x60;  Alternate route: &#x60;/v1/fw/leaderboards/characters/&#x60;  --- This route expires daily at 11:05
+ Top 100 leaderboard of pilots for kills and victory points separated by total, last week and yesterday.  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -302,7 +302,7 @@ func (a *FactionWarfareApiService) GetFwLeaderboardsCharacters(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fw/leaderboards/characters/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fw/leaderboards/characters/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -364,7 +364,7 @@ func (a *FactionWarfareApiService) GetFwLeaderboardsCharacters(ctx context.Conte
 }
 
 /* FactionWarfareApiService List of the top corporations in faction warfare
- Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday.  --- Alternate route: &#x60;/dev/fw/leaderboards/corporations/&#x60;  Alternate route: &#x60;/legacy/fw/leaderboards/corporations/&#x60;  Alternate route: &#x60;/v1/fw/leaderboards/corporations/&#x60;  --- This route expires daily at 11:05
+ Top 10 leaderboard of corporations for kills and victory points separated by total, last week and yesterday.  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -380,7 +380,7 @@ func (a *FactionWarfareApiService) GetFwLeaderboardsCorporations(ctx context.Con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fw/leaderboards/corporations/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fw/leaderboards/corporations/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -442,7 +442,7 @@ func (a *FactionWarfareApiService) GetFwLeaderboardsCorporations(ctx context.Con
 }
 
 /* FactionWarfareApiService An overview of statistics about factions involved in faction warfare
- Statistical overviews of factions involved in faction warfare  --- Alternate route: &#x60;/dev/fw/stats/&#x60;  Alternate route: &#x60;/legacy/fw/stats/&#x60;  Alternate route: &#x60;/v1/fw/stats/&#x60;  --- This route expires daily at 11:05
+ Statistical overviews of factions involved in faction warfare  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -458,7 +458,7 @@ func (a *FactionWarfareApiService) GetFwStats(ctx context.Context, localVarOptio
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fw/stats/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fw/stats/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -520,7 +520,7 @@ func (a *FactionWarfareApiService) GetFwStats(ctx context.Context, localVarOptio
 }
 
 /* FactionWarfareApiService Ownership of faction warfare systems
- An overview of the current ownership of faction warfare solar systems  --- Alternate route: &#x60;/dev/fw/systems/&#x60;  Alternate route: &#x60;/v2/fw/systems/&#x60;  --- This route is cached for up to 1800 seconds
+ An overview of the current ownership of faction warfare solar systems  ---  This route is cached for up to 1800 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -536,7 +536,7 @@ func (a *FactionWarfareApiService) GetFwSystems(ctx context.Context, localVarOpt
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fw/systems/"
+	localVarPath := a.client.cfg.BasePath + "/v2/fw/systems/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -598,7 +598,7 @@ func (a *FactionWarfareApiService) GetFwSystems(ctx context.Context, localVarOpt
 }
 
 /* FactionWarfareApiService Data about which NPC factions are at war
- Data about which NPC factions are at war  --- Alternate route: &#x60;/dev/fw/wars/&#x60;  Alternate route: &#x60;/legacy/fw/wars/&#x60;  Alternate route: &#x60;/v1/fw/wars/&#x60;  --- This route expires daily at 11:05
+ Data about which NPC factions are at war  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -614,7 +614,7 @@ func (a *FactionWarfareApiService) GetFwWars(ctx context.Context, localVarOption
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fw/wars/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fw/wars/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

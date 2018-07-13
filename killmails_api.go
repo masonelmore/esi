@@ -28,7 +28,7 @@ type KillmailsApiService service
 
 
 /* KillmailsApiService Get a character&#39;s recent kills and losses
- Return a list of a character&#39;s kills and losses going back 90 days  --- Alternate route: &#x60;/dev/characters/{character_id}/killmails/recent/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/killmails/recent/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/killmails/recent/&#x60;  --- This route is cached for up to 300 seconds
+ Return a list of a character&#39;s kills and losses going back 90 days  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -47,7 +47,7 @@ func (a *KillmailsApiService) GetCharactersCharacterIdKillmailsRecent(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/killmails/recent/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/killmails/recent/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -125,7 +125,7 @@ func (a *KillmailsApiService) GetCharactersCharacterIdKillmailsRecent(ctx contex
 }
 
 /* KillmailsApiService Get a corporation&#39;s recent kills and losses
- Get a list of a corporation&#39;s kills and losses going back 90 days  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/killmails/recent/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/killmails/recent/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/killmails/recent/&#x60;  --- This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Get a list of a corporation&#39;s kills and losses going back 90 days  ---  This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -144,7 +144,7 @@ func (a *KillmailsApiService) GetCorporationsCorporationIdKillmailsRecent(ctx co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/killmails/recent/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/killmails/recent/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -222,7 +222,7 @@ func (a *KillmailsApiService) GetCorporationsCorporationIdKillmailsRecent(ctx co
 }
 
 /* KillmailsApiService Get a single killmail
- Return a single killmail from its ID and hash  --- Alternate route: &#x60;/dev/killmails/{killmail_id}/{killmail_hash}/&#x60;  Alternate route: &#x60;/legacy/killmails/{killmail_id}/{killmail_hash}/&#x60;  Alternate route: &#x60;/v1/killmails/{killmail_id}/{killmail_hash}/&#x60;  --- This route is cached for up to 1209600 seconds
+ Return a single killmail from its ID and hash  ---  This route is cached for up to 1209600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param killmailHash The killmail hash for verification
  @param killmailId The killmail ID to be queried
@@ -240,7 +240,7 @@ func (a *KillmailsApiService) GetKillmailsKillmailIdKillmailHash(ctx context.Con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/killmails/{killmail_id}/{killmail_hash}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/killmails/{killmail_id}/{killmail_hash}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"killmail_hash"+"}", fmt.Sprintf("%v", killmailHash), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"killmail_id"+"}", fmt.Sprintf("%v", killmailId), -1)
 

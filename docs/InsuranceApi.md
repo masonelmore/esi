@@ -1,17 +1,17 @@
 # \InsuranceApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetInsurancePrices**](InsuranceApi.md#GetInsurancePrices) | **Get** /insurance/prices/ | List insurance levels
+[**GetInsurancePrices**](InsuranceApi.md#GetInsurancePrices) | **Get** /v1/insurance/prices/ | List insurance levels
 
 
 # **GetInsurancePrices**
 > []GetInsurancePrices200Ok GetInsurancePrices(ctx, optional)
 List insurance levels
 
-Return available insurance levels for all ship types  --- Alternate route: `/dev/insurance/prices/`  Alternate route: `/legacy/insurance/prices/`  Alternate route: `/v1/insurance/prices/`  --- This route is cached for up to 3600 seconds
+Return available insurance levels for all ship types  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 

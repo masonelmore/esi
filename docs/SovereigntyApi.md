@@ -1,19 +1,19 @@
 # \SovereigntyApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSovereigntyCampaigns**](SovereigntyApi.md#GetSovereigntyCampaigns) | **Get** /sovereignty/campaigns/ | List sovereignty campaigns
-[**GetSovereigntyMap**](SovereigntyApi.md#GetSovereigntyMap) | **Get** /sovereignty/map/ | List sovereignty of systems
-[**GetSovereigntyStructures**](SovereigntyApi.md#GetSovereigntyStructures) | **Get** /sovereignty/structures/ | List sovereignty structures
+[**GetSovereigntyCampaigns**](SovereigntyApi.md#GetSovereigntyCampaigns) | **Get** /v1/sovereignty/campaigns/ | List sovereignty campaigns
+[**GetSovereigntyMap**](SovereigntyApi.md#GetSovereigntyMap) | **Get** /v1/sovereignty/map/ | List sovereignty of systems
+[**GetSovereigntyStructures**](SovereigntyApi.md#GetSovereigntyStructures) | **Get** /v1/sovereignty/structures/ | List sovereignty structures
 
 
 # **GetSovereigntyCampaigns**
 > []GetSovereigntyCampaigns200Ok GetSovereigntyCampaigns(ctx, optional)
 List sovereignty campaigns
 
-Shows sovereignty data for campaigns.  --- Alternate route: `/dev/sovereignty/campaigns/`  Alternate route: `/legacy/sovereignty/campaigns/`  Alternate route: `/v1/sovereignty/campaigns/`  --- This route is cached for up to 5 seconds
+Shows sovereignty data for campaigns.  ---  This route is cached for up to 5 seconds
 
 ### Required Parameters
 
@@ -49,7 +49,7 @@ No authorization required
 > []GetSovereigntyMap200Ok GetSovereigntyMap(ctx, optional)
 List sovereignty of systems
 
-Shows sovereignty information for solar systems  --- Alternate route: `/dev/sovereignty/map/`  Alternate route: `/legacy/sovereignty/map/`  Alternate route: `/v1/sovereignty/map/`  --- This route is cached for up to 3600 seconds
+Shows sovereignty information for solar systems  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -85,7 +85,7 @@ No authorization required
 > []GetSovereigntyStructures200Ok GetSovereigntyStructures(ctx, optional)
 List sovereignty structures
 
-Shows sovereignty data for structures.  --- Alternate route: `/dev/sovereignty/structures/`  Alternate route: `/legacy/sovereignty/structures/`  Alternate route: `/v1/sovereignty/structures/`  --- This route is cached for up to 120 seconds
+Shows sovereignty data for structures.  ---  This route is cached for up to 120 seconds
 
 ### Required Parameters
 

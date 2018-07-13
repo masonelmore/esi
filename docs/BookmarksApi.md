@@ -1,20 +1,20 @@
 # \BookmarksApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdBookmarks**](BookmarksApi.md#GetCharactersCharacterIdBookmarks) | **Get** /characters/{character_id}/bookmarks/ | List bookmarks
-[**GetCharactersCharacterIdBookmarksFolders**](BookmarksApi.md#GetCharactersCharacterIdBookmarksFolders) | **Get** /characters/{character_id}/bookmarks/folders/ | List bookmark folders
-[**GetCorporationsCorporationIdBookmarks**](BookmarksApi.md#GetCorporationsCorporationIdBookmarks) | **Get** /corporations/{corporation_id}/bookmarks/ | List corporation bookmarks
-[**GetCorporationsCorporationIdBookmarksFolders**](BookmarksApi.md#GetCorporationsCorporationIdBookmarksFolders) | **Get** /corporations/{corporation_id}/bookmarks/folders/ | List corporation bookmark folders
+[**GetCharactersCharacterIdBookmarks**](BookmarksApi.md#GetCharactersCharacterIdBookmarks) | **Get** /v2/characters/{character_id}/bookmarks/ | List bookmarks
+[**GetCharactersCharacterIdBookmarksFolders**](BookmarksApi.md#GetCharactersCharacterIdBookmarksFolders) | **Get** /v2/characters/{character_id}/bookmarks/folders/ | List bookmark folders
+[**GetCorporationsCorporationIdBookmarks**](BookmarksApi.md#GetCorporationsCorporationIdBookmarks) | **Get** /v1/corporations/{corporation_id}/bookmarks/ | List corporation bookmarks
+[**GetCorporationsCorporationIdBookmarksFolders**](BookmarksApi.md#GetCorporationsCorporationIdBookmarksFolders) | **Get** /v1/corporations/{corporation_id}/bookmarks/folders/ | List corporation bookmark folders
 
 
 # **GetCharactersCharacterIdBookmarks**
 > []GetCharactersCharacterIdBookmarks200Ok GetCharactersCharacterIdBookmarks(ctx, characterId, optional)
 List bookmarks
 
-A list of your character's personal bookmarks  --- Alternate route: `/dev/characters/{character_id}/bookmarks/`  Alternate route: `/v2/characters/{character_id}/bookmarks/`  --- This route is cached for up to 3600 seconds
+A list of your character's personal bookmarks  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdBookmarksFolders200Ok GetCharactersCharacterIdBookmarksFolders(ctx, characterId, optional)
 List bookmark folders
 
-A list of your character's personal bookmark folders  --- Alternate route: `/dev/characters/{character_id}/bookmarks/folders/`  Alternate route: `/v2/characters/{character_id}/bookmarks/folders/`  --- This route is cached for up to 3600 seconds
+A list of your character's personal bookmark folders  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdBookmarks200Ok GetCorporationsCorporationIdBookmarks(ctx, corporationId, optional)
 List corporation bookmarks
 
-A list of your corporation's bookmarks  --- Alternate route: `/dev/corporations/{corporation_id}/bookmarks/`  Alternate route: `/legacy/corporations/{corporation_id}/bookmarks/`  Alternate route: `/v1/corporations/{corporation_id}/bookmarks/`  --- This route is cached for up to 3600 seconds
+A list of your corporation's bookmarks  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdBookmarksFolders200Ok GetCorporationsCorporationIdBookmarksFolders(ctx, corporationId, optional)
 List corporation bookmark folders
 
-A list of your corporation's bookmark folders  --- Alternate route: `/dev/corporations/{corporation_id}/bookmarks/folders/`  Alternate route: `/legacy/corporations/{corporation_id}/bookmarks/folders/`  Alternate route: `/v1/corporations/{corporation_id}/bookmarks/folders/`  --- This route is cached for up to 3600 seconds
+A list of your corporation's bookmark folders  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 

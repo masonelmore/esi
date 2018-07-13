@@ -1,21 +1,21 @@
 # \OpportunitiesApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdOpportunities**](OpportunitiesApi.md#GetCharactersCharacterIdOpportunities) | **Get** /characters/{character_id}/opportunities/ | Get a character&#39;s completed tasks
-[**GetOpportunitiesGroups**](OpportunitiesApi.md#GetOpportunitiesGroups) | **Get** /opportunities/groups/ | Get opportunities groups
-[**GetOpportunitiesGroupsGroupId**](OpportunitiesApi.md#GetOpportunitiesGroupsGroupId) | **Get** /opportunities/groups/{group_id}/ | Get opportunities group
-[**GetOpportunitiesTasks**](OpportunitiesApi.md#GetOpportunitiesTasks) | **Get** /opportunities/tasks/ | Get opportunities tasks
-[**GetOpportunitiesTasksTaskId**](OpportunitiesApi.md#GetOpportunitiesTasksTaskId) | **Get** /opportunities/tasks/{task_id}/ | Get opportunities task
+[**GetCharactersCharacterIdOpportunities**](OpportunitiesApi.md#GetCharactersCharacterIdOpportunities) | **Get** /v1/characters/{character_id}/opportunities/ | Get a character&#39;s completed tasks
+[**GetOpportunitiesGroups**](OpportunitiesApi.md#GetOpportunitiesGroups) | **Get** /v1/opportunities/groups/ | Get opportunities groups
+[**GetOpportunitiesGroupsGroupId**](OpportunitiesApi.md#GetOpportunitiesGroupsGroupId) | **Get** /v1/opportunities/groups/{group_id}/ | Get opportunities group
+[**GetOpportunitiesTasks**](OpportunitiesApi.md#GetOpportunitiesTasks) | **Get** /v1/opportunities/tasks/ | Get opportunities tasks
+[**GetOpportunitiesTasksTaskId**](OpportunitiesApi.md#GetOpportunitiesTasksTaskId) | **Get** /v1/opportunities/tasks/{task_id}/ | Get opportunities task
 
 
 # **GetCharactersCharacterIdOpportunities**
 > []GetCharactersCharacterIdOpportunities200Ok GetCharactersCharacterIdOpportunities(ctx, characterId, optional)
 Get a character's completed tasks
 
-Return a list of tasks finished by a character  --- Alternate route: `/dev/characters/{character_id}/opportunities/`  Alternate route: `/legacy/characters/{character_id}/opportunities/`  Alternate route: `/v1/characters/{character_id}/opportunities/`  --- This route is cached for up to 3600 seconds
+Return a list of tasks finished by a character  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 > []int32 GetOpportunitiesGroups(ctx, optional)
 Get opportunities groups
 
-Return a list of opportunities groups  --- Alternate route: `/dev/opportunities/groups/`  Alternate route: `/legacy/opportunities/groups/`  Alternate route: `/v1/opportunities/groups/`  --- This route expires daily at 11:05
+Return a list of opportunities groups  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -90,7 +90,7 @@ No authorization required
 > GetOpportunitiesGroupsGroupIdOk GetOpportunitiesGroupsGroupId(ctx, groupId, optional)
 Get opportunities group
 
-Return information of an opportunities group  --- Alternate route: `/dev/opportunities/groups/{group_id}/`  Alternate route: `/legacy/opportunities/groups/{group_id}/`  Alternate route: `/v1/opportunities/groups/{group_id}/`  --- This route expires daily at 11:05
+Return information of an opportunities group  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -130,7 +130,7 @@ No authorization required
 > []int32 GetOpportunitiesTasks(ctx, optional)
 Get opportunities tasks
 
-Return a list of opportunities tasks  --- Alternate route: `/dev/opportunities/tasks/`  Alternate route: `/legacy/opportunities/tasks/`  Alternate route: `/v1/opportunities/tasks/`  --- This route expires daily at 11:05
+Return a list of opportunities tasks  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -166,7 +166,7 @@ No authorization required
 > GetOpportunitiesTasksTaskIdOk GetOpportunitiesTasksTaskId(ctx, taskId, optional)
 Get opportunities task
 
-Return information of an opportunities task  --- Alternate route: `/dev/opportunities/tasks/{task_id}/`  Alternate route: `/legacy/opportunities/tasks/{task_id}/`  Alternate route: `/v1/opportunities/tasks/{task_id}/`  --- This route expires daily at 11:05
+Return information of an opportunities task  ---  This route expires daily at 11:05
 
 ### Required Parameters
 

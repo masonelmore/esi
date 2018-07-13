@@ -28,7 +28,7 @@ type CorporationApiService service
 
 
 /* CorporationApiService Get corporation information
- Public information about a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/&#x60;  Alternate route: &#x60;/v4/corporations/{corporation_id}/&#x60;  --- This route is cached for up to 3600 seconds
+ Public information about a corporation  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -45,7 +45,7 @@ func (a *CorporationApiService) GetCorporationsCorporationId(ctx context.Context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v4/corporations/{corporation_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -111,7 +111,7 @@ func (a *CorporationApiService) GetCorporationsCorporationId(ctx context.Context
 }
 
 /* CorporationApiService Get alliance history
- Get a list of all the alliances a corporation has been a member of  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/alliancehistory/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/alliancehistory/&#x60;  --- This route is cached for up to 3600 seconds
+ Get a list of all the alliances a corporation has been a member of  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -128,7 +128,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdAlliancehistory(ctx 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/alliancehistory/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/alliancehistory/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -194,7 +194,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdAlliancehistory(ctx 
 }
 
 /* CorporationApiService Get corporation blueprints
- Returns a list of blueprints the corporation owns  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/blueprints/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/blueprints/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns a list of blueprints the corporation owns  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -213,7 +213,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdBlueprints(ctx conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/blueprints/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/blueprints/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -291,7 +291,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdBlueprints(ctx conte
 }
 
 /* CorporationApiService Get all corporation ALSC logs
- Returns logs recorded in the past seven days from all audit log secure containers (ALSC) owned by a given corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/containers/logs/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/containers/logs/&#x60;  --- This route is cached for up to 600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns logs recorded in the past seven days from all audit log secure containers (ALSC) owned by a given corporation  ---  This route is cached for up to 600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -310,7 +310,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdContainersLogs(ctx c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/containers/logs/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/containers/logs/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -388,7 +388,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdContainersLogs(ctx c
 }
 
 /* CorporationApiService Get corporation divisions
- Return corporation hangar and wallet division names, only show if a division is not using the default name  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/divisions/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/divisions/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/divisions/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Return corporation hangar and wallet division names, only show if a division is not using the default name  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -406,7 +406,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdDivisions(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/divisions/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/divisions/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -478,7 +478,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdDivisions(ctx contex
 }
 
 /* CorporationApiService Get corporation facilities
- Return a corporation&#39;s facilities  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/facilities/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/facilities/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/facilities/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Factory_Manager 
+ Return a corporation&#39;s facilities  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Factory_Manager
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -496,7 +496,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdFacilities(ctx conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/facilities/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/facilities/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -568,7 +568,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdFacilities(ctx conte
 }
 
 /* CorporationApiService Get corporation icon
- Get the icon urls for a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/icons/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/icons/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/icons/&#x60;  --- This route is cached for up to 3600 seconds
+ Get the icon urls for a corporation  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -585,7 +585,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdIcons(ctx context.Co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/icons/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/icons/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -651,7 +651,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdIcons(ctx context.Co
 }
 
 /* CorporationApiService Get corporation medals
- Returns a corporation&#39;s medals  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/medals/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/medals/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/medals/&#x60;  --- This route is cached for up to 3600 seconds
+ Returns a corporation&#39;s medals  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -670,7 +670,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMedals(ctx context.C
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/medals/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/medals/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -748,7 +748,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMedals(ctx context.C
 }
 
 /* CorporationApiService Get corporation issued medals
- Returns medals issued by a corporation  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/medals/issued/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/medals/issued/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/medals/issued/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns medals issued by a corporation  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -767,7 +767,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMedalsIssued(ctx con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/medals/issued/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/medals/issued/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -845,7 +845,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMedalsIssued(ctx con
 }
 
 /* CorporationApiService Get corporation members
- Return the current member list of a corporation, the token&#39;s character need to be a member of the corporation.  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/members/&#x60;  Alternate route: &#x60;/v3/corporations/{corporation_id}/members/&#x60;  --- This route is cached for up to 3600 seconds
+ Return the current member list of a corporation, the token&#39;s character need to be a member of the corporation.  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -863,7 +863,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembers(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/members/"
+	localVarPath := a.client.cfg.BasePath + "/v3/corporations/{corporation_id}/members/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -935,7 +935,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembers(ctx context.
 }
 
 /* CorporationApiService Get corporation member limit
- Return a corporation&#39;s member limit, not including CEO himself  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/members/limit/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/members/limit/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/members/limit/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Return a corporation&#39;s member limit, not including CEO himself  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -953,7 +953,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembersLimit(ctx con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/members/limit/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/members/limit/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1025,7 +1025,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembersLimit(ctx con
 }
 
 /* CorporationApiService Get corporation&#39;s members&#39; titles
- Returns a corporation&#39;s members&#39; titles  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/members/titles/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/members/titles/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/members/titles/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns a corporation&#39;s members&#39; titles  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1043,7 +1043,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembersTitles(ctx co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/members/titles/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/members/titles/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1115,7 +1115,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembersTitles(ctx co
 }
 
 /* CorporationApiService Track corporation members
- Returns additional information about a corporation&#39;s members which helps tracking their activities  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/membertracking/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/membertracking/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/membertracking/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns additional information about a corporation&#39;s members which helps tracking their activities  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1133,7 +1133,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembertracking(ctx c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/membertracking/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/membertracking/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1205,7 +1205,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdMembertracking(ctx c
 }
 
 /* CorporationApiService Get corporation member roles
- Return the roles of all members if the character has the personnel manager role or any grantable role.  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/roles/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/roles/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/roles/&#x60;  --- This route is cached for up to 3600 seconds
+ Return the roles of all members if the character has the personnel manager role or any grantable role.  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1223,7 +1223,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdRoles(ctx context.Co
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/roles/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/roles/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1295,7 +1295,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdRoles(ctx context.Co
 }
 
 /* CorporationApiService Get corporation member roles history
- Return how roles have changed for a coporation&#39;s members, up to a month  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/roles/history/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/roles/history/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/roles/history/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Return how roles have changed for a coporation&#39;s members, up to a month  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1314,7 +1314,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdRolesHistory(ctx con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/roles/history/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/roles/history/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1392,7 +1392,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdRolesHistory(ctx con
 }
 
 /* CorporationApiService Get corporation shareholders
- Return the current shareholders of a corporation.  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/shareholders/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/shareholders/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/shareholders/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Return the current shareholders of a corporation.  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1411,7 +1411,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdShareholders(ctx con
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/shareholders/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/shareholders/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1489,7 +1489,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdShareholders(ctx con
 }
 
 /* CorporationApiService Get corporation standings
- Return corporation standings from agents, NPC corporations, and factions  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/standings/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/standings/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/standings/&#x60;  --- This route is cached for up to 3600 seconds
+ Return corporation standings from agents, NPC corporations, and factions  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1508,7 +1508,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStandings(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/standings/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/standings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1586,7 +1586,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStandings(ctx contex
 }
 
 /* CorporationApiService Get corporation starbases (POSes)
- Returns list of corporation starbases (POSes)  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/starbases/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/starbases/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/starbases/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns list of corporation starbases (POSes)  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1605,7 +1605,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStarbases(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/starbases/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/starbases/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1683,7 +1683,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStarbases(ctx contex
 }
 
 /* CorporationApiService Get starbase (POS) detail
- Returns various settings and fuels of a starbase (POS)  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/starbases/{starbase_id}/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/starbases/{starbase_id}/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/starbases/{starbase_id}/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns various settings and fuels of a starbase (POS)  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param starbaseId An EVE starbase (POS) ID
@@ -1703,7 +1703,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStarbasesStarbaseId(
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/starbases/{starbase_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/starbases/{starbase_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"starbase_id"+"}", fmt.Sprintf("%v", starbaseId), -1)
 
@@ -1777,7 +1777,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStarbasesStarbaseId(
 }
 
 /* CorporationApiService Get corporation structures
- Get a list of corporation structures. This route&#39;s version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/structures/&#x60;  Alternate route: &#x60;/v2/corporations/{corporation_id}/structures/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): StationManager 
+ Get a list of corporation structures. This route&#39;s version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): StationManager
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1798,7 +1798,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStructures(ctx conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/structures/"
+	localVarPath := a.client.cfg.BasePath + "/v2/corporations/{corporation_id}/structures/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1888,7 +1888,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdStructures(ctx conte
 }
 
 /* CorporationApiService Get corporation titles
- Returns a corporation&#39;s titles  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/titles/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/titles/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/titles/&#x60;  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+ Returns a corporation&#39;s titles  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1906,7 +1906,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdTitles(ctx context.C
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/titles/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/titles/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1978,7 +1978,7 @@ func (a *CorporationApiService) GetCorporationsCorporationIdTitles(ctx context.C
 }
 
 /* CorporationApiService Get npc corporations
- Get a list of npc corporations  --- Alternate route: &#x60;/dev/corporations/npccorps/&#x60;  Alternate route: &#x60;/legacy/corporations/npccorps/&#x60;  Alternate route: &#x60;/v1/corporations/npccorps/&#x60;  --- This route expires daily at 11:05
+ Get a list of npc corporations  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -1994,7 +1994,7 @@ func (a *CorporationApiService) GetCorporationsNpccorps(ctx context.Context, loc
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/npccorps/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/npccorps/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

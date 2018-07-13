@@ -1,22 +1,22 @@
 # \WalletApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdWallet**](WalletApi.md#GetCharactersCharacterIdWallet) | **Get** /characters/{character_id}/wallet/ | Get a character&#39;s wallet balance
-[**GetCharactersCharacterIdWalletJournal**](WalletApi.md#GetCharactersCharacterIdWalletJournal) | **Get** /characters/{character_id}/wallet/journal/ | Get character wallet journal
-[**GetCharactersCharacterIdWalletTransactions**](WalletApi.md#GetCharactersCharacterIdWalletTransactions) | **Get** /characters/{character_id}/wallet/transactions/ | Get wallet transactions
-[**GetCorporationsCorporationIdWallets**](WalletApi.md#GetCorporationsCorporationIdWallets) | **Get** /corporations/{corporation_id}/wallets/ | Returns a corporation&#39;s wallet balance
-[**GetCorporationsCorporationIdWalletsDivisionJournal**](WalletApi.md#GetCorporationsCorporationIdWalletsDivisionJournal) | **Get** /corporations/{corporation_id}/wallets/{division}/journal/ | Get corporation wallet journal
-[**GetCorporationsCorporationIdWalletsDivisionTransactions**](WalletApi.md#GetCorporationsCorporationIdWalletsDivisionTransactions) | **Get** /corporations/{corporation_id}/wallets/{division}/transactions/ | Get corporation wallet transactions
+[**GetCharactersCharacterIdWallet**](WalletApi.md#GetCharactersCharacterIdWallet) | **Get** /v1/characters/{character_id}/wallet/ | Get a character&#39;s wallet balance
+[**GetCharactersCharacterIdWalletJournal**](WalletApi.md#GetCharactersCharacterIdWalletJournal) | **Get** /v4/characters/{character_id}/wallet/journal/ | Get character wallet journal
+[**GetCharactersCharacterIdWalletTransactions**](WalletApi.md#GetCharactersCharacterIdWalletTransactions) | **Get** /v1/characters/{character_id}/wallet/transactions/ | Get wallet transactions
+[**GetCorporationsCorporationIdWallets**](WalletApi.md#GetCorporationsCorporationIdWallets) | **Get** /v1/corporations/{corporation_id}/wallets/ | Returns a corporation&#39;s wallet balance
+[**GetCorporationsCorporationIdWalletsDivisionJournal**](WalletApi.md#GetCorporationsCorporationIdWalletsDivisionJournal) | **Get** /v3/corporations/{corporation_id}/wallets/{division}/journal/ | Get corporation wallet journal
+[**GetCorporationsCorporationIdWalletsDivisionTransactions**](WalletApi.md#GetCorporationsCorporationIdWalletsDivisionTransactions) | **Get** /v1/corporations/{corporation_id}/wallets/{division}/transactions/ | Get corporation wallet transactions
 
 
 # **GetCharactersCharacterIdWallet**
 > float64 GetCharactersCharacterIdWallet(ctx, characterId, optional)
 Get a character's wallet balance
 
-Returns a character's wallet balance  --- Alternate route: `/dev/characters/{character_id}/wallet/`  Alternate route: `/legacy/characters/{character_id}/wallet/`  Alternate route: `/v1/characters/{character_id}/wallet/`  --- This route is cached for up to 120 seconds
+Returns a character's wallet balance  ---  This route is cached for up to 120 seconds
 
 ### Required Parameters
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdWalletJournal200Ok GetCharactersCharacterIdWalletJournal(ctx, characterId, optional)
 Get character wallet journal
 
-Retrieve the given character's wallet journal going 30 days back  --- Alternate route: `/dev/characters/{character_id}/wallet/journal/`  Alternate route: `/legacy/characters/{character_id}/wallet/journal/`  Alternate route: `/v4/characters/{character_id}/wallet/journal/`  --- This route is cached for up to 3600 seconds
+Retrieve the given character's wallet journal going 30 days back  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdWalletTransactions200Ok GetCharactersCharacterIdWalletTransactions(ctx, characterId, optional)
 Get wallet transactions
 
-Get wallet transactions of a character  --- Alternate route: `/dev/characters/{character_id}/wallet/transactions/`  Alternate route: `/legacy/characters/{character_id}/wallet/transactions/`  Alternate route: `/v1/characters/{character_id}/wallet/transactions/`  --- This route is cached for up to 3600 seconds
+Get wallet transactions of a character  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdWallets200Ok GetCorporationsCorporationIdWallets(ctx, corporationId, optional)
 Returns a corporation's wallet balance
 
-Get a corporation's wallets  --- Alternate route: `/dev/corporations/{corporation_id}/wallets/`  Alternate route: `/legacy/corporations/{corporation_id}/wallets/`  Alternate route: `/v1/corporations/{corporation_id}/wallets/`  --- This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant 
+Get a corporation's wallets  ---  This route is cached for up to 300 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
 
 ### Required Parameters
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdWalletsDivisionJournal200Ok GetCorporationsCorporationIdWalletsDivisionJournal(ctx, corporationId, division, optional)
 Get corporation wallet journal
 
-Retrieve the given corporation's wallet journal for the given division going 30 days back  --- Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/journal/`  Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/journal/`  Alternate route: `/v3/corporations/{corporation_id}/wallets/{division}/journal/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant 
+Retrieve the given corporation's wallet journal for the given division going 30 days back  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
 
 ### Required Parameters
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdWalletsDivisionTransactions200Ok GetCorporationsCorporationIdWalletsDivisionTransactions(ctx, corporationId, division, optional)
 Get corporation wallet transactions
 
-Get wallet transactions of a corporation  --- Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/transactions/`  Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/transactions/`  Alternate route: `/v1/corporations/{corporation_id}/wallets/{division}/transactions/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant 
+Get wallet transactions of a corporation  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Accountant, Junior_Accountant
 
 ### Required Parameters
 

@@ -27,7 +27,7 @@ type SovereigntyApiService service
 
 
 /* SovereigntyApiService List sovereignty campaigns
- Shows sovereignty data for campaigns.  --- Alternate route: &#x60;/dev/sovereignty/campaigns/&#x60;  Alternate route: &#x60;/legacy/sovereignty/campaigns/&#x60;  Alternate route: &#x60;/v1/sovereignty/campaigns/&#x60;  --- This route is cached for up to 5 seconds
+ Shows sovereignty data for campaigns.  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -43,7 +43,7 @@ func (a *SovereigntyApiService) GetSovereigntyCampaigns(ctx context.Context, loc
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/sovereignty/campaigns/"
+	localVarPath := a.client.cfg.BasePath + "/v1/sovereignty/campaigns/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -105,7 +105,7 @@ func (a *SovereigntyApiService) GetSovereigntyCampaigns(ctx context.Context, loc
 }
 
 /* SovereigntyApiService List sovereignty of systems
- Shows sovereignty information for solar systems  --- Alternate route: &#x60;/dev/sovereignty/map/&#x60;  Alternate route: &#x60;/legacy/sovereignty/map/&#x60;  Alternate route: &#x60;/v1/sovereignty/map/&#x60;  --- This route is cached for up to 3600 seconds
+ Shows sovereignty information for solar systems  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -121,7 +121,7 @@ func (a *SovereigntyApiService) GetSovereigntyMap(ctx context.Context, localVarO
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/sovereignty/map/"
+	localVarPath := a.client.cfg.BasePath + "/v1/sovereignty/map/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -183,7 +183,7 @@ func (a *SovereigntyApiService) GetSovereigntyMap(ctx context.Context, localVarO
 }
 
 /* SovereigntyApiService List sovereignty structures
- Shows sovereignty data for structures.  --- Alternate route: &#x60;/dev/sovereignty/structures/&#x60;  Alternate route: &#x60;/legacy/sovereignty/structures/&#x60;  Alternate route: &#x60;/v1/sovereignty/structures/&#x60;  --- This route is cached for up to 120 seconds
+ Shows sovereignty data for structures.  ---  This route is cached for up to 120 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
@@ -199,7 +199,7 @@ func (a *SovereigntyApiService) GetSovereigntyStructures(ctx context.Context, lo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/sovereignty/structures/"
+	localVarPath := a.client.cfg.BasePath + "/v1/sovereignty/structures/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

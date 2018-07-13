@@ -28,7 +28,7 @@ type ContractsApiService service
 
 
 /* ContractsApiService Get contracts
- Returns contracts available to a character, only if the character is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \&quot;in_progress\&quot;.  --- Alternate route: &#x60;/dev/characters/{character_id}/contracts/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/contracts/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/contracts/&#x60;  --- This route is cached for up to 300 seconds
+ Returns contracts available to a character, only if the character is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \&quot;in_progress\&quot;.  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -47,7 +47,7 @@ func (a *ContractsApiService) GetCharactersCharacterIdContracts(ctx context.Cont
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contracts/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/contracts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -125,7 +125,7 @@ func (a *ContractsApiService) GetCharactersCharacterIdContracts(ctx context.Cont
 }
 
 /* ContractsApiService Get contract bids
- Lists bids on a particular auction contract  --- Alternate route: &#x60;/dev/characters/{character_id}/contracts/{contract_id}/bids/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/contracts/{contract_id}/bids/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/contracts/{contract_id}/bids/&#x60;  --- This route is cached for up to 300 seconds
+ Lists bids on a particular auction contract  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param contractId ID of a contract
@@ -144,7 +144,7 @@ func (a *ContractsApiService) GetCharactersCharacterIdContractsContractIdBids(ct
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contracts/{contract_id}/bids/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/contracts/{contract_id}/bids/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"contract_id"+"}", fmt.Sprintf("%v", contractId), -1)
 
@@ -217,7 +217,7 @@ func (a *ContractsApiService) GetCharactersCharacterIdContractsContractIdBids(ct
 }
 
 /* ContractsApiService Get contract items
- Lists items of a particular contract  --- Alternate route: &#x60;/dev/characters/{character_id}/contracts/{contract_id}/items/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/contracts/{contract_id}/items/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/contracts/{contract_id}/items/&#x60;  --- This route is cached for up to 3600 seconds
+ Lists items of a particular contract  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param contractId ID of a contract
@@ -236,7 +236,7 @@ func (a *ContractsApiService) GetCharactersCharacterIdContractsContractIdItems(c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/contracts/{contract_id}/items/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/contracts/{contract_id}/items/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"contract_id"+"}", fmt.Sprintf("%v", contractId), -1)
 
@@ -309,7 +309,7 @@ func (a *ContractsApiService) GetCharactersCharacterIdContractsContractIdItems(c
 }
 
 /* ContractsApiService Get corporation contracts
- Returns contracts available to a corporation, only if the corporation is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \&quot;in_progress\&quot;.  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/contracts/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/contracts/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/contracts/&#x60;  --- This route is cached for up to 300 seconds
+ Returns contracts available to a corporation, only if the corporation is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \&quot;in_progress\&quot;.  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param corporationId An EVE corporation ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -328,7 +328,7 @@ func (a *ContractsApiService) GetCorporationsCorporationIdContracts(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/contracts/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/contracts/"
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -406,7 +406,7 @@ func (a *ContractsApiService) GetCorporationsCorporationIdContracts(ctx context.
 }
 
 /* ContractsApiService Get corporation contract bids
- Lists bids on a particular auction contract  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/contracts/{contract_id}/bids/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/contracts/{contract_id}/bids/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/contracts/{contract_id}/bids/&#x60;  --- This route is cached for up to 3600 seconds
+ Lists bids on a particular auction contract  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param contractId ID of a contract
  @param corporationId An EVE corporation ID
@@ -426,7 +426,7 @@ func (a *ContractsApiService) GetCorporationsCorporationIdContractsContractIdBid
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/contracts/{contract_id}/bids/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/contracts/{contract_id}/bids/"
 	localVarPath = strings.Replace(localVarPath, "{"+"contract_id"+"}", fmt.Sprintf("%v", contractId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 
@@ -505,7 +505,7 @@ func (a *ContractsApiService) GetCorporationsCorporationIdContractsContractIdBid
 }
 
 /* ContractsApiService Get corporation contract items
- Lists items of a particular contract  --- Alternate route: &#x60;/dev/corporations/{corporation_id}/contracts/{contract_id}/items/&#x60;  Alternate route: &#x60;/legacy/corporations/{corporation_id}/contracts/{contract_id}/items/&#x60;  Alternate route: &#x60;/v1/corporations/{corporation_id}/contracts/{contract_id}/items/&#x60;  --- This route is cached for up to 3600 seconds
+ Lists items of a particular contract  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param contractId ID of a contract
  @param corporationId An EVE corporation ID
@@ -524,7 +524,7 @@ func (a *ContractsApiService) GetCorporationsCorporationIdContractsContractIdIte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/corporations/{corporation_id}/contracts/{contract_id}/items/"
+	localVarPath := a.client.cfg.BasePath + "/v1/corporations/{corporation_id}/contracts/{contract_id}/items/"
 	localVarPath = strings.Replace(localVarPath, "{"+"contract_id"+"}", fmt.Sprintf("%v", contractId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"corporation_id"+"}", fmt.Sprintf("%v", corporationId), -1)
 

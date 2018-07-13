@@ -1,17 +1,17 @@
 # \StatusApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetStatus**](StatusApi.md#GetStatus) | **Get** /status/ | Retrieve the uptime and player counts
+[**GetStatus**](StatusApi.md#GetStatus) | **Get** /v1/status/ | Retrieve the uptime and player counts
 
 
 # **GetStatus**
 > GetStatusOk GetStatus(ctx, optional)
 Retrieve the uptime and player counts
 
-EVE Server status  --- Alternate route: `/dev/status/`  Alternate route: `/legacy/status/`  Alternate route: `/v1/status/`  --- This route is cached for up to 30 seconds
+EVE Server status  ---  This route is cached for up to 30 seconds
 
 ### Required Parameters
 

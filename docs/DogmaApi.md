@@ -1,21 +1,21 @@
 # \DogmaApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDogmaAttributes**](DogmaApi.md#GetDogmaAttributes) | **Get** /dogma/attributes/ | Get attributes
-[**GetDogmaAttributesAttributeId**](DogmaApi.md#GetDogmaAttributesAttributeId) | **Get** /dogma/attributes/{attribute_id}/ | Get attribute information
-[**GetDogmaDynamicItemsTypeIdItemId**](DogmaApi.md#GetDogmaDynamicItemsTypeIdItemId) | **Get** /dogma/dynamic/items/{type_id}/{item_id}/ | Get dynamic item information
-[**GetDogmaEffects**](DogmaApi.md#GetDogmaEffects) | **Get** /dogma/effects/ | Get effects
-[**GetDogmaEffectsEffectId**](DogmaApi.md#GetDogmaEffectsEffectId) | **Get** /dogma/effects/{effect_id}/ | Get effect information
+[**GetDogmaAttributes**](DogmaApi.md#GetDogmaAttributes) | **Get** /v1/dogma/attributes/ | Get attributes
+[**GetDogmaAttributesAttributeId**](DogmaApi.md#GetDogmaAttributesAttributeId) | **Get** /v1/dogma/attributes/{attribute_id}/ | Get attribute information
+[**GetDogmaDynamicItemsTypeIdItemId**](DogmaApi.md#GetDogmaDynamicItemsTypeIdItemId) | **Get** /v1/dogma/dynamic/items/{type_id}/{item_id}/ | Get dynamic item information
+[**GetDogmaEffects**](DogmaApi.md#GetDogmaEffects) | **Get** /v1/dogma/effects/ | Get effects
+[**GetDogmaEffectsEffectId**](DogmaApi.md#GetDogmaEffectsEffectId) | **Get** /v2/dogma/effects/{effect_id}/ | Get effect information
 
 
 # **GetDogmaAttributes**
 > []int32 GetDogmaAttributes(ctx, optional)
 Get attributes
 
-Get a list of dogma attribute ids  --- Alternate route: `/dev/dogma/attributes/`  Alternate route: `/legacy/dogma/attributes/`  Alternate route: `/v1/dogma/attributes/`  --- This route expires daily at 11:05
+Get a list of dogma attribute ids  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -51,7 +51,7 @@ No authorization required
 > GetDogmaAttributesAttributeIdOk GetDogmaAttributesAttributeId(ctx, attributeId, optional)
 Get attribute information
 
-Get information on a dogma attribute  --- Alternate route: `/dev/dogma/attributes/{attribute_id}/`  Alternate route: `/legacy/dogma/attributes/{attribute_id}/`  Alternate route: `/v1/dogma/attributes/{attribute_id}/`  --- This route expires daily at 11:05
+Get information on a dogma attribute  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -89,7 +89,7 @@ No authorization required
 > GetDogmaDynamicItemsTypeIdItemIdOk GetDogmaDynamicItemsTypeIdItemId(ctx, itemId, typeId, optional)
 Get dynamic item information
 
-Returns info about a dynamic item resulting from mutation with a mutaplasmid.  --- Alternate route: `/dev/dogma/dynamic/items/{type_id}/{item_id}/`  Alternate route: `/legacy/dogma/dynamic/items/{type_id}/{item_id}/`  Alternate route: `/v1/dogma/dynamic/items/{type_id}/{item_id}/`  --- This route expires daily at 11:05
+Returns info about a dynamic item resulting from mutation with a mutaplasmid.  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -129,7 +129,7 @@ No authorization required
 > []int32 GetDogmaEffects(ctx, optional)
 Get effects
 
-Get a list of dogma effect ids  --- Alternate route: `/dev/dogma/effects/`  Alternate route: `/legacy/dogma/effects/`  Alternate route: `/v1/dogma/effects/`  --- This route expires daily at 11:05
+Get a list of dogma effect ids  ---  This route expires daily at 11:05
 
 ### Required Parameters
 
@@ -165,7 +165,7 @@ No authorization required
 > GetDogmaEffectsEffectIdOk GetDogmaEffectsEffectId(ctx, effectId, optional)
 Get effect information
 
-Get information on a dogma effect  --- Alternate route: `/dev/dogma/effects/{effect_id}/`  Alternate route: `/v2/dogma/effects/{effect_id}/`  --- This route expires daily at 11:05
+Get information on a dogma effect  ---  This route expires daily at 11:05
 
 ### Required Parameters
 

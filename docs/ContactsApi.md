@@ -1,25 +1,25 @@
 # \ContactsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteCharactersCharacterIdContacts**](ContactsApi.md#DeleteCharactersCharacterIdContacts) | **Delete** /characters/{character_id}/contacts/ | Delete contacts
-[**GetAlliancesAllianceIdContacts**](ContactsApi.md#GetAlliancesAllianceIdContacts) | **Get** /alliances/{alliance_id}/contacts/ | Get alliance contacts
-[**GetAlliancesAllianceIdContactsLabels**](ContactsApi.md#GetAlliancesAllianceIdContactsLabels) | **Get** /alliances/{alliance_id}/contacts/labels/ | Get alliance contact labels
-[**GetCharactersCharacterIdContacts**](ContactsApi.md#GetCharactersCharacterIdContacts) | **Get** /characters/{character_id}/contacts/ | Get contacts
-[**GetCharactersCharacterIdContactsLabels**](ContactsApi.md#GetCharactersCharacterIdContactsLabels) | **Get** /characters/{character_id}/contacts/labels/ | Get contact labels
-[**GetCorporationsCorporationIdContacts**](ContactsApi.md#GetCorporationsCorporationIdContacts) | **Get** /corporations/{corporation_id}/contacts/ | Get corporation contacts
-[**GetCorporationsCorporationIdContactsLabels**](ContactsApi.md#GetCorporationsCorporationIdContactsLabels) | **Get** /corporations/{corporation_id}/contacts/labels/ | Get corporation contact labels
-[**PostCharactersCharacterIdContacts**](ContactsApi.md#PostCharactersCharacterIdContacts) | **Post** /characters/{character_id}/contacts/ | Add contacts
-[**PutCharactersCharacterIdContacts**](ContactsApi.md#PutCharactersCharacterIdContacts) | **Put** /characters/{character_id}/contacts/ | Edit contacts
+[**DeleteCharactersCharacterIdContacts**](ContactsApi.md#DeleteCharactersCharacterIdContacts) | **Delete** /v2/characters/{character_id}/contacts/ | Delete contacts
+[**GetAlliancesAllianceIdContacts**](ContactsApi.md#GetAlliancesAllianceIdContacts) | **Get** /v2/alliances/{alliance_id}/contacts/ | Get alliance contacts
+[**GetAlliancesAllianceIdContactsLabels**](ContactsApi.md#GetAlliancesAllianceIdContactsLabels) | **Get** /v1/alliances/{alliance_id}/contacts/labels/ | Get alliance contact labels
+[**GetCharactersCharacterIdContacts**](ContactsApi.md#GetCharactersCharacterIdContacts) | **Get** /v2/characters/{character_id}/contacts/ | Get contacts
+[**GetCharactersCharacterIdContactsLabels**](ContactsApi.md#GetCharactersCharacterIdContactsLabels) | **Get** /v1/characters/{character_id}/contacts/labels/ | Get contact labels
+[**GetCorporationsCorporationIdContacts**](ContactsApi.md#GetCorporationsCorporationIdContacts) | **Get** /v2/corporations/{corporation_id}/contacts/ | Get corporation contacts
+[**GetCorporationsCorporationIdContactsLabels**](ContactsApi.md#GetCorporationsCorporationIdContactsLabels) | **Get** /v1/corporations/{corporation_id}/contacts/labels/ | Get corporation contact labels
+[**PostCharactersCharacterIdContacts**](ContactsApi.md#PostCharactersCharacterIdContacts) | **Post** /v2/characters/{character_id}/contacts/ | Add contacts
+[**PutCharactersCharacterIdContacts**](ContactsApi.md#PutCharactersCharacterIdContacts) | **Put** /v2/characters/{character_id}/contacts/ | Edit contacts
 
 
 # **DeleteCharactersCharacterIdContacts**
 > DeleteCharactersCharacterIdContacts(ctx, characterId, contactIds, optional)
 Delete contacts
 
-Bulk delete contacts  --- Alternate route: `/dev/characters/{character_id}/contacts/`  Alternate route: `/v2/characters/{character_id}/contacts/` 
+Bulk delete contacts  --- 
 
 ### Required Parameters
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 > []GetAlliancesAllianceIdContacts200Ok GetAlliancesAllianceIdContacts(ctx, allianceId, optional)
 Get alliance contacts
 
-Return contacts of an alliance  --- Alternate route: `/dev/alliances/{alliance_id}/contacts/`  Alternate route: `/v2/alliances/{alliance_id}/contacts/`  --- This route is cached for up to 300 seconds
+Return contacts of an alliance  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 > []GetAlliancesAllianceIdContactsLabels200Ok GetAlliancesAllianceIdContactsLabels(ctx, allianceId, optional)
 Get alliance contact labels
 
-Return custom labels for an alliance's contacts  --- Alternate route: `/dev/alliances/{alliance_id}/contacts/labels/`  Alternate route: `/legacy/alliances/{alliance_id}/contacts/labels/`  Alternate route: `/v1/alliances/{alliance_id}/contacts/labels/`  --- This route is cached for up to 300 seconds
+Return custom labels for an alliance's contacts  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdContacts200Ok GetCharactersCharacterIdContacts(ctx, characterId, optional)
 Get contacts
 
-Return contacts of a character  --- Alternate route: `/dev/characters/{character_id}/contacts/`  Alternate route: `/v2/characters/{character_id}/contacts/`  --- This route is cached for up to 300 seconds
+Return contacts of a character  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdContactsLabels200Ok GetCharactersCharacterIdContactsLabels(ctx, characterId, optional)
 Get contact labels
 
-Return custom labels for a character's contacts  --- Alternate route: `/dev/characters/{character_id}/contacts/labels/`  Alternate route: `/legacy/characters/{character_id}/contacts/labels/`  Alternate route: `/v1/characters/{character_id}/contacts/labels/`  --- This route is cached for up to 300 seconds
+Return custom labels for a character's contacts  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdContacts200Ok GetCorporationsCorporationIdContacts(ctx, corporationId, optional)
 Get corporation contacts
 
-Return contacts of a corporation  --- Alternate route: `/dev/corporations/{corporation_id}/contacts/`  Alternate route: `/v2/corporations/{corporation_id}/contacts/`  --- This route is cached for up to 300 seconds
+Return contacts of a corporation  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdContactsLabels200Ok GetCorporationsCorporationIdContactsLabels(ctx, corporationId, optional)
 Get corporation contact labels
 
-Return custom labels for a corporation's contacts  --- Alternate route: `/dev/corporations/{corporation_id}/contacts/labels/`  Alternate route: `/legacy/corporations/{corporation_id}/contacts/labels/`  Alternate route: `/v1/corporations/{corporation_id}/contacts/labels/`  --- This route is cached for up to 300 seconds
+Return custom labels for a corporation's contacts  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 > []int32 PostCharactersCharacterIdContacts(ctx, characterId, contactIds, standing, optional)
 Add contacts
 
-Bulk add contacts with same settings  --- Alternate route: `/dev/characters/{character_id}/contacts/`  Alternate route: `/v2/characters/{character_id}/contacts/` 
+Bulk add contacts with same settings  --- 
 
 ### Required Parameters
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 > PutCharactersCharacterIdContacts(ctx, characterId, contactIds, standing, optional)
 Edit contacts
 
-Bulk edit contacts with same settings  --- Alternate route: `/dev/characters/{character_id}/contacts/`  Alternate route: `/v2/characters/{character_id}/contacts/` 
+Bulk edit contacts with same settings  --- 
 
 ### Required Parameters
 

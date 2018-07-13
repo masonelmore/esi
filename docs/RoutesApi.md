@@ -1,17 +1,17 @@
 # \RoutesApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetRouteOriginDestination**](RoutesApi.md#GetRouteOriginDestination) | **Get** /route/{origin}/{destination}/ | Get route
+[**GetRouteOriginDestination**](RoutesApi.md#GetRouteOriginDestination) | **Get** /v1/route/{origin}/{destination}/ | Get route
 
 
 # **GetRouteOriginDestination**
 > []int32 GetRouteOriginDestination(ctx, destination, origin, optional)
 Get route
 
-Get the systems between origin and destination  --- Alternate route: `/dev/route/{origin}/{destination}/`  Alternate route: `/legacy/route/{origin}/{destination}/`  Alternate route: `/v1/route/{origin}/{destination}/`  --- This route is cached for up to 86400 seconds
+Get the systems between origin and destination  ---  This route is cached for up to 86400 seconds
 
 ### Required Parameters
 

@@ -1,38 +1,38 @@
 # \CorporationApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCorporationsCorporationId**](CorporationApi.md#GetCorporationsCorporationId) | **Get** /corporations/{corporation_id}/ | Get corporation information
-[**GetCorporationsCorporationIdAlliancehistory**](CorporationApi.md#GetCorporationsCorporationIdAlliancehistory) | **Get** /corporations/{corporation_id}/alliancehistory/ | Get alliance history
-[**GetCorporationsCorporationIdBlueprints**](CorporationApi.md#GetCorporationsCorporationIdBlueprints) | **Get** /corporations/{corporation_id}/blueprints/ | Get corporation blueprints
-[**GetCorporationsCorporationIdContainersLogs**](CorporationApi.md#GetCorporationsCorporationIdContainersLogs) | **Get** /corporations/{corporation_id}/containers/logs/ | Get all corporation ALSC logs
-[**GetCorporationsCorporationIdDivisions**](CorporationApi.md#GetCorporationsCorporationIdDivisions) | **Get** /corporations/{corporation_id}/divisions/ | Get corporation divisions
-[**GetCorporationsCorporationIdFacilities**](CorporationApi.md#GetCorporationsCorporationIdFacilities) | **Get** /corporations/{corporation_id}/facilities/ | Get corporation facilities
-[**GetCorporationsCorporationIdIcons**](CorporationApi.md#GetCorporationsCorporationIdIcons) | **Get** /corporations/{corporation_id}/icons/ | Get corporation icon
-[**GetCorporationsCorporationIdMedals**](CorporationApi.md#GetCorporationsCorporationIdMedals) | **Get** /corporations/{corporation_id}/medals/ | Get corporation medals
-[**GetCorporationsCorporationIdMedalsIssued**](CorporationApi.md#GetCorporationsCorporationIdMedalsIssued) | **Get** /corporations/{corporation_id}/medals/issued/ | Get corporation issued medals
-[**GetCorporationsCorporationIdMembers**](CorporationApi.md#GetCorporationsCorporationIdMembers) | **Get** /corporations/{corporation_id}/members/ | Get corporation members
-[**GetCorporationsCorporationIdMembersLimit**](CorporationApi.md#GetCorporationsCorporationIdMembersLimit) | **Get** /corporations/{corporation_id}/members/limit/ | Get corporation member limit
-[**GetCorporationsCorporationIdMembersTitles**](CorporationApi.md#GetCorporationsCorporationIdMembersTitles) | **Get** /corporations/{corporation_id}/members/titles/ | Get corporation&#39;s members&#39; titles
-[**GetCorporationsCorporationIdMembertracking**](CorporationApi.md#GetCorporationsCorporationIdMembertracking) | **Get** /corporations/{corporation_id}/membertracking/ | Track corporation members
-[**GetCorporationsCorporationIdRoles**](CorporationApi.md#GetCorporationsCorporationIdRoles) | **Get** /corporations/{corporation_id}/roles/ | Get corporation member roles
-[**GetCorporationsCorporationIdRolesHistory**](CorporationApi.md#GetCorporationsCorporationIdRolesHistory) | **Get** /corporations/{corporation_id}/roles/history/ | Get corporation member roles history
-[**GetCorporationsCorporationIdShareholders**](CorporationApi.md#GetCorporationsCorporationIdShareholders) | **Get** /corporations/{corporation_id}/shareholders/ | Get corporation shareholders
-[**GetCorporationsCorporationIdStandings**](CorporationApi.md#GetCorporationsCorporationIdStandings) | **Get** /corporations/{corporation_id}/standings/ | Get corporation standings
-[**GetCorporationsCorporationIdStarbases**](CorporationApi.md#GetCorporationsCorporationIdStarbases) | **Get** /corporations/{corporation_id}/starbases/ | Get corporation starbases (POSes)
-[**GetCorporationsCorporationIdStarbasesStarbaseId**](CorporationApi.md#GetCorporationsCorporationIdStarbasesStarbaseId) | **Get** /corporations/{corporation_id}/starbases/{starbase_id}/ | Get starbase (POS) detail
-[**GetCorporationsCorporationIdStructures**](CorporationApi.md#GetCorporationsCorporationIdStructures) | **Get** /corporations/{corporation_id}/structures/ | Get corporation structures
-[**GetCorporationsCorporationIdTitles**](CorporationApi.md#GetCorporationsCorporationIdTitles) | **Get** /corporations/{corporation_id}/titles/ | Get corporation titles
-[**GetCorporationsNpccorps**](CorporationApi.md#GetCorporationsNpccorps) | **Get** /corporations/npccorps/ | Get npc corporations
+[**GetCorporationsCorporationId**](CorporationApi.md#GetCorporationsCorporationId) | **Get** /v4/corporations/{corporation_id}/ | Get corporation information
+[**GetCorporationsCorporationIdAlliancehistory**](CorporationApi.md#GetCorporationsCorporationIdAlliancehistory) | **Get** /v2/corporations/{corporation_id}/alliancehistory/ | Get alliance history
+[**GetCorporationsCorporationIdBlueprints**](CorporationApi.md#GetCorporationsCorporationIdBlueprints) | **Get** /v2/corporations/{corporation_id}/blueprints/ | Get corporation blueprints
+[**GetCorporationsCorporationIdContainersLogs**](CorporationApi.md#GetCorporationsCorporationIdContainersLogs) | **Get** /v2/corporations/{corporation_id}/containers/logs/ | Get all corporation ALSC logs
+[**GetCorporationsCorporationIdDivisions**](CorporationApi.md#GetCorporationsCorporationIdDivisions) | **Get** /v1/corporations/{corporation_id}/divisions/ | Get corporation divisions
+[**GetCorporationsCorporationIdFacilities**](CorporationApi.md#GetCorporationsCorporationIdFacilities) | **Get** /v1/corporations/{corporation_id}/facilities/ | Get corporation facilities
+[**GetCorporationsCorporationIdIcons**](CorporationApi.md#GetCorporationsCorporationIdIcons) | **Get** /v1/corporations/{corporation_id}/icons/ | Get corporation icon
+[**GetCorporationsCorporationIdMedals**](CorporationApi.md#GetCorporationsCorporationIdMedals) | **Get** /v1/corporations/{corporation_id}/medals/ | Get corporation medals
+[**GetCorporationsCorporationIdMedalsIssued**](CorporationApi.md#GetCorporationsCorporationIdMedalsIssued) | **Get** /v1/corporations/{corporation_id}/medals/issued/ | Get corporation issued medals
+[**GetCorporationsCorporationIdMembers**](CorporationApi.md#GetCorporationsCorporationIdMembers) | **Get** /v3/corporations/{corporation_id}/members/ | Get corporation members
+[**GetCorporationsCorporationIdMembersLimit**](CorporationApi.md#GetCorporationsCorporationIdMembersLimit) | **Get** /v1/corporations/{corporation_id}/members/limit/ | Get corporation member limit
+[**GetCorporationsCorporationIdMembersTitles**](CorporationApi.md#GetCorporationsCorporationIdMembersTitles) | **Get** /v1/corporations/{corporation_id}/members/titles/ | Get corporation&#39;s members&#39; titles
+[**GetCorporationsCorporationIdMembertracking**](CorporationApi.md#GetCorporationsCorporationIdMembertracking) | **Get** /v1/corporations/{corporation_id}/membertracking/ | Track corporation members
+[**GetCorporationsCorporationIdRoles**](CorporationApi.md#GetCorporationsCorporationIdRoles) | **Get** /v1/corporations/{corporation_id}/roles/ | Get corporation member roles
+[**GetCorporationsCorporationIdRolesHistory**](CorporationApi.md#GetCorporationsCorporationIdRolesHistory) | **Get** /v1/corporations/{corporation_id}/roles/history/ | Get corporation member roles history
+[**GetCorporationsCorporationIdShareholders**](CorporationApi.md#GetCorporationsCorporationIdShareholders) | **Get** /v1/corporations/{corporation_id}/shareholders/ | Get corporation shareholders
+[**GetCorporationsCorporationIdStandings**](CorporationApi.md#GetCorporationsCorporationIdStandings) | **Get** /v1/corporations/{corporation_id}/standings/ | Get corporation standings
+[**GetCorporationsCorporationIdStarbases**](CorporationApi.md#GetCorporationsCorporationIdStarbases) | **Get** /v1/corporations/{corporation_id}/starbases/ | Get corporation starbases (POSes)
+[**GetCorporationsCorporationIdStarbasesStarbaseId**](CorporationApi.md#GetCorporationsCorporationIdStarbasesStarbaseId) | **Get** /v1/corporations/{corporation_id}/starbases/{starbase_id}/ | Get starbase (POS) detail
+[**GetCorporationsCorporationIdStructures**](CorporationApi.md#GetCorporationsCorporationIdStructures) | **Get** /v2/corporations/{corporation_id}/structures/ | Get corporation structures
+[**GetCorporationsCorporationIdTitles**](CorporationApi.md#GetCorporationsCorporationIdTitles) | **Get** /v1/corporations/{corporation_id}/titles/ | Get corporation titles
+[**GetCorporationsNpccorps**](CorporationApi.md#GetCorporationsNpccorps) | **Get** /v1/corporations/npccorps/ | Get npc corporations
 
 
 # **GetCorporationsCorporationId**
 > GetCorporationsCorporationIdOk GetCorporationsCorporationId(ctx, corporationId, optional)
 Get corporation information
 
-Public information about a corporation  --- Alternate route: `/dev/corporations/{corporation_id}/`  Alternate route: `/v4/corporations/{corporation_id}/`  --- This route is cached for up to 3600 seconds
+Public information about a corporation  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -70,7 +70,7 @@ No authorization required
 > []GetCorporationsCorporationIdAlliancehistory200Ok GetCorporationsCorporationIdAlliancehistory(ctx, corporationId, optional)
 Get alliance history
 
-Get a list of all the alliances a corporation has been a member of  --- Alternate route: `/dev/corporations/{corporation_id}/alliancehistory/`  Alternate route: `/v2/corporations/{corporation_id}/alliancehistory/`  --- This route is cached for up to 3600 seconds
+Get a list of all the alliances a corporation has been a member of  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -108,7 +108,7 @@ No authorization required
 > []GetCorporationsCorporationIdBlueprints200Ok GetCorporationsCorporationIdBlueprints(ctx, corporationId, optional)
 Get corporation blueprints
 
-Returns a list of blueprints the corporation owns  --- Alternate route: `/dev/corporations/{corporation_id}/blueprints/`  Alternate route: `/v2/corporations/{corporation_id}/blueprints/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns a list of blueprints the corporation owns  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdContainersLogs200Ok GetCorporationsCorporationIdContainersLogs(ctx, corporationId, optional)
 Get all corporation ALSC logs
 
-Returns logs recorded in the past seven days from all audit log secure containers (ALSC) owned by a given corporation  --- Alternate route: `/dev/corporations/{corporation_id}/containers/logs/`  Alternate route: `/v2/corporations/{corporation_id}/containers/logs/`  --- This route is cached for up to 600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns logs recorded in the past seven days from all audit log secure containers (ALSC) owned by a given corporation  ---  This route is cached for up to 600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 > GetCorporationsCorporationIdDivisionsOk GetCorporationsCorporationIdDivisions(ctx, corporationId, optional)
 Get corporation divisions
 
-Return corporation hangar and wallet division names, only show if a division is not using the default name  --- Alternate route: `/dev/corporations/{corporation_id}/divisions/`  Alternate route: `/legacy/corporations/{corporation_id}/divisions/`  Alternate route: `/v1/corporations/{corporation_id}/divisions/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Return corporation hangar and wallet division names, only show if a division is not using the default name  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdFacilities200Ok GetCorporationsCorporationIdFacilities(ctx, corporationId, optional)
 Get corporation facilities
 
-Return a corporation's facilities  --- Alternate route: `/dev/corporations/{corporation_id}/facilities/`  Alternate route: `/legacy/corporations/{corporation_id}/facilities/`  Alternate route: `/v1/corporations/{corporation_id}/facilities/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Factory_Manager 
+Return a corporation's facilities  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Factory_Manager
 
 ### Required Parameters
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 > GetCorporationsCorporationIdIconsOk GetCorporationsCorporationIdIcons(ctx, corporationId, optional)
 Get corporation icon
 
-Get the icon urls for a corporation  --- Alternate route: `/dev/corporations/{corporation_id}/icons/`  Alternate route: `/legacy/corporations/{corporation_id}/icons/`  Alternate route: `/v1/corporations/{corporation_id}/icons/`  --- This route is cached for up to 3600 seconds
+Get the icon urls for a corporation  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -304,7 +304,7 @@ No authorization required
 > []GetCorporationsCorporationIdMedals200Ok GetCorporationsCorporationIdMedals(ctx, corporationId, optional)
 Get corporation medals
 
-Returns a corporation's medals  --- Alternate route: `/dev/corporations/{corporation_id}/medals/`  Alternate route: `/legacy/corporations/{corporation_id}/medals/`  Alternate route: `/v1/corporations/{corporation_id}/medals/`  --- This route is cached for up to 3600 seconds
+Returns a corporation's medals  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdMedalsIssued200Ok GetCorporationsCorporationIdMedalsIssued(ctx, corporationId, optional)
 Get corporation issued medals
 
-Returns medals issued by a corporation  --- Alternate route: `/dev/corporations/{corporation_id}/medals/issued/`  Alternate route: `/legacy/corporations/{corporation_id}/medals/issued/`  Alternate route: `/v1/corporations/{corporation_id}/medals/issued/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns medals issued by a corporation  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 > []int32 GetCorporationsCorporationIdMembers(ctx, corporationId, optional)
 Get corporation members
 
-Return the current member list of a corporation, the token's character need to be a member of the corporation.  --- Alternate route: `/dev/corporations/{corporation_id}/members/`  Alternate route: `/v3/corporations/{corporation_id}/members/`  --- This route is cached for up to 3600 seconds
+Return the current member list of a corporation, the token's character need to be a member of the corporation.  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 > int32 GetCorporationsCorporationIdMembersLimit(ctx, corporationId, optional)
 Get corporation member limit
 
-Return a corporation's member limit, not including CEO himself  --- Alternate route: `/dev/corporations/{corporation_id}/members/limit/`  Alternate route: `/legacy/corporations/{corporation_id}/members/limit/`  Alternate route: `/v1/corporations/{corporation_id}/members/limit/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Return a corporation's member limit, not including CEO himself  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdMembersTitles200Ok GetCorporationsCorporationIdMembersTitles(ctx, corporationId, optional)
 Get corporation's members' titles
 
-Returns a corporation's members' titles  --- Alternate route: `/dev/corporations/{corporation_id}/members/titles/`  Alternate route: `/legacy/corporations/{corporation_id}/members/titles/`  Alternate route: `/v1/corporations/{corporation_id}/members/titles/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns a corporation's members' titles  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdMembertracking200Ok GetCorporationsCorporationIdMembertracking(ctx, corporationId, optional)
 Track corporation members
 
-Returns additional information about a corporation's members which helps tracking their activities  --- Alternate route: `/dev/corporations/{corporation_id}/membertracking/`  Alternate route: `/legacy/corporations/{corporation_id}/membertracking/`  Alternate route: `/v1/corporations/{corporation_id}/membertracking/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns additional information about a corporation's members which helps tracking their activities  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdRoles200Ok GetCorporationsCorporationIdRoles(ctx, corporationId, optional)
 Get corporation member roles
 
-Return the roles of all members if the character has the personnel manager role or any grantable role.  --- Alternate route: `/dev/corporations/{corporation_id}/roles/`  Alternate route: `/legacy/corporations/{corporation_id}/roles/`  Alternate route: `/v1/corporations/{corporation_id}/roles/`  --- This route is cached for up to 3600 seconds
+Return the roles of all members if the character has the personnel manager role or any grantable role.  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdRolesHistory200Ok GetCorporationsCorporationIdRolesHistory(ctx, corporationId, optional)
 Get corporation member roles history
 
-Return how roles have changed for a coporation's members, up to a month  --- Alternate route: `/dev/corporations/{corporation_id}/roles/history/`  Alternate route: `/legacy/corporations/{corporation_id}/roles/history/`  Alternate route: `/v1/corporations/{corporation_id}/roles/history/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Return how roles have changed for a coporation's members, up to a month  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdShareholders200Ok GetCorporationsCorporationIdShareholders(ctx, corporationId, optional)
 Get corporation shareholders
 
-Return the current shareholders of a corporation.  --- Alternate route: `/dev/corporations/{corporation_id}/shareholders/`  Alternate route: `/legacy/corporations/{corporation_id}/shareholders/`  Alternate route: `/v1/corporations/{corporation_id}/shareholders/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Return the current shareholders of a corporation.  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdStandings200Ok GetCorporationsCorporationIdStandings(ctx, corporationId, optional)
 Get corporation standings
 
-Return corporation standings from agents, NPC corporations, and factions  --- Alternate route: `/dev/corporations/{corporation_id}/standings/`  Alternate route: `/legacy/corporations/{corporation_id}/standings/`  Alternate route: `/v1/corporations/{corporation_id}/standings/`  --- This route is cached for up to 3600 seconds
+Return corporation standings from agents, NPC corporations, and factions  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdStarbases200Ok GetCorporationsCorporationIdStarbases(ctx, corporationId, optional)
 Get corporation starbases (POSes)
 
-Returns list of corporation starbases (POSes)  --- Alternate route: `/dev/corporations/{corporation_id}/starbases/`  Alternate route: `/legacy/corporations/{corporation_id}/starbases/`  Alternate route: `/v1/corporations/{corporation_id}/starbases/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns list of corporation starbases (POSes)  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 > GetCorporationsCorporationIdStarbasesStarbaseIdOk GetCorporationsCorporationIdStarbasesStarbaseId(ctx, corporationId, starbaseId, systemId, optional)
 Get starbase (POS) detail
 
-Returns various settings and fuels of a starbase (POS)  --- Alternate route: `/dev/corporations/{corporation_id}/starbases/{starbase_id}/`  Alternate route: `/legacy/corporations/{corporation_id}/starbases/{starbase_id}/`  Alternate route: `/v1/corporations/{corporation_id}/starbases/{starbase_id}/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns various settings and fuels of a starbase (POS)  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdStructures200Ok GetCorporationsCorporationIdStructures(ctx, corporationId, optional)
 Get corporation structures
 
-Get a list of corporation structures. This route's version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th  --- Alternate route: `/dev/corporations/{corporation_id}/structures/`  Alternate route: `/v2/corporations/{corporation_id}/structures/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): StationManager 
+Get a list of corporation structures. This route's version includes the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): StationManager
 
 ### Required Parameters
 
@@ -824,7 +824,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdTitles200Ok GetCorporationsCorporationIdTitles(ctx, corporationId, optional)
 Get corporation titles
 
-Returns a corporation's titles  --- Alternate route: `/dev/corporations/{corporation_id}/titles/`  Alternate route: `/legacy/corporations/{corporation_id}/titles/`  Alternate route: `/v1/corporations/{corporation_id}/titles/`  --- This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director 
+Returns a corporation's titles  ---  This route is cached for up to 3600 seconds  --- Requires one of the following EVE corporation role(s): Director
 
 ### Required Parameters
 
@@ -863,7 +863,7 @@ Name | Type | Description  | Notes
 > []int32 GetCorporationsNpccorps(ctx, optional)
 Get npc corporations
 
-Get a list of npc corporations  --- Alternate route: `/dev/corporations/npccorps/`  Alternate route: `/legacy/corporations/npccorps/`  Alternate route: `/v1/corporations/npccorps/`  --- This route expires daily at 11:05
+Get a list of npc corporations  ---  This route expires daily at 11:05
 
 ### Required Parameters
 

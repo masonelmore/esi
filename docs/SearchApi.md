@@ -1,18 +1,18 @@
 # \SearchApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdSearch**](SearchApi.md#GetCharactersCharacterIdSearch) | **Get** /characters/{character_id}/search/ | Search on a string
-[**GetSearch**](SearchApi.md#GetSearch) | **Get** /search/ | Search on a string
+[**GetCharactersCharacterIdSearch**](SearchApi.md#GetCharactersCharacterIdSearch) | **Get** /v3/characters/{character_id}/search/ | Search on a string
+[**GetSearch**](SearchApi.md#GetSearch) | **Get** /v2/search/ | Search on a string
 
 
 # **GetCharactersCharacterIdSearch**
 > GetCharactersCharacterIdSearchOk GetCharactersCharacterIdSearch(ctx, categories, characterId, search, optional)
 Search on a string
 
-Search for entities that match a given sub-string.  --- Alternate route: `/dev/characters/{character_id}/search/`  Alternate route: `/v3/characters/{character_id}/search/`  --- This route is cached for up to 3600 seconds
+Search for entities that match a given sub-string.  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 > GetSearchOk GetSearch(ctx, categories, search, optional)
 Search on a string
 
-Search for entities that match a given sub-string.  --- Alternate route: `/dev/search/`  Alternate route: `/v2/search/`  --- This route is cached for up to 3600 seconds
+Search for entities that match a given sub-string.  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 

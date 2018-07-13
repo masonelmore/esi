@@ -28,7 +28,7 @@ type SkillsApiService service
 
 
 /* SkillsApiService Get character attributes
- Return attributes of a character  --- Alternate route: &#x60;/dev/characters/{character_id}/attributes/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/attributes/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/attributes/&#x60;  --- This route is cached for up to 3600 seconds
+ Return attributes of a character  ---  This route is cached for up to 3600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -46,7 +46,7 @@ func (a *SkillsApiService) GetCharactersCharacterIdAttributes(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/attributes/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/attributes/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -118,7 +118,7 @@ func (a *SkillsApiService) GetCharactersCharacterIdAttributes(ctx context.Contex
 }
 
 /* SkillsApiService Get character&#39;s skill queue
- List the configured skill queue for the given character  --- Alternate route: &#x60;/dev/characters/{character_id}/skillqueue/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/skillqueue/&#x60;  Alternate route: &#x60;/v2/characters/{character_id}/skillqueue/&#x60;  --- This route is cached for up to 120 seconds
+ List the configured skill queue for the given character  ---  This route is cached for up to 120 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -136,7 +136,7 @@ func (a *SkillsApiService) GetCharactersCharacterIdSkillqueue(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/skillqueue/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/skillqueue/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -208,7 +208,7 @@ func (a *SkillsApiService) GetCharactersCharacterIdSkillqueue(ctx context.Contex
 }
 
 /* SkillsApiService Get character skills
- List all trained skills for the given character  --- Alternate route: &#x60;/dev/characters/{character_id}/skills/&#x60;  Alternate route: &#x60;/v4/characters/{character_id}/skills/&#x60;  --- This route is cached for up to 120 seconds
+ List all trained skills for the given character  ---  This route is cached for up to 120 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -226,7 +226,7 @@ func (a *SkillsApiService) GetCharactersCharacterIdSkills(ctx context.Context, c
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/skills/"
+	localVarPath := a.client.cfg.BasePath + "/v4/characters/{character_id}/skills/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

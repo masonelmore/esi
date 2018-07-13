@@ -1,18 +1,18 @@
 # \LoyaltyApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdLoyaltyPoints**](LoyaltyApi.md#GetCharactersCharacterIdLoyaltyPoints) | **Get** /characters/{character_id}/loyalty/points/ | Get loyalty points
-[**GetLoyaltyStoresCorporationIdOffers**](LoyaltyApi.md#GetLoyaltyStoresCorporationIdOffers) | **Get** /loyalty/stores/{corporation_id}/offers/ | List loyalty store offers
+[**GetCharactersCharacterIdLoyaltyPoints**](LoyaltyApi.md#GetCharactersCharacterIdLoyaltyPoints) | **Get** /v1/characters/{character_id}/loyalty/points/ | Get loyalty points
+[**GetLoyaltyStoresCorporationIdOffers**](LoyaltyApi.md#GetLoyaltyStoresCorporationIdOffers) | **Get** /v1/loyalty/stores/{corporation_id}/offers/ | List loyalty store offers
 
 
 # **GetCharactersCharacterIdLoyaltyPoints**
 > []GetCharactersCharacterIdLoyaltyPoints200Ok GetCharactersCharacterIdLoyaltyPoints(ctx, characterId, optional)
 Get loyalty points
 
-Return a list of loyalty points for all corporations the character has worked for  --- Alternate route: `/dev/characters/{character_id}/loyalty/points/`  Alternate route: `/legacy/characters/{character_id}/loyalty/points/`  Alternate route: `/v1/characters/{character_id}/loyalty/points/`  --- This route is cached for up to 3600 seconds
+Return a list of loyalty points for all corporations the character has worked for  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 > []GetLoyaltyStoresCorporationIdOffers200Ok GetLoyaltyStoresCorporationIdOffers(ctx, corporationId, optional)
 List loyalty store offers
 
-Return a list of offers from a specific corporation's loyalty store  --- Alternate route: `/dev/loyalty/stores/{corporation_id}/offers/`  Alternate route: `/legacy/loyalty/stores/{corporation_id}/offers/`  Alternate route: `/v1/loyalty/stores/{corporation_id}/offers/`  --- This route expires daily at 11:05
+Return a list of offers from a specific corporation's loyalty store  ---  This route expires daily at 11:05
 
 ### Required Parameters
 

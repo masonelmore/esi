@@ -1,17 +1,17 @@
 # \IncursionsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetIncursions**](IncursionsApi.md#GetIncursions) | **Get** /incursions/ | List incursions
+[**GetIncursions**](IncursionsApi.md#GetIncursions) | **Get** /v1/incursions/ | List incursions
 
 
 # **GetIncursions**
 > []GetIncursions200Ok GetIncursions(ctx, optional)
 List incursions
 
-Return a list of current incursions  --- Alternate route: `/dev/incursions/`  Alternate route: `/legacy/incursions/`  Alternate route: `/v1/incursions/`  --- This route is cached for up to 300 seconds
+Return a list of current incursions  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 

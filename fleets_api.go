@@ -28,7 +28,7 @@ type FleetsApiService service
 
 
 /* FleetsApiService Kick fleet member
- Kick a fleet member  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/members/{member_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/members/{member_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/members/{member_id}/&#x60; 
+ Kick a fleet member  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param memberId The character ID of a member in this fleet
@@ -45,7 +45,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdMembersMemberId(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/members/{member_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/members/{member_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"member_id"+"}", fmt.Sprintf("%v", memberId), -1)
 
@@ -104,7 +104,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdMembersMemberId(ctx context.Contex
 }
 
 /* FleetsApiService Delete fleet squad
- Delete a fleet squad, only empty squads can be deleted  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/squads/{squad_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/squads/{squad_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/squads/{squad_id}/&#x60; 
+ Delete a fleet squad, only empty squads can be deleted  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param squadId The squad to delete
@@ -121,7 +121,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdSquadsSquadId(ctx context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/squads/{squad_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/squads/{squad_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"squad_id"+"}", fmt.Sprintf("%v", squadId), -1)
 
@@ -180,7 +180,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdSquadsSquadId(ctx context.Context,
 }
 
 /* FleetsApiService Delete fleet wing
- Delete a fleet wing, only empty wings can be deleted. The wing may contain squads, but the squads must be empty  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/wings/{wing_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/wings/{wing_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/wings/{wing_id}/&#x60; 
+ Delete a fleet wing, only empty wings can be deleted. The wing may contain squads, but the squads must be empty  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param wingId The wing to delete
@@ -197,7 +197,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdWingsWingId(ctx context.Context, f
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/wings/{wing_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/wings/{wing_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"wing_id"+"}", fmt.Sprintf("%v", wingId), -1)
 
@@ -256,7 +256,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdWingsWingId(ctx context.Context, f
 }
 
 /* FleetsApiService Get character fleet info
- Return the fleet ID the character is in, if any.  --- Alternate route: &#x60;/dev/characters/{character_id}/fleet/&#x60;  Alternate route: &#x60;/legacy/characters/{character_id}/fleet/&#x60;  Alternate route: &#x60;/v1/characters/{character_id}/fleet/&#x60;  --- This route is cached for up to 60 seconds
+ Return the fleet ID the character is in, if any.  ---  This route is cached for up to 60 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -274,7 +274,7 @@ func (a *FleetsApiService) GetCharactersCharacterIdFleet(ctx context.Context, ch
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/characters/{character_id}/fleet/"
+	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fleet/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -346,7 +346,7 @@ func (a *FleetsApiService) GetCharactersCharacterIdFleet(ctx context.Context, ch
 }
 
 /* FleetsApiService Get fleet information
- Return details about a fleet  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/&#x60;  --- This route is cached for up to 5 seconds
+ Return details about a fleet  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -364,7 +364,7 @@ func (a *FleetsApiService) GetFleetsFleetId(ctx context.Context, fleetId int64, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -433,7 +433,7 @@ func (a *FleetsApiService) GetFleetsFleetId(ctx context.Context, fleetId int64, 
 }
 
 /* FleetsApiService Get fleet members
- Return information about fleet members  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/members/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/members/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/members/&#x60;  --- This route is cached for up to 5 seconds
+ Return information about fleet members  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -453,7 +453,7 @@ func (a *FleetsApiService) GetFleetsFleetIdMembers(ctx context.Context, fleetId 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/members/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/members/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -534,7 +534,7 @@ func (a *FleetsApiService) GetFleetsFleetIdMembers(ctx context.Context, fleetId 
 }
 
 /* FleetsApiService Get fleet wings
- Return information about wings in a fleet  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/wings/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/wings/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/wings/&#x60;  --- This route is cached for up to 5 seconds
+ Return information about wings in a fleet  ---  This route is cached for up to 5 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -554,7 +554,7 @@ func (a *FleetsApiService) GetFleetsFleetIdWings(ctx context.Context, fleetId in
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/wings/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/wings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -635,7 +635,7 @@ func (a *FleetsApiService) GetFleetsFleetIdWings(ctx context.Context, fleetId in
 }
 
 /* FleetsApiService Create fleet invitation
- Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/members/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/members/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/members/&#x60; 
+ Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param invitation Details of the invitation
@@ -652,7 +652,7 @@ func (a *FleetsApiService) PostFleetsFleetIdMembers(ctx context.Context, fleetId
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/members/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/members/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -712,7 +712,7 @@ func (a *FleetsApiService) PostFleetsFleetIdMembers(ctx context.Context, fleetId
 }
 
 /* FleetsApiService Create fleet wing
- Create a new wing in a fleet  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/wings/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/wings/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/wings/&#x60; 
+ Create a new wing in a fleet  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -729,7 +729,7 @@ func (a *FleetsApiService) PostFleetsFleetIdWings(ctx context.Context, fleetId i
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/wings/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/wings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -792,7 +792,7 @@ func (a *FleetsApiService) PostFleetsFleetIdWings(ctx context.Context, fleetId i
 }
 
 /* FleetsApiService Create fleet squad
- Create a new squad in a fleet  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/wings/{wing_id}/squads/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/wings/{wing_id}/squads/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/wings/{wing_id}/squads/&#x60; 
+ Create a new squad in a fleet  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param wingId The wing_id to create squad in
@@ -810,7 +810,7 @@ func (a *FleetsApiService) PostFleetsFleetIdWingsWingIdSquads(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/wings/{wing_id}/squads/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/wings/{wing_id}/squads/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"wing_id"+"}", fmt.Sprintf("%v", wingId), -1)
 
@@ -874,7 +874,7 @@ func (a *FleetsApiService) PostFleetsFleetIdWingsWingIdSquads(ctx context.Contex
 }
 
 /* FleetsApiService Update fleet
- Update settings about a fleet  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/&#x60; 
+ Update settings about a fleet  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param newSettings What to update for this fleet
@@ -891,7 +891,7 @@ func (a *FleetsApiService) PutFleetsFleetId(ctx context.Context, fleetId int64, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -951,7 +951,7 @@ func (a *FleetsApiService) PutFleetsFleetId(ctx context.Context, fleetId int64, 
 }
 
 /* FleetsApiService Move fleet member
- Move a fleet member around  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/members/{member_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/members/{member_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/members/{member_id}/&#x60; 
+ Move a fleet member around  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param memberId The character ID of a member in this fleet
@@ -969,7 +969,7 @@ func (a *FleetsApiService) PutFleetsFleetIdMembersMemberId(ctx context.Context, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/members/{member_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/members/{member_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"member_id"+"}", fmt.Sprintf("%v", memberId), -1)
 
@@ -1030,7 +1030,7 @@ func (a *FleetsApiService) PutFleetsFleetIdMembersMemberId(ctx context.Context, 
 }
 
 /* FleetsApiService Rename fleet squad
- Rename a fleet squad  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/squads/{squad_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/squads/{squad_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/squads/{squad_id}/&#x60; 
+ Rename a fleet squad  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param naming New name of the squad
@@ -1048,7 +1048,7 @@ func (a *FleetsApiService) PutFleetsFleetIdSquadsSquadId(ctx context.Context, fl
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/squads/{squad_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/squads/{squad_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"squad_id"+"}", fmt.Sprintf("%v", squadId), -1)
 
@@ -1109,7 +1109,7 @@ func (a *FleetsApiService) PutFleetsFleetIdSquadsSquadId(ctx context.Context, fl
 }
 
 /* FleetsApiService Rename fleet wing
- Rename a fleet wing  --- Alternate route: &#x60;/dev/fleets/{fleet_id}/wings/{wing_id}/&#x60;  Alternate route: &#x60;/legacy/fleets/{fleet_id}/wings/{wing_id}/&#x60;  Alternate route: &#x60;/v1/fleets/{fleet_id}/wings/{wing_id}/&#x60; 
+ Rename a fleet wing  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param fleetId ID for a fleet
  @param naming New name of the wing
@@ -1127,7 +1127,7 @@ func (a *FleetsApiService) PutFleetsFleetIdWingsWingId(ctx context.Context, flee
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/fleets/{fleet_id}/wings/{wing_id}/"
+	localVarPath := a.client.cfg.BasePath + "/v1/fleets/{fleet_id}/wings/{wing_id}/"
 	localVarPath = strings.Replace(localVarPath, "{"+"fleet_id"+"}", fmt.Sprintf("%v", fleetId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"wing_id"+"}", fmt.Sprintf("%v", wingId), -1)
 

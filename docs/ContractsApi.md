@@ -1,22 +1,22 @@
 # \ContractsApi
 
-All URIs are relative to *https://esi.evetech.net/latest*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCharactersCharacterIdContracts**](ContractsApi.md#GetCharactersCharacterIdContracts) | **Get** /characters/{character_id}/contracts/ | Get contracts
-[**GetCharactersCharacterIdContractsContractIdBids**](ContractsApi.md#GetCharactersCharacterIdContractsContractIdBids) | **Get** /characters/{character_id}/contracts/{contract_id}/bids/ | Get contract bids
-[**GetCharactersCharacterIdContractsContractIdItems**](ContractsApi.md#GetCharactersCharacterIdContractsContractIdItems) | **Get** /characters/{character_id}/contracts/{contract_id}/items/ | Get contract items
-[**GetCorporationsCorporationIdContracts**](ContractsApi.md#GetCorporationsCorporationIdContracts) | **Get** /corporations/{corporation_id}/contracts/ | Get corporation contracts
-[**GetCorporationsCorporationIdContractsContractIdBids**](ContractsApi.md#GetCorporationsCorporationIdContractsContractIdBids) | **Get** /corporations/{corporation_id}/contracts/{contract_id}/bids/ | Get corporation contract bids
-[**GetCorporationsCorporationIdContractsContractIdItems**](ContractsApi.md#GetCorporationsCorporationIdContractsContractIdItems) | **Get** /corporations/{corporation_id}/contracts/{contract_id}/items/ | Get corporation contract items
+[**GetCharactersCharacterIdContracts**](ContractsApi.md#GetCharactersCharacterIdContracts) | **Get** /v1/characters/{character_id}/contracts/ | Get contracts
+[**GetCharactersCharacterIdContractsContractIdBids**](ContractsApi.md#GetCharactersCharacterIdContractsContractIdBids) | **Get** /v1/characters/{character_id}/contracts/{contract_id}/bids/ | Get contract bids
+[**GetCharactersCharacterIdContractsContractIdItems**](ContractsApi.md#GetCharactersCharacterIdContractsContractIdItems) | **Get** /v1/characters/{character_id}/contracts/{contract_id}/items/ | Get contract items
+[**GetCorporationsCorporationIdContracts**](ContractsApi.md#GetCorporationsCorporationIdContracts) | **Get** /v1/corporations/{corporation_id}/contracts/ | Get corporation contracts
+[**GetCorporationsCorporationIdContractsContractIdBids**](ContractsApi.md#GetCorporationsCorporationIdContractsContractIdBids) | **Get** /v1/corporations/{corporation_id}/contracts/{contract_id}/bids/ | Get corporation contract bids
+[**GetCorporationsCorporationIdContractsContractIdItems**](ContractsApi.md#GetCorporationsCorporationIdContractsContractIdItems) | **Get** /v1/corporations/{corporation_id}/contracts/{contract_id}/items/ | Get corporation contract items
 
 
 # **GetCharactersCharacterIdContracts**
 > []GetCharactersCharacterIdContracts200Ok GetCharactersCharacterIdContracts(ctx, characterId, optional)
 Get contracts
 
-Returns contracts available to a character, only if the character is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \"in_progress\".  --- Alternate route: `/dev/characters/{character_id}/contracts/`  Alternate route: `/legacy/characters/{character_id}/contracts/`  Alternate route: `/v1/characters/{character_id}/contracts/`  --- This route is cached for up to 300 seconds
+Returns contracts available to a character, only if the character is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \"in_progress\".  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdContractsContractIdBids200Ok GetCharactersCharacterIdContractsContractIdBids(ctx, characterId, contractId, optional)
 Get contract bids
 
-Lists bids on a particular auction contract  --- Alternate route: `/dev/characters/{character_id}/contracts/{contract_id}/bids/`  Alternate route: `/legacy/characters/{character_id}/contracts/{contract_id}/bids/`  Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/bids/`  --- This route is cached for up to 300 seconds
+Lists bids on a particular auction contract  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 > []GetCharactersCharacterIdContractsContractIdItems200Ok GetCharactersCharacterIdContractsContractIdItems(ctx, characterId, contractId, optional)
 Get contract items
 
-Lists items of a particular contract  --- Alternate route: `/dev/characters/{character_id}/contracts/{contract_id}/items/`  Alternate route: `/legacy/characters/{character_id}/contracts/{contract_id}/items/`  Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/items/`  --- This route is cached for up to 3600 seconds
+Lists items of a particular contract  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdContracts200Ok GetCorporationsCorporationIdContracts(ctx, corporationId, optional)
 Get corporation contracts
 
-Returns contracts available to a corporation, only if the corporation is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \"in_progress\".  --- Alternate route: `/dev/corporations/{corporation_id}/contracts/`  Alternate route: `/legacy/corporations/{corporation_id}/contracts/`  Alternate route: `/v1/corporations/{corporation_id}/contracts/`  --- This route is cached for up to 300 seconds
+Returns contracts available to a corporation, only if the corporation is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is \"in_progress\".  ---  This route is cached for up to 300 seconds
 
 ### Required Parameters
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdContractsContractIdBids200Ok GetCorporationsCorporationIdContractsContractIdBids(ctx, contractId, corporationId, optional)
 Get corporation contract bids
 
-Lists bids on a particular auction contract  --- Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/bids/`  Alternate route: `/legacy/corporations/{corporation_id}/contracts/{contract_id}/bids/`  Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/bids/`  --- This route is cached for up to 3600 seconds
+Lists bids on a particular auction contract  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 > []GetCorporationsCorporationIdContractsContractIdItems200Ok GetCorporationsCorporationIdContractsContractIdItems(ctx, contractId, corporationId, optional)
 Get corporation contract items
 
-Lists items of a particular contract  --- Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/items/`  Alternate route: `/legacy/corporations/{corporation_id}/contracts/{contract_id}/items/`  Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/items/`  --- This route is cached for up to 3600 seconds
+Lists items of a particular contract  ---  This route is cached for up to 3600 seconds
 
 ### Required Parameters
 
