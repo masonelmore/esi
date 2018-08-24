@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "An OpenAPI for EVE Online"
-  version: "0.8.5"
+  version: "0.8.6"
   title: "EVE Swagger Interface"
 host: "esi.evetech.net"
 schemes:
@@ -512,7 +512,7 @@ paths:
       - in: "body"
         name: "characters"
         description: "The character IDs to fetch affiliations for. All characters\
-          \ must exist, or none will be returned."
+          \ must exist, or none will be returned"
         required: true
         schema:
           title: "post_characters_affiliation_characters"
@@ -557,7 +557,7 @@ paths:
             application/json:
               error: "Bad request message"
         404:
-          description: "No characters found!"
+          description: "No characters found"
           schema:
             $ref: "#/definitions/post_characters_affiliation_not_found"
           examples:
@@ -651,7 +651,7 @@ paths:
           examples:
             application/json:
             - agent_id: 3009358
-              points_per_day: 53.5346162147
+              points_per_day: 53.5346162146776
               remainder_points: 53604.0634303189
               skill_type_id: 11450
               started_at: "2017-03-23T14:47:00Z"
@@ -1003,7 +1003,7 @@ paths:
       description: "Get 50 event summaries from the calendar. If no from_event ID\
         \ is given, the resource will return the next 50 chronological event summaries\
         \ from now. If a from_event ID is specified, it will return the next 50 chronological\
-        \ event summaries from after that event.\n\n---\n\nThis route is cached for\
+        \ event summaries from after that event\n\n---\n\nThis route is cached for\
         \ up to 5 seconds"
       operationId: "get_characters_character_id_calendar"
       parameters:
@@ -2989,7 +2989,8 @@ paths:
         x-exportParamName: "IfNoneMatch"
       - name: "include_completed"
         in: "query"
-        description: "Whether retrieve completed character industry jobs as well"
+        description: "Whether to retrieve completed character industry jobs. Only\
+          \ includes jobs from the past 90 days"
         required: false
         type: "boolean"
         x-exportParamName: "IncludeCompleted"
@@ -3274,7 +3275,7 @@ paths:
       summary: "Get character location"
       description: "Information about the characters current location. Returns the\
         \ current solar system id, and also the current station or structure ID if\
-        \ applicable.\n\n---\n\nThis route is cached for up to 5 seconds"
+        \ applicable\n\n---\n\nThis route is cached for up to 5 seconds"
       operationId: "get_characters_character_id_location"
       parameters:
       - name: "character_id"
@@ -3312,7 +3313,7 @@ paths:
         200:
           description: "Information about the characters current location. Returns\
             \ the current solar system id, and also the current station or structure\
-            \ ID if applicable."
+            \ ID if applicable"
           schema:
             $ref: "#/definitions/get_characters_character_id_location_ok"
           examples:
@@ -3550,7 +3551,7 @@ paths:
       summary: "Return mail headers"
       description: "Return the 50 most recent mail headers belonging to the character\
         \ that match the query criteria. Queries can be filtered by label, and last_mail_id\
-        \ can be used to paginate backwards.\n\n---\n\nThis route is cached for up\
+        \ can be used to paginate backwards\n\n---\n\nThis route is cached for up\
         \ to 30 seconds"
       operationId: "get_characters_character_id_mail"
       parameters:
@@ -3811,7 +3812,7 @@ paths:
               error: "Gateway timeout message"
         520:
           description: "Internal error thrown from the EVE server. Most of the time\
-            \ this means you have hit an EVE server rate limit."
+            \ this means you have hit an EVE server rate limit"
           schema:
             $ref: "#/definitions/post_characters_character_id_mail_error_520"
           examples:
@@ -6049,6 +6050,475 @@ paths:
       - "legacy"
       - "v1"
       x-cached-seconds: 3600
+  /v1/contracts/public/bids/{contract_id}/:
+    get:
+      tags:
+      - "Contracts"
+      summary: "Get public contract bids"
+      description: "Lists bids on a public auction contract\n\n---\n\nThis route is\
+        \ cached for up to 300 seconds"
+      operationId: "get_contracts_public_bids_contract_id"
+      parameters:
+      - name: "contract_id"
+        in: "path"
+        description: "ID of a contract"
+        required: true
+        type: "integer"
+        format: "int32"
+        x-exportParamName: "ContractId"
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - name: "If-None-Match"
+        in: "header"
+        description: "ETag from a previous request. A 304 will be returned if this\
+          \ matches the current ETag"
+        required: false
+        type: "string"
+        x-exportParamName: "IfNoneMatch"
+      - name: "page"
+        in: "query"
+        description: "Which page of results to return"
+        required: false
+        type: "integer"
+        default: 1
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "Page"
+      responses:
+        200:
+          description: "A list of bids"
+          schema:
+            type: "array"
+            description: "200 ok array"
+            title: "get_contracts_public_bids_contract_id_ok"
+            items:
+              $ref: "#/definitions/get_contracts_public_bids_contract_id_200_ok"
+            maxItems: 1000
+          examples:
+            application/json:
+            - amount: 1.23
+              bid_id: 1
+              bidder_id: 123
+              date_bid: "2017-01-01T10:10:10Z"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            X-Pages:
+              type: "integer"
+              format: "int32"
+              description: "Maximum page number"
+              default: 1
+        204:
+          description: "Contract expired or recently accepted by player"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        304:
+          description: "Not modified"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        403:
+          description: "Not Authorized to see contract"
+          schema:
+            $ref: "#/definitions/get_contracts_public_bids_contract_id_forbidden"
+          examples:
+            application/json:
+              error: "Forbidden message"
+        404:
+          description: "Not found"
+          schema:
+            $ref: "#/definitions/get_contracts_public_bids_contract_id_not_found"
+          examples:
+            application/json:
+              error: "Not found message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      x-alternate-versions:
+      - "dev"
+      - "legacy"
+      - "v1"
+      x-cached-seconds: 300
+  /v1/contracts/public/items/{contract_id}/:
+    get:
+      tags:
+      - "Contracts"
+      summary: "Get public contract items"
+      description: "Lists items of a public contract\n\n---\n\nThis route is cached\
+        \ for up to 3600 seconds"
+      operationId: "get_contracts_public_items_contract_id"
+      parameters:
+      - name: "contract_id"
+        in: "path"
+        description: "ID of a contract"
+        required: true
+        type: "integer"
+        format: "int32"
+        x-exportParamName: "ContractId"
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - name: "If-None-Match"
+        in: "header"
+        description: "ETag from a previous request. A 304 will be returned if this\
+          \ matches the current ETag"
+        required: false
+        type: "string"
+        x-exportParamName: "IfNoneMatch"
+      - name: "page"
+        in: "query"
+        description: "Which page of results to return"
+        required: false
+        type: "integer"
+        default: 1
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "Page"
+      responses:
+        200:
+          description: "A list of items in this contract"
+          schema:
+            type: "array"
+            description: "200 ok array"
+            title: "get_contracts_public_items_contract_id_ok"
+            items:
+              $ref: "#/definitions/get_contracts_public_items_contract_id_200_ok"
+            maxItems: 1000
+          examples:
+            application/json:
+            - is_included: true
+              item_id: 123456
+              quantity: 1
+              record_id: 123456
+              type_id: 587
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            X-Pages:
+              type: "integer"
+              format: "int32"
+              description: "Maximum page number"
+              default: 1
+        204:
+          description: "Contract expired or recently accepted by player"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        304:
+          description: "Not modified"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        403:
+          description: "Not Authorized to see contract"
+          schema:
+            $ref: "#/definitions/get_contracts_public_items_contract_id_forbidden"
+          examples:
+            application/json:
+              error: "Forbidden message"
+        404:
+          description: "Not found"
+          schema:
+            $ref: "#/definitions/get_contracts_public_items_contract_id_not_found"
+          examples:
+            application/json:
+              error: "Not found message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      x-alternate-versions:
+      - "dev"
+      - "legacy"
+      - "v1"
+      x-cached-seconds: 3600
+  /v1/contracts/public/{region_id}/:
+    get:
+      tags:
+      - "Contracts"
+      summary: "Get public contracts"
+      description: "Returns a paginated list of all public contracts in the given\
+        \ region\n\n---\n\nThis route is cached for up to 1800 seconds"
+      operationId: "get_contracts_public_region_id"
+      parameters:
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - name: "If-None-Match"
+        in: "header"
+        description: "ETag from a previous request. A 304 will be returned if this\
+          \ matches the current ETag"
+        required: false
+        type: "string"
+        x-exportParamName: "IfNoneMatch"
+      - name: "page"
+        in: "query"
+        description: "Which page of results to return"
+        required: false
+        type: "integer"
+        default: 1
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "region_id"
+        in: "path"
+        description: "An EVE region id"
+        required: true
+        type: "integer"
+        format: "int32"
+        x-exportParamName: "RegionId"
+      responses:
+        200:
+          description: "A list of contracts"
+          schema:
+            type: "array"
+            description: "200 ok array"
+            title: "get_contracts_public_region_id_ok"
+            items:
+              $ref: "#/definitions/get_contracts_public_region_id_200_ok"
+            maxItems: 1000
+          examples:
+            application/json:
+            - buyout: 1.000000000001E10
+              contract_id: 1
+              date_expired: "2017-06-13T13:12:32Z"
+              date_issued: "2017-06-06T13:12:32Z"
+              days_to_complete: 0
+              end_location_id: 60014719
+              for_corporation: true
+              issuer_corporation_id: 456
+              issuer_id: 123
+              price: 1000000.01
+              reward: 0.01
+              start_location_id: 60014719
+              type: "auction"
+              volume: 0.01
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            X-Pages:
+              type: "integer"
+              format: "int32"
+              description: "Maximum page number"
+              default: 1
+        304:
+          description: "Not modified"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        404:
+          description: "Region not found"
+          schema:
+            $ref: "#/definitions/get_contracts_public_region_id_not_found"
+          examples:
+            application/json:
+              error: "Not found message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      x-alternate-versions:
+      - "dev"
+      - "legacy"
+      - "v1"
+      x-cached-seconds: 1800
   /v1/corporation/{corporation_id}/mining/extractions/:
     get:
       tags:
@@ -6646,10 +7116,10 @@ paths:
     post:
       tags:
       - "Assets"
-      summary: "Get coporation asset names"
+      summary: "Get corporation asset names"
       description: "Return names for a set of item ids, which you can get from corporation\
         \ assets endpoint. Only valid for items that can customize names, like containers\
-        \ or ships.\n\n---\n\nRequires one of the following EVE corporation role(s):\
+        \ or ships\n\n---\n\nRequires one of the following EVE corporation role(s):\
         \ Director"
       operationId: "post_corporations_corporation_id_assets_names"
       parameters:
@@ -7727,7 +8197,7 @@ paths:
               error: "Gateway timeout message"
         520:
           description: "Internal error thrown from the EVE server. Most of the time\
-            \ this means you have hit an EVE server rate limit."
+            \ this means you have hit an EVE server rate limit"
           schema:
             $ref: "#/definitions/get_corporations_corporation_id_contracts_contract_id_items_error_520"
           examples:
@@ -8492,7 +8962,8 @@ paths:
         x-exportParamName: "IfNoneMatch"
       - name: "include_completed"
         in: "query"
-        description: "Whether retrieve completed industry jobs as well"
+        description: "Whether to retrieve completed corporation industry jobs. Only\
+          \ includes jobs from the past 90 days"
         required: false
         type: "boolean"
         default: false
@@ -13029,7 +13500,7 @@ paths:
       - "Faction Warfare"
       summary: "List of the top factions in faction warfare"
       description: "Top 4 leaderboard of factions for kills and victory points separated\
-        \ by total, last week and yesterday.\n\n---\n\nThis route expires daily at\
+        \ by total, last week and yesterday\n\n---\n\nThis route expires daily at\
         \ 11:05"
       operationId: "get_fw_leaderboards"
       parameters:
@@ -13053,7 +13524,7 @@ paths:
       responses:
         200:
           description: "Corporation leaderboard of kills and victory points within\
-            \ faction warfare."
+            \ faction warfare"
           schema:
             $ref: "#/definitions/get_fw_leaderboards_ok"
           examples:
@@ -13163,7 +13634,7 @@ paths:
       - "Faction Warfare"
       summary: "List of the top pilots in faction warfare"
       description: "Top 100 leaderboard of pilots for kills and victory points separated\
-        \ by total, last week and yesterday.\n\n---\n\nThis route expires daily at\
+        \ by total, last week and yesterday\n\n---\n\nThis route expires daily at\
         \ 11:05"
       operationId: "get_fw_leaderboards_characters"
       parameters:
@@ -13187,7 +13658,7 @@ paths:
       responses:
         200:
           description: "Character leaderboard of kills and victory points within faction\
-            \ warfare."
+            \ warfare"
           schema:
             $ref: "#/definitions/get_fw_leaderboards_characters_ok"
           examples:
@@ -13297,7 +13768,7 @@ paths:
       - "Faction Warfare"
       summary: "List of the top corporations in faction warfare"
       description: "Top 10 leaderboard of corporations for kills and victory points\
-        \ separated by total, last week and yesterday.\n\n---\n\nThis route expires\
+        \ separated by total, last week and yesterday\n\n---\n\nThis route expires\
         \ daily at 11:05"
       operationId: "get_fw_leaderboards_corporations"
       parameters:
@@ -13321,7 +13792,7 @@ paths:
       responses:
         200:
           description: "Corporation leaderboard of kills and victory points within\
-            \ faction warfare."
+            \ faction warfare"
           schema:
             $ref: "#/definitions/get_fw_leaderboards_corporations_ok"
           examples:
@@ -15099,7 +15570,7 @@ paths:
             application/json:
               error: "Gateway timeout message"
         520:
-          description: "Internal error thrown from the EVE server."
+          description: "Internal error thrown from the EVE server"
           schema:
             $ref: "#/definitions/get_markets_region_id_history_error_520"
           examples:
@@ -15138,7 +15609,7 @@ paths:
       - name: "order_type"
         in: "query"
         description: "Filter buy/sell orders, return all orders by default. If you\
-          \ query without type_id, we always return both buy and sell orders."
+          \ query without type_id, we always return both buy and sell orders"
         required: true
         type: "string"
         default: "all"
@@ -18368,7 +18839,7 @@ paths:
       description: "Resolve a set of names to IDs in the following categories: agents,\
         \ alliances, characters, constellations, corporations factions, inventory_types,\
         \ regions, stations, and systems. Only exact matches will be returned. All\
-        \ names searched for are cached for 12 hours.\n\n---\n"
+        \ names searched for are cached for 12 hours\n\n---\n"
       operationId: "post_universe_ids"
       parameters:
       - name: "Accept-Language"
@@ -18428,7 +18899,7 @@ paths:
       responses:
         200:
           description: "List of id/name associations for a set of names divided by\
-            \ category. Any name passed in that did not have a match will be ommitted."
+            \ category. Any name passed in that did not have a match will be ommitted"
           schema:
             $ref: "#/definitions/post_universe_ids_ok"
           examples:
@@ -19431,7 +19902,7 @@ paths:
           examples:
             application/json:
               age: 9398686722
-              luminosity: 0.0661500022
+              luminosity: 0.06615000218153
               name: "BKG-Q2 - Star"
               radius: 346600000
               solar_system_id: 30004333
@@ -19990,14 +20461,14 @@ paths:
         x-exportParamName: "IfNoneMatch"
       - name: "max_war_id"
         in: "query"
-        description: "Only return wars with ID smaller than this."
+        description: "Only return wars with ID smaller than this"
         required: false
         type: "integer"
         format: "int32"
         x-exportParamName: "MaxWarId"
       responses:
         200:
-          description: "A list of war IDs, in decending order by war_id."
+          description: "A list of war IDs, in descending order by war_id"
           schema:
             type: "array"
             description: "200 ok array"
@@ -21396,7 +21867,7 @@ paths:
             application/json:
               error: "Gateway timeout message"
         520:
-          description: "Internal error thrown from the EVE server."
+          description: "Internal error thrown from the EVE server"
           schema:
             $ref: "#/definitions/post_characters_character_id_contacts_error_520"
           examples:
@@ -21749,7 +22220,8 @@ paths:
       - "Character"
       summary: "Get character notifications"
       description: "Return character notifications\n\n---\n\nThis route is cached\
-        \ for up to 600 seconds"
+        \ for up to 600 seconds\n\n---\nWarning: This route has an upgrade available\n\
+        \n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/notifications/)"
       operationId: "get_characters_character_id_notifications"
       parameters:
       - name: "character_id"
@@ -21884,7 +22356,6 @@ paths:
       - evesso:
         - "esi-characters.read_notifications.v1"
       x-alternate-versions:
-      - "dev"
       - "v2"
       x-cached-seconds: 600
   /v2/characters/{character_id}/online/:
@@ -24523,7 +24994,7 @@ paths:
       summary: "Get names and categories for a set of ID's"
       description: "Resolve a set of IDs to names and categories. Supported ID's for\
         \ resolving are: Characters, Corporations, Alliances, Stations, Solar Systems,\
-        \ Constellations, Regions, Types.\n\n---\n"
+        \ Constellations, Regions, Types\n\n---\n"
       operationId: "post_universe_names"
       parameters:
       - name: "datasource"
@@ -24554,7 +25025,7 @@ paths:
       responses:
         200:
           description: "List of id/name associations for a set of ID's. All ID's must\
-            \ resolve to a name, or nothing will be returned."
+            \ resolve to a name, or nothing will be returned"
           schema:
             type: "array"
             description: "200 ok array"
@@ -24578,7 +25049,7 @@ paths:
             application/json:
               error: "Bad request message"
         404:
-          description: "Ensure all IDs are valid before resolving."
+          description: "Ensure all IDs are valid before resolving"
           schema:
             $ref: "#/definitions/post_universe_names_not_found"
           examples:
@@ -25479,7 +25950,7 @@ paths:
         x-exportParamName: "EventId"
       - in: "body"
         name: "response"
-        description: "The response value to set, overriding current value."
+        description: "The response value to set, overriding current value"
         required: true
         schema:
           $ref: "#/definitions/put_characters_character_id_calendar_event_id_response"
@@ -25892,12 +26363,12 @@ paths:
                 link_level: 0
                 source_pin_id: 1000000017021
               pins:
-              - latitude: 1.5508784497
-                longitude: 0.7171459333
+              - latitude: 1.55087844973
+                longitude: 0.717145933308
                 pin_id: 1000000017021
                 type_id: 2254
-              - latitude: 1.5336063994
-                longitude: 0.7097755844
+              - latitude: 1.53360639935
+                longitude: 0.709775584394
                 pin_id: 1000000017022
                 type_id: 2256
               routes:
@@ -27761,7 +28232,7 @@ paths:
                 y: 43938227486247170
                 z: -56482824383339900
               security_class: "B"
-              security_status: 0.8462923765
+              security_status: 0.8462923765182495
               star_id: 40000040
               stargates:
               - 50000342
@@ -27852,7 +28323,7 @@ paths:
 securityDefinitions:
   evesso:
     type: "oauth2"
-    authorizationUrl: "https://login.eveonline.com/oauth/authorize"
+    authorizationUrl: "https://login.eveonline.com/v2/oauth/authorize"
     flow: "implicit"
     scopes:
       esi-alliances.read_contacts.v1: "EVE SSO scope esi-alliances.read_contacts.v1"
@@ -28423,7 +28894,7 @@ definitions:
       is_included:
         type: "boolean"
         description: "true if the contract issuer has submitted this item with the\
-          \ contract, false if the isser is asking for this item in the contract."
+          \ contract, false if the isser is asking for this item in the contract"
         title: "get_characters_character_id_contracts_contract_id_items_is_included"
       is_singleton:
         type: "boolean"
@@ -29633,6 +30104,221 @@ definitions:
         description: "Amount paid per unit"
         title: "get_characters_character_id_wallet_transactions_unit_price"
     description: "wallet transaction"
+  get_contracts_public_bids_contract_id_200_ok:
+    required:
+    - "amount"
+    - "bid_id"
+    - "bidder_id"
+    - "date_bid"
+    properties:
+      amount:
+        type: "number"
+        format: "float"
+        description: "The amount bid, in ISK"
+        title: "get_contracts_public_bids_contract_id_amount"
+      bid_id:
+        type: "integer"
+        format: "int32"
+        description: "Unique ID for the bid"
+        title: "get_contracts_public_bids_contract_id_bid_id"
+      bidder_id:
+        type: "integer"
+        format: "int32"
+        description: "Character ID of the bidder"
+        title: "get_contracts_public_bids_contract_id_bidder_id"
+      date_bid:
+        type: "string"
+        format: "date-time"
+        description: "Datetime when the bid was placed"
+        title: "get_contracts_public_bids_contract_id_date_bid"
+    description: "200 ok object"
+  get_contracts_public_bids_contract_id_forbidden:
+    properties:
+      error:
+        type: "string"
+        description: "Forbidden message"
+        title: "get_contracts_public_bids_contract_id_403_forbidden"
+    description: "Forbidden"
+  get_contracts_public_bids_contract_id_not_found:
+    properties:
+      error:
+        type: "string"
+        description: "Not found message"
+        title: "get_contracts_public_bids_contract_id_404_not_found"
+    description: "Not found"
+  get_contracts_public_items_contract_id_200_ok:
+    required:
+    - "is_included"
+    - "quantity"
+    - "record_id"
+    - "type_id"
+    properties:
+      is_blueprint_copy:
+        type: "boolean"
+        description: "is_blueprint_copy boolean"
+        title: "get_contracts_public_items_contract_id_is_blueprint_copy"
+      is_included:
+        type: "boolean"
+        description: "true if the contract issuer has submitted this item with the\
+          \ contract, false if the isser is asking for this item in the contract"
+        title: "get_contracts_public_items_contract_id_is_included"
+      item_id:
+        type: "integer"
+        format: "int64"
+        description: "Unique ID for the item being sold. Not present if item is being\
+          \ requested by contract rather than sold with contract"
+        title: "get_contracts_public_items_contract_id_item_id"
+      material_efficiency:
+        type: "integer"
+        format: "int32"
+        description: "Material Efficiency Level of the blueprint"
+        title: "get_contracts_public_items_contract_id_material_efficiency"
+        minimum: 0
+        maximum: 25
+      quantity:
+        type: "integer"
+        format: "int32"
+        description: "Number of items in the stack"
+        title: "get_contracts_public_items_contract_id_quantity"
+      record_id:
+        type: "integer"
+        format: "int64"
+        description: "Unique ID for the item, used by the contract system"
+        title: "get_contracts_public_items_contract_id_record_id"
+      runs:
+        type: "integer"
+        format: "int32"
+        description: "Number of runs remaining if the blueprint is a copy, -1 if it\
+          \ is an original"
+        title: "get_contracts_public_items_contract_id_runs"
+        minimum: -1
+      time_efficiency:
+        type: "integer"
+        format: "int32"
+        description: "Time Efficiency Level of the blueprint"
+        title: "get_contracts_public_items_contract_id_time_efficiency"
+        minimum: 0
+        maximum: 20
+      type_id:
+        type: "integer"
+        format: "int32"
+        description: "Type ID for item"
+        title: "get_contracts_public_items_contract_id_type_id"
+    description: "200 ok object"
+  get_contracts_public_items_contract_id_forbidden:
+    properties:
+      error:
+        type: "string"
+        description: "Forbidden message"
+        title: "get_contracts_public_items_contract_id_403_forbidden"
+    description: "Forbidden"
+  get_contracts_public_items_contract_id_not_found:
+    properties:
+      error:
+        type: "string"
+        description: "Not found message"
+        title: "get_contracts_public_items_contract_id_404_not_found"
+    description: "Not found"
+  get_contracts_public_region_id_200_ok:
+    required:
+    - "contract_id"
+    - "date_expired"
+    - "date_issued"
+    - "issuer_corporation_id"
+    - "issuer_id"
+    - "type"
+    properties:
+      buyout:
+        type: "number"
+        format: "double"
+        description: "Buyout price (for Auctions only)"
+        title: "get_contracts_public_region_id_buyout"
+      collateral:
+        type: "number"
+        format: "double"
+        description: "Collateral price (for Couriers only)"
+        title: "get_contracts_public_region_id_collateral"
+      contract_id:
+        type: "integer"
+        format: "int32"
+        description: "contract_id integer"
+        title: "get_contracts_public_region_id_contract_id"
+      date_expired:
+        type: "string"
+        format: "date-time"
+        description: "Expiration date of the contract"
+        title: "get_contracts_public_region_id_date_expired"
+      date_issued:
+        type: "string"
+        format: "date-time"
+        description: "Сreation date of the contract"
+        title: "get_contracts_public_region_id_date_issued"
+      days_to_complete:
+        type: "integer"
+        format: "int32"
+        description: "Number of days to perform the contract"
+        title: "get_contracts_public_region_id_days_to_complete"
+      end_location_id:
+        type: "integer"
+        format: "int64"
+        description: "End location ID (for Couriers contract)"
+        title: "get_contracts_public_region_id_end_location_id"
+      for_corporation:
+        type: "boolean"
+        description: "true if the contract was issued on behalf of the issuer's corporation"
+        title: "get_contracts_public_region_id_for_corporation"
+      issuer_corporation_id:
+        type: "integer"
+        format: "int32"
+        description: "Character's corporation ID for the issuer"
+        title: "get_contracts_public_region_id_issuer_corporation_id"
+      issuer_id:
+        type: "integer"
+        format: "int32"
+        description: "Character ID for the issuer"
+        title: "get_contracts_public_region_id_issuer_id"
+      price:
+        type: "number"
+        format: "double"
+        description: "Price of contract (for ItemsExchange and Auctions)"
+        title: "get_contracts_public_region_id_price"
+      reward:
+        type: "number"
+        format: "double"
+        description: "Remuneration for contract (for Couriers only)"
+        title: "get_contracts_public_region_id_reward"
+      start_location_id:
+        type: "integer"
+        format: "int64"
+        description: "Start location ID (for Couriers contract)"
+        title: "get_contracts_public_region_id_start_location_id"
+      title:
+        type: "string"
+        description: "Title of the contract"
+        title: "get_contracts_public_region_id_title"
+      type:
+        type: "string"
+        description: "Type of the contract"
+        title: "get_contracts_public_region_id_type"
+        enum:
+        - "unknown"
+        - "item_exchange"
+        - "auction"
+        - "courier"
+        - "loan"
+      volume:
+        type: "number"
+        format: "double"
+        description: "Volume of items in the contract"
+        title: "get_contracts_public_region_id_volume"
+    description: "200 ok object"
+  get_contracts_public_region_id_not_found:
+    properties:
+      error:
+        type: "string"
+        description: "Not found message"
+        title: "get_contracts_public_region_id_404_not_found"
+    description: "Not found"
   get_corporation_corporation_id_mining_extractions_200_ok:
     required:
     - "chunk_arrival_time"
@@ -30060,7 +30746,7 @@ definitions:
       is_included:
         type: "boolean"
         description: "true if the contract issuer has submitted this item with the\
-          \ contract, false if the isser is asking for this item in the contract."
+          \ contract, false if the isser is asking for this item in the contract"
         title: "get_corporations_corporation_id_contracts_contract_id_items_is_included"
       is_singleton:
         type: "boolean"
@@ -32651,7 +33337,7 @@ definitions:
         type: "array"
         description: "Top 4 ranking of factions active in faction warfare by total\
           \ kills. A faction is considered \"active\" if they have participated in\
-          \ faction warfare in the past 14 days."
+          \ faction warfare in the past 14 days"
         title: "get_fw_leaderboards_active_total"
         items:
           $ref: "#/definitions/get_fw_leaderboards_active_total_active_total"
@@ -32671,7 +33357,7 @@ definitions:
           $ref: "#/definitions/get_fw_leaderboards_yesterday_yesterday"
         maxItems: 4
     description: "Top 4 rankings of factions by number of kills from yesterday, last\
-      \ week and in total."
+      \ week and in total"
   get_fw_leaderboards_active_total_active_total_1:
     properties:
       amount:
@@ -32721,7 +33407,7 @@ definitions:
         type: "array"
         description: "Top 4 ranking of factions active in faction warfare by total\
           \ victory points. A faction is considered \"active\" if they have participated\
-          \ in faction warfare in the past 14 days."
+          \ in faction warfare in the past 14 days"
         title: "get_fw_leaderboards_victory_points_active_total"
         items:
           $ref: "#/definitions/get_fw_leaderboards_active_total_active_total_1"
@@ -32801,7 +33487,7 @@ definitions:
         type: "array"
         description: "Top 100 ranking of pilots active in faction warfare by total\
           \ kills. A pilot is considered \"active\" if they have participated in faction\
-          \ warfare in the past 14 days."
+          \ warfare in the past 14 days"
         title: "get_fw_leaderboards_characters_active_total"
         items:
           $ref: "#/definitions/get_fw_leaderboards_characters_active_total_active_total"
@@ -32821,7 +33507,7 @@ definitions:
           $ref: "#/definitions/get_fw_leaderboards_characters_yesterday_yesterday"
         maxItems: 100
     description: "Top 100 rankings of pilots by number of kills from yesterday, last\
-      \ week and in total."
+      \ week and in total"
   get_fw_leaderboards_characters_active_total_active_total_1:
     properties:
       amount:
@@ -32871,7 +33557,7 @@ definitions:
         type: "array"
         description: "Top 100 ranking of pilots active in faction warfare by total\
           \ victory points. A pilot is considered \"active\" if they have participated\
-          \ in faction warfare in the past 14 days."
+          \ in faction warfare in the past 14 days"
         title: "get_fw_leaderboards_characters_victory_points_active_total"
         items:
           $ref: "#/definitions/get_fw_leaderboards_characters_active_total_active_total_1"
@@ -32951,7 +33637,7 @@ definitions:
         type: "array"
         description: "Top 10 ranking of corporations active in faction warfare by\
           \ total kills. A corporation is considered \"active\" if they have participated\
-          \ in faction warfare in the past 14 days."
+          \ in faction warfare in the past 14 days"
         title: "get_fw_leaderboards_corporations_active_total"
         items:
           $ref: "#/definitions/get_fw_leaderboards_corporations_active_total_active_total"
@@ -32971,7 +33657,7 @@ definitions:
           $ref: "#/definitions/get_fw_leaderboards_corporations_yesterday_yesterday"
         maxItems: 10
     description: "Top 10 rankings of corporations by number of kills from yesterday,\
-      \ last week and in total."
+      \ last week and in total"
   get_fw_leaderboards_corporations_active_total_active_total_1:
     properties:
       amount:
@@ -33021,7 +33707,7 @@ definitions:
         type: "array"
         description: "Top 10 ranking of corporations active in faction warfare by\
           \ total victory points. A corporation is considered \"active\" if they have\
-          \ participated in faction warfare in the past 14 days."
+          \ participated in faction warfare in the past 14 days"
         title: "get_fw_leaderboards_corporations_victory_points_active_total"
         items:
           $ref: "#/definitions/get_fw_leaderboards_corporations_active_total_active_total_1"
@@ -35401,7 +36087,7 @@ definitions:
         items:
           type: "integer"
           format: "int64"
-          description: "Label IDs applied to the contact."
+          description: "Label IDs applied to the contact"
           title: "get_alliances_alliance_id_contacts_label_id"
         maxItems: 63
       standing:
@@ -35724,7 +36410,7 @@ definitions:
         items:
           type: "integer"
           format: "int64"
-          description: "Label IDs applied to the contact."
+          description: "Label IDs applied to the contact"
           title: "get_characters_character_id_contacts_label_id"
         maxItems: 63
       standing:
@@ -38247,7 +38933,7 @@ definitions:
         items:
           type: "integer"
           format: "int64"
-          description: "Label IDs applied to the contact."
+          description: "Label IDs applied to the contact"
           title: "get_corporations_corporation_id_contacts_label_id"
         maxItems: 63
       standing:
@@ -38610,13 +39296,13 @@ definitions:
         type: "string"
         format: "date-time"
         description: "The date and time when the structure's newly requested reinforcement\
-          \ times (e.g. next_reinforce_hour and next_reinforce_day) will take effect."
+          \ times (e.g. next_reinforce_hour and next_reinforce_day) will take effect"
         title: "get_corporations_corporation_id_structures_next_reinforce_apply"
       next_reinforce_hour:
         type: "integer"
         format: "int32"
         description: "The requested change to reinforce_hour that will take effect\
-          \ at the time shown by next_reinforce_apply."
+          \ at the time shown by next_reinforce_apply"
         title: "get_corporations_corporation_id_structures_next_reinforce_hour"
         minimum: 0
         maximum: 23
@@ -38624,7 +39310,7 @@ definitions:
         type: "integer"
         format: "int32"
         description: "The requested change to reinforce_weekday that will take effect\
-          \ at the time shown by next_reinforce_apply."
+          \ at the time shown by next_reinforce_apply"
         title: "get_corporations_corporation_id_structures_next_reinforce_weekday"
         minimum: 0
         maximum: 6
@@ -38639,7 +39325,7 @@ definitions:
         description: "The hour of day that determines the four hour window when the\
           \ structure will randomly exit its reinforcement periods and become vulnerable\
           \ to attack against its armor and/or hull. The structure will become vulnerable\
-          \ at a random time that is +/- 2 hours centered on the value of this property."
+          \ at a random time that is +/- 2 hours centered on the value of this property"
         title: "get_corporations_corporation_id_structures_reinforce_hour"
         minimum: 0
         maximum: 23
@@ -38648,7 +39334,7 @@ definitions:
         format: "int32"
         description: "The day of the week when the structure exits its final reinforcement\
           \ period and becomes vulnerable to attack against its hull. Monday is 0\
-          \ and Sunday is 6."
+          \ and Sunday is 6"
         title: "get_corporations_corporation_id_structures_reinforce_weekday"
         minimum: 0
         maximum: 6
