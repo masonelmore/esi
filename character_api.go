@@ -561,7 +561,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdMedals(ctx context.Context
 }
 
 /* CharacterApiService Get character notifications
- Return character notifications  ---  This route is cached for up to 600 seconds  --- Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/notifications/)
+ Return character notifications  ---  This route is cached for up to 600 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -579,7 +579,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdNotifications(ctx context.
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/notifications/"
+	localVarPath := a.client.cfg.BasePath + "/v4/characters/{character_id}/notifications/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -741,7 +741,7 @@ func (a *CharacterApiService) GetCharactersCharacterIdNotificationsContacts(ctx 
 }
 
 /* CharacterApiService Get character portraits
- Get portrait urls for a character  ---  This route is cached for up to 3600 seconds
+ Get portrait urls for a character  ---  This route expires daily at 11:05
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:

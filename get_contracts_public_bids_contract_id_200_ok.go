@@ -22,9 +22,6 @@ type GetContractsPublicBidsContractId200Ok struct {
 	// Unique ID for the bid
 	BidId int32 `json:"bid_id"`
 
-	// Character ID of the bidder
-	BidderId int32 `json:"bidder_id"`
-
 	// Datetime when the bid was placed
 	DateBid time.Time `json:"date_bid"`
 }

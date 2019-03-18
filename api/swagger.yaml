@@ -387,8 +387,8 @@ paths:
       tags:
       - "Alliance"
       summary: "Get alliance icon"
-      description: "Get the icon urls for a alliance\n\n---\n\nThis route is cached\
-        \ for up to 3600 seconds"
+      description: "Get the icon urls for a alliance\n\n---\n\nThis route expires\
+        \ daily at 11:05"
       operationId: "get_alliances_alliance_id_icons"
       parameters:
       - name: "alliance_id"
@@ -499,7 +499,6 @@ paths:
       - "dev"
       - "legacy"
       - "v1"
-      x-cached-seconds: 3600
   /v1/characters/affiliation/:
     post:
       tags:
@@ -864,7 +863,7 @@ paths:
       - "Skills"
       summary: "Get character attributes"
       description: "Return attributes of a character\n\n---\n\nThis route is cached\
-        \ for up to 3600 seconds"
+        \ for up to 120 seconds"
       operationId: "get_characters_character_id_attributes"
       parameters:
       - name: "character_id"
@@ -994,7 +993,7 @@ paths:
       - "dev"
       - "legacy"
       - "v1"
-      x-cached-seconds: 3600
+      x-cached-seconds: 120
   /v1/characters/{character_id}/calendar/:
     get:
       tags:
@@ -2187,7 +2186,8 @@ paths:
       - "Fittings"
       summary: "Get fittings"
       description: "Return fittings of a character\n\n---\n\nThis route is cached\
-        \ for up to 300 seconds"
+        \ for up to 300 seconds\n\n---\nWarning: This route has an upgrade available\n\
+        \n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/fittings/)"
       operationId: "get_characters_character_id_fittings"
       parameters:
       - name: "character_id"
@@ -2322,7 +2322,6 @@ paths:
       - evesso:
         - "esi-fittings.read_fittings.v1"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
       x-cached-seconds: 300
@@ -2330,7 +2329,8 @@ paths:
       tags:
       - "Fittings"
       summary: "Create fitting"
-      description: "Save a new fitting for a character\n\n---\n"
+      description: "Save a new fitting for a character\n\n---\n\nWarning: This route\
+        \ has an upgrade available\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#POST-/characters/{character_id}/fittings/)"
       operationId: "post_characters_character_id_fittings"
       parameters:
       - name: "character_id"
@@ -2425,7 +2425,6 @@ paths:
       - evesso:
         - "esi-fittings.write_fittings.v1"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/characters/{character_id}/fittings/{fitting_id}/:
@@ -2816,7 +2815,7 @@ paths:
       - "Clones"
       summary: "Get active implants"
       description: "Return implants on the active clone of a character\n\n---\n\n\
-        This route is cached for up to 300 seconds"
+        This route is cached for up to 120 seconds"
       operationId: "get_characters_character_id_implants"
       parameters:
       - name: "character_id"
@@ -2952,7 +2951,7 @@ paths:
       - "dev"
       - "legacy"
       - "v1"
-      x-cached-seconds: 300
+      x-cached-seconds: 120
   /v1/characters/{character_id}/industry/jobs/:
     get:
       tags:
@@ -6106,7 +6105,6 @@ paths:
             application/json:
             - amount: 1.23
               bid_id: 1
-              bidder_id: 123
               date_bid: "2017-01-01T10:10:10Z"
           headers:
             Cache-Control:
@@ -6526,7 +6524,7 @@ paths:
       summary: "Moon extraction timers"
       description: "Extraction timers for all moon chunks being extracted by refineries\
         \ belonging to a corporation.\n\n---\n\nThis route is cached for up to 1800\
-        \ seconds\n\n---\nRequires one of the following EVE corporation role(s): Structure_manager"
+        \ seconds\n\n---\nRequires one of the following EVE corporation role(s): Station_Manager"
       operationId: "get_corporation_corporation_id_mining_extractions"
       parameters:
       - name: "corporation_id"
@@ -6677,7 +6675,7 @@ paths:
       - "v1"
       x-cached-seconds: 1800
       x-required-roles:
-      - "Structure_manager"
+      - "Station_Manager"
   /v1/corporation/{corporation_id}/mining/observers/:
     get:
       tags:
@@ -8932,7 +8930,7 @@ paths:
       summary: "List corporation industry jobs"
       description: "List industry jobs run by a corporation\n\n---\n\nThis route is\
         \ cached for up to 300 seconds\n\n---\nRequires one of the following EVE corporation\
-        \ role(s): FactoryManager"
+        \ role(s): Factory_Manager"
       operationId: "get_corporations_corporation_id_industry_jobs"
       parameters:
       - name: "corporation_id"
@@ -9102,7 +9100,7 @@ paths:
       - "v1"
       x-cached-seconds: 300
       x-required-roles:
-      - "FactoryManager"
+      - "Factory_Manager"
   /v1/corporations/{corporation_id}/killmails/recent/:
     get:
       tags:
@@ -15330,7 +15328,7 @@ paths:
             title: "get_markets_structures_structure_id_ok"
             items:
               $ref: "#/definitions/get_markets_structures_structure_id_200_ok"
-            maxItems: 5000
+            maxItems: 1000
           examples:
             application/json:
             - duration: 90
@@ -19995,6 +19993,15 @@ paths:
         - "tranquility"
         - "singularity"
         x-exportParamName: "Datasource"
+      - name: "filter"
+        in: "query"
+        description: "Only list public structures that have this service online"
+        required: false
+        type: "string"
+        enum:
+        - "market"
+        - "manufacturing_basic"
+        x-exportParamName: "Filter"
       - name: "If-None-Match"
         in: "header"
         description: "ETag from a previous request. A 304 will be returned if this\
@@ -22214,150 +22221,6 @@ paths:
       - "dev"
       - "legacy"
       - "v2"
-  /v2/characters/{character_id}/notifications/:
-    get:
-      tags:
-      - "Character"
-      summary: "Get character notifications"
-      description: "Return character notifications\n\n---\n\nThis route is cached\
-        \ for up to 600 seconds\n\n---\nWarning: This route has an upgrade available\n\
-        \n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/notifications/)"
-      operationId: "get_characters_character_id_notifications"
-      parameters:
-      - name: "character_id"
-        in: "path"
-        description: "An EVE character ID"
-        required: true
-        type: "integer"
-        minimum: 1
-        format: "int32"
-        x-exportParamName: "CharacterId"
-      - name: "datasource"
-        in: "query"
-        description: "The server name you would like data from"
-        required: false
-        type: "string"
-        default: "tranquility"
-        enum:
-        - "tranquility"
-        - "singularity"
-        x-exportParamName: "Datasource"
-      - name: "If-None-Match"
-        in: "header"
-        description: "ETag from a previous request. A 304 will be returned if this\
-          \ matches the current ETag"
-        required: false
-        type: "string"
-        x-exportParamName: "IfNoneMatch"
-      - name: "token"
-        in: "query"
-        description: "Access token to use if unable to set a header"
-        required: false
-        type: "string"
-        x-exportParamName: "Token"
-      responses:
-        200:
-          description: "Returns your recent notifications"
-          schema:
-            type: "array"
-            description: "200 ok array"
-            title: "get_characters_character_id_notifications_ok"
-            items:
-              $ref: "#/definitions/get_characters_character_id_notifications_200_ok"
-            maxItems: 500
-          examples:
-            application/json:
-            - is_read: true
-              notification_id: 1
-              sender_id: 1000132
-              sender_type: "corporation"
-              text: "amount: 3731016.4000000004\\nitemID: 1024881021663\\npayout:\
-                \ 1\\n"
-              timestamp: "2017-08-16T10:08:00Z"
-              type: "InsurancePayoutMsg"
-          headers:
-            Cache-Control:
-              type: "string"
-              description: "The caching mechanism used"
-            ETag:
-              type: "string"
-              description: "RFC7232 compliant entity tag"
-            Expires:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            Last-Modified:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-        304:
-          description: "Not modified"
-          headers:
-            Cache-Control:
-              type: "string"
-              description: "The caching mechanism used"
-            ETag:
-              type: "string"
-              description: "RFC7232 compliant entity tag"
-            Expires:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            Last-Modified:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-        400:
-          description: "Bad request"
-          schema:
-            $ref: "#/definitions/bad_request"
-          examples:
-            application/json:
-              error: "Bad request message"
-        401:
-          description: "Unauthorized"
-          schema:
-            $ref: "#/definitions/unauthorized"
-          examples:
-            application/json:
-              error: "Unauthorized message"
-        403:
-          description: "Forbidden"
-          schema:
-            $ref: "#/definitions/forbidden"
-          examples:
-            application/json:
-              error: "Forbidden message"
-        420:
-          description: "Error limited"
-          schema:
-            $ref: "#/definitions/error_limited"
-          examples:
-            application/json:
-              error: "Error limited message"
-        500:
-          description: "Internal server error"
-          schema:
-            $ref: "#/definitions/internal_server_error"
-          examples:
-            application/json:
-              error: "Internal server error message"
-        503:
-          description: "Service unavailable"
-          schema:
-            $ref: "#/definitions/service_unavailable"
-          examples:
-            application/json:
-              error: "Service unavailable message"
-        504:
-          description: "Gateway timeout"
-          schema:
-            $ref: "#/definitions/gateway_timeout"
-          examples:
-            application/json:
-              error: "Gateway timeout message"
-      security:
-      - evesso:
-        - "esi-characters.read_notifications.v1"
-      x-alternate-versions:
-      - "v2"
-      x-cached-seconds: 600
   /v2/characters/{character_id}/online/:
     get:
       tags:
@@ -22648,8 +22511,8 @@ paths:
       tags:
       - "Character"
       summary: "Get character portraits"
-      description: "Get portrait urls for a character\n\n---\n\nThis route is cached\
-        \ for up to 3600 seconds"
+      description: "Get portrait urls for a character\n\n---\n\nThis route expires\
+        \ daily at 11:05"
       operationId: "get_characters_character_id_portrait"
       parameters:
       - name: "character_id"
@@ -22761,7 +22624,6 @@ paths:
       x-alternate-versions:
       - "dev"
       - "v2"
-      x-cached-seconds: 3600
   /v2/characters/{character_id}/roles/:
     get:
       tags:
@@ -24115,206 +23977,6 @@ paths:
       x-required-roles:
       - "Accountant"
       - "Trader"
-  /v2/corporations/{corporation_id}/structures/:
-    get:
-      tags:
-      - "Corporation"
-      summary: "Get corporation structures"
-      description: "Get a list of corporation structures. This route's version includes\
-        \ the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th\n\
-        \n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one\
-        \ of the following EVE corporation role(s): StationManager"
-      operationId: "get_corporations_corporation_id_structures"
-      parameters:
-      - name: "Accept-Language"
-        in: "header"
-        description: "Language to use in the response"
-        required: false
-        type: "string"
-        default: "en-us"
-        enum:
-        - "de"
-        - "en-us"
-        - "fr"
-        - "ja"
-        - "ru"
-        - "zh"
-        x-exportParamName: "AcceptLanguage"
-      - name: "corporation_id"
-        in: "path"
-        description: "An EVE corporation ID"
-        required: true
-        type: "integer"
-        minimum: 1
-        format: "int32"
-        x-exportParamName: "CorporationId"
-      - name: "datasource"
-        in: "query"
-        description: "The server name you would like data from"
-        required: false
-        type: "string"
-        default: "tranquility"
-        enum:
-        - "tranquility"
-        - "singularity"
-        x-exportParamName: "Datasource"
-      - name: "If-None-Match"
-        in: "header"
-        description: "ETag from a previous request. A 304 will be returned if this\
-          \ matches the current ETag"
-        required: false
-        type: "string"
-        x-exportParamName: "IfNoneMatch"
-      - name: "language"
-        in: "query"
-        description: "Language to use in the response, takes precedence over Accept-Language"
-        required: false
-        type: "string"
-        default: "en-us"
-        enum:
-        - "de"
-        - "en-us"
-        - "fr"
-        - "ja"
-        - "ru"
-        - "zh"
-        x-exportParamName: "Language"
-      - name: "page"
-        in: "query"
-        description: "Which page of results to return"
-        required: false
-        type: "integer"
-        default: 1
-        minimum: 1
-        format: "int32"
-        x-exportParamName: "Page"
-      - name: "token"
-        in: "query"
-        description: "Access token to use if unable to set a header"
-        required: false
-        type: "string"
-        x-exportParamName: "Token"
-      responses:
-        200:
-          description: "List of corporation structures' information"
-          schema:
-            type: "array"
-            description: "200 ok array"
-            title: "get_corporations_corporation_id_structures_ok"
-            items:
-              $ref: "#/definitions/get_corporations_corporation_id_structures_200_ok"
-            maxItems: 1000
-          examples:
-            application/json:
-            - corporation_id: 667531913
-              profile_id: 11237
-              reinforce_hour: 22
-              reinforce_weekday: 2
-              state: "shield_vulnerable"
-              structure_id: 1021975535893
-              system_id: 30004763
-              type_id: 35833
-          headers:
-            Cache-Control:
-              type: "string"
-              description: "The caching mechanism used"
-            Content-Language:
-              type: "string"
-              description: "The language used in the response"
-              enum:
-              - "de"
-              - "en-us"
-              - "fr"
-              - "ja"
-              - "ru"
-              - "zh"
-            ETag:
-              type: "string"
-              description: "RFC7232 compliant entity tag"
-            Expires:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            Last-Modified:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            X-Pages:
-              type: "integer"
-              format: "int32"
-              description: "Maximum page number"
-              default: 1
-        304:
-          description: "Not modified"
-          headers:
-            Cache-Control:
-              type: "string"
-              description: "The caching mechanism used"
-            ETag:
-              type: "string"
-              description: "RFC7232 compliant entity tag"
-            Expires:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            Last-Modified:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-        400:
-          description: "Bad request"
-          schema:
-            $ref: "#/definitions/bad_request"
-          examples:
-            application/json:
-              error: "Bad request message"
-        401:
-          description: "Unauthorized"
-          schema:
-            $ref: "#/definitions/unauthorized"
-          examples:
-            application/json:
-              error: "Unauthorized message"
-        403:
-          description: "Forbidden"
-          schema:
-            $ref: "#/definitions/forbidden"
-          examples:
-            application/json:
-              error: "Forbidden message"
-        420:
-          description: "Error limited"
-          schema:
-            $ref: "#/definitions/error_limited"
-          examples:
-            application/json:
-              error: "Error limited message"
-        500:
-          description: "Internal server error"
-          schema:
-            $ref: "#/definitions/internal_server_error"
-          examples:
-            application/json:
-              error: "Internal server error message"
-        503:
-          description: "Service unavailable"
-          schema:
-            $ref: "#/definitions/service_unavailable"
-          examples:
-            application/json:
-              error: "Service unavailable message"
-        504:
-          description: "Gateway timeout"
-          schema:
-            $ref: "#/definitions/gateway_timeout"
-          examples:
-            application/json:
-              error: "Gateway timeout message"
-      security:
-      - evesso:
-        - "esi-corporations.read_structures.v1"
-      x-alternate-versions:
-      - "dev"
-      - "v2"
-      x-cached-seconds: 3600
-      x-required-roles:
-      - "StationManager"
   /v2/dogma/effects/{effect_id}/:
     get:
       tags:
@@ -24836,6 +24498,7 @@ paths:
         - "esi-ui.write_waypoint.v1"
       x-alternate-versions:
       - "dev"
+      - "legacy"
       - "v2"
   /v2/universe/factions/:
     get:
@@ -24956,105 +24619,6 @@ paths:
           examples:
             application/json:
               error: "Bad request message"
-        420:
-          description: "Error limited"
-          schema:
-            $ref: "#/definitions/error_limited"
-          examples:
-            application/json:
-              error: "Error limited message"
-        500:
-          description: "Internal server error"
-          schema:
-            $ref: "#/definitions/internal_server_error"
-          examples:
-            application/json:
-              error: "Internal server error message"
-        503:
-          description: "Service unavailable"
-          schema:
-            $ref: "#/definitions/service_unavailable"
-          examples:
-            application/json:
-              error: "Service unavailable message"
-        504:
-          description: "Gateway timeout"
-          schema:
-            $ref: "#/definitions/gateway_timeout"
-          examples:
-            application/json:
-              error: "Gateway timeout message"
-      x-alternate-versions:
-      - "dev"
-      - "v2"
-  /v2/universe/names/:
-    post:
-      tags:
-      - "Universe"
-      summary: "Get names and categories for a set of ID's"
-      description: "Resolve a set of IDs to names and categories. Supported ID's for\
-        \ resolving are: Characters, Corporations, Alliances, Stations, Solar Systems,\
-        \ Constellations, Regions, Types\n\n---\n"
-      operationId: "post_universe_names"
-      parameters:
-      - name: "datasource"
-        in: "query"
-        description: "The server name you would like data from"
-        required: false
-        type: "string"
-        default: "tranquility"
-        enum:
-        - "tranquility"
-        - "singularity"
-        x-exportParamName: "Datasource"
-      - in: "body"
-        name: "ids"
-        description: "The ids to resolve"
-        required: true
-        schema:
-          title: "post_universe_names_ids"
-          type: "array"
-          description: "ids array"
-          items:
-            type: "integer"
-            format: "int32"
-            description: "id integer"
-            title: "post_universe_names_id"
-          example: "[95465499,30000142]"
-        x-exportParamName: "Ids"
-      responses:
-        200:
-          description: "List of id/name associations for a set of ID's. All ID's must\
-            \ resolve to a name, or nothing will be returned"
-          schema:
-            type: "array"
-            description: "200 ok array"
-            title: "post_universe_names_ok"
-            items:
-              $ref: "#/definitions/post_universe_names_200_ok"
-            maxItems: 1000
-          examples:
-            application/json:
-            - category: "character"
-              id: 95465499
-              name: "CCP Bartender"
-            - category: "solar_system"
-              id: 30000142
-              name: "Jita"
-        400:
-          description: "Bad request"
-          schema:
-            $ref: "#/definitions/bad_request"
-          examples:
-            application/json:
-              error: "Bad request message"
-        404:
-          description: "Ensure all IDs are valid before resolving"
-          schema:
-            $ref: "#/definitions/post_universe_names_not_found"
-          examples:
-            application/json:
-              error: "Not found message"
         420:
           description: "Error limited"
           schema:
@@ -27156,17 +26720,31 @@ paths:
       x-required-roles:
       - "Accountant"
       - "Trader"
-  /v3/corporations/{corporation_id}/wallets/{division}/journal/:
+  /v3/corporations/{corporation_id}/structures/:
     get:
       tags:
-      - "Wallet"
-      summary: "Get corporation wallet journal"
-      description: "Retrieve the given corporation's wallet journal for the given\
-        \ division going 30 days back\n\n---\n\nThis route is cached for up to 3600\
-        \ seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant,\
-        \ Junior_Accountant"
-      operationId: "get_corporations_corporation_id_wallets_division_journal"
+      - "Corporation"
+      summary: "Get corporation structures"
+      description: "Get a list of corporation structures. This route's version includes\
+        \ the changes to structures detailed in this blog: https://www.eveonline.com/article/upwell-2.0-structures-changes-coming-on-february-13th\n\
+        \n---\n\nThis route is cached for up to 3600 seconds\n\n---\nRequires one\
+        \ of the following EVE corporation role(s): Station_Manager"
+      operationId: "get_corporations_corporation_id_structures"
       parameters:
+      - name: "Accept-Language"
+        in: "header"
+        description: "Language to use in the response"
+        required: false
+        type: "string"
+        default: "en-us"
+        enum:
+        - "de"
+        - "en-us"
+        - "fr"
+        - "ja"
+        - "ru"
+        - "zh"
+        x-exportParamName: "AcceptLanguage"
       - name: "corporation_id"
         in: "path"
         description: "An EVE corporation ID"
@@ -27185,15 +26763,6 @@ paths:
         - "tranquility"
         - "singularity"
         x-exportParamName: "Datasource"
-      - name: "division"
-        in: "path"
-        description: "Wallet key of the division to fetch journals from"
-        required: true
-        type: "integer"
-        maximum: 7
-        minimum: 1
-        format: "int32"
-        x-exportParamName: "Division"
       - name: "If-None-Match"
         in: "header"
         description: "ETag from a previous request. A 304 will be returned if this\
@@ -27201,6 +26770,20 @@ paths:
         required: false
         type: "string"
         x-exportParamName: "IfNoneMatch"
+      - name: "language"
+        in: "query"
+        description: "Language to use in the response, takes precedence over Accept-Language"
+        required: false
+        type: "string"
+        default: "en-us"
+        enum:
+        - "de"
+        - "en-us"
+        - "fr"
+        - "ja"
+        - "ru"
+        - "zh"
+        x-exportParamName: "Language"
       - name: "page"
         in: "query"
         description: "Which page of results to return"
@@ -27218,31 +26801,38 @@ paths:
         x-exportParamName: "Token"
       responses:
         200:
-          description: "Journal entries"
+          description: "List of corporation structures' information"
           schema:
             type: "array"
-            description: "Journal entries"
-            title: "get_corporations_corporation_id_wallets_division_journal_ok"
+            description: "200 ok array"
+            title: "get_corporations_corporation_id_structures_ok"
             items:
-              $ref: "#/definitions/get_corporations_corporation_id_wallets_division_journal_200_ok"
-            maxItems: 2500
+              $ref: "#/definitions/get_corporations_corporation_id_structures_200_ok"
+            maxItems: 1000
           examples:
             application/json:
-            - amount: -1000
-              balance: 100000.0
-              context_id: 2112625428
-              context_id_type: "character_id"
-              date: "2016-10-24T09:00:00Z"
-              description: "CCP Zoetrope transferred cash from C C P's corporate account\
-                \ to CCP SnowedIn's account"
-              first_party_id: 109299958
-              id: 1234567890
-              ref_type: "corporation_account_withdrawal"
-              second_party_id: 95538921
+            - corporation_id: 667531913
+              profile_id: 11237
+              reinforce_hour: 22
+              reinforce_weekday: 2
+              state: "shield_vulnerable"
+              structure_id: 1021975535893
+              system_id: 30004763
+              type_id: 35833
           headers:
             Cache-Control:
               type: "string"
               description: "The caching mechanism used"
+            Content-Language:
+              type: "string"
+              description: "The language used in the response"
+              enum:
+              - "de"
+              - "en-us"
+              - "fr"
+              - "ja"
+              - "ru"
+              - "zh"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -27323,15 +26913,112 @@ paths:
               error: "Gateway timeout message"
       security:
       - evesso:
-        - "esi-wallet.read_corporation_wallets.v1"
+        - "esi-corporations.read_structures.v1"
       x-alternate-versions:
       - "dev"
-      - "legacy"
       - "v3"
       x-cached-seconds: 3600
       x-required-roles:
-      - "Accountant"
-      - "Junior_Accountant"
+      - "Station_Manager"
+  /v3/universe/names/:
+    post:
+      tags:
+      - "Universe"
+      summary: "Get names and categories for a set of IDs"
+      description: "Resolve a set of IDs to names and categories. Supported ID's for\
+        \ resolving are: Characters, Corporations, Alliances, Stations, Solar Systems,\
+        \ Constellations, Regions, Types, Factions\n\n---\n"
+      operationId: "post_universe_names"
+      parameters:
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - in: "body"
+        name: "ids"
+        description: "The ids to resolve"
+        required: true
+        schema:
+          title: "post_universe_names_ids"
+          type: "array"
+          description: "ids array"
+          items:
+            type: "integer"
+            format: "int32"
+            description: "id integer"
+            title: "post_universe_names_id"
+          example: "[95465499,30000142]"
+        x-exportParamName: "Ids"
+      responses:
+        200:
+          description: "List of id/name associations for a set of IDs. All IDs must\
+            \ resolve to a name, or nothing will be returned"
+          schema:
+            type: "array"
+            description: "200 ok array"
+            title: "post_universe_names_ok"
+            items:
+              $ref: "#/definitions/post_universe_names_200_ok"
+            maxItems: 1000
+          examples:
+            application/json:
+            - category: "character"
+              id: 95465499
+              name: "CCP Bartender"
+            - category: "solar_system"
+              id: 30000142
+              name: "Jita"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        404:
+          description: "Ensure all IDs are valid before resolving"
+          schema:
+            $ref: "#/definitions/post_universe_names_not_found"
+          examples:
+            application/json:
+              error: "Not found message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      x-alternate-versions:
+      - "dev"
+      - "v3"
   /v3/universe/types/{type_id}/:
     get:
       tags:
@@ -27724,6 +27411,150 @@ paths:
       x-alternate-versions:
       - "dev"
       - "v4"
+  /v4/characters/{character_id}/notifications/:
+    get:
+      tags:
+      - "Character"
+      summary: "Get character notifications"
+      description: "Return character notifications\n\n---\n\nThis route is cached\
+        \ for up to 600 seconds"
+      operationId: "get_characters_character_id_notifications"
+      parameters:
+      - name: "character_id"
+        in: "path"
+        description: "An EVE character ID"
+        required: true
+        type: "integer"
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "CharacterId"
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - name: "If-None-Match"
+        in: "header"
+        description: "ETag from a previous request. A 304 will be returned if this\
+          \ matches the current ETag"
+        required: false
+        type: "string"
+        x-exportParamName: "IfNoneMatch"
+      - name: "token"
+        in: "query"
+        description: "Access token to use if unable to set a header"
+        required: false
+        type: "string"
+        x-exportParamName: "Token"
+      responses:
+        200:
+          description: "Returns your recent notifications"
+          schema:
+            type: "array"
+            description: "200 ok array"
+            title: "get_characters_character_id_notifications_ok"
+            items:
+              $ref: "#/definitions/get_characters_character_id_notifications_200_ok"
+            maxItems: 500
+          examples:
+            application/json:
+            - is_read: true
+              notification_id: 1
+              sender_id: 1000132
+              sender_type: "corporation"
+              text: "amount: 3731016.4000000004\\nitemID: 1024881021663\\npayout:\
+                \ 1\\n"
+              timestamp: "2017-08-16T10:08:00Z"
+              type: "InsurancePayoutMsg"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        304:
+          description: "Not modified"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/unauthorized"
+          examples:
+            application/json:
+              error: "Unauthorized message"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/forbidden"
+          examples:
+            application/json:
+              error: "Forbidden message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      security:
+      - evesso:
+        - "esi-characters.read_notifications.v1"
+      x-alternate-versions:
+      - "dev"
+      - "v4"
+      x-cached-seconds: 600
   /v4/characters/{character_id}/skills/:
     get:
       tags:
@@ -27865,167 +27696,6 @@ paths:
       - "dev"
       - "v4"
       x-cached-seconds: 120
-  /v4/characters/{character_id}/wallet/journal/:
-    get:
-      tags:
-      - "Wallet"
-      summary: "Get character wallet journal"
-      description: "Retrieve the given character's wallet journal going 30 days back\n\
-        \n---\n\nThis route is cached for up to 3600 seconds"
-      operationId: "get_characters_character_id_wallet_journal"
-      parameters:
-      - name: "character_id"
-        in: "path"
-        description: "An EVE character ID"
-        required: true
-        type: "integer"
-        minimum: 1
-        format: "int32"
-        x-exportParamName: "CharacterId"
-      - name: "datasource"
-        in: "query"
-        description: "The server name you would like data from"
-        required: false
-        type: "string"
-        default: "tranquility"
-        enum:
-        - "tranquility"
-        - "singularity"
-        x-exportParamName: "Datasource"
-      - name: "If-None-Match"
-        in: "header"
-        description: "ETag from a previous request. A 304 will be returned if this\
-          \ matches the current ETag"
-        required: false
-        type: "string"
-        x-exportParamName: "IfNoneMatch"
-      - name: "page"
-        in: "query"
-        description: "Which page of results to return"
-        required: false
-        type: "integer"
-        default: 1
-        minimum: 1
-        format: "int32"
-        x-exportParamName: "Page"
-      - name: "token"
-        in: "query"
-        description: "Access token to use if unable to set a header"
-        required: false
-        type: "string"
-        x-exportParamName: "Token"
-      responses:
-        200:
-          description: "Journal entries"
-          schema:
-            type: "array"
-            description: "Wallet journal entries"
-            title: "get_characters_character_id_wallet_journal_ok"
-            items:
-              $ref: "#/definitions/get_characters_character_id_wallet_journal_200_ok"
-            maxItems: 2500
-          examples:
-            application/json:
-            - amount: -100000
-              balance: 500000.4316
-              context_id: 4
-              context_id_type: "contract_id"
-              date: "2018-02-23T14:31:32Z"
-              description: "Contract Deposit"
-              first_party_id: 2112625428
-              id: 89
-              ref_type: "contract_deposit"
-              second_party_id: 1000132
-          headers:
-            Cache-Control:
-              type: "string"
-              description: "The caching mechanism used"
-            ETag:
-              type: "string"
-              description: "RFC7232 compliant entity tag"
-            Expires:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            Last-Modified:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            X-Pages:
-              type: "integer"
-              format: "int32"
-              description: "Maximum page number"
-              default: 1
-        304:
-          description: "Not modified"
-          headers:
-            Cache-Control:
-              type: "string"
-              description: "The caching mechanism used"
-            ETag:
-              type: "string"
-              description: "RFC7232 compliant entity tag"
-            Expires:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-            Last-Modified:
-              type: "string"
-              description: "RFC7231 formatted datetime string"
-        400:
-          description: "Bad request"
-          schema:
-            $ref: "#/definitions/bad_request"
-          examples:
-            application/json:
-              error: "Bad request message"
-        401:
-          description: "Unauthorized"
-          schema:
-            $ref: "#/definitions/unauthorized"
-          examples:
-            application/json:
-              error: "Unauthorized message"
-        403:
-          description: "Forbidden"
-          schema:
-            $ref: "#/definitions/forbidden"
-          examples:
-            application/json:
-              error: "Forbidden message"
-        420:
-          description: "Error limited"
-          schema:
-            $ref: "#/definitions/error_limited"
-          examples:
-            application/json:
-              error: "Error limited message"
-        500:
-          description: "Internal server error"
-          schema:
-            $ref: "#/definitions/internal_server_error"
-          examples:
-            application/json:
-              error: "Internal server error message"
-        503:
-          description: "Service unavailable"
-          schema:
-            $ref: "#/definitions/service_unavailable"
-          examples:
-            application/json:
-              error: "Service unavailable message"
-        504:
-          description: "Gateway timeout"
-          schema:
-            $ref: "#/definitions/gateway_timeout"
-          examples:
-            application/json:
-              error: "Gateway timeout message"
-      security:
-      - evesso:
-        - "esi-wallet.read_character_wallet.v1"
-      x-alternate-versions:
-      - "dev"
-      - "legacy"
-      - "v4"
-      x-cached-seconds: 3600
   /v4/corporations/{corporation_id}/:
     get:
       tags:
@@ -28152,6 +27822,181 @@ paths:
       - "dev"
       - "v4"
       x-cached-seconds: 3600
+  /v4/corporations/{corporation_id}/wallets/{division}/journal/:
+    get:
+      tags:
+      - "Wallet"
+      summary: "Get corporation wallet journal"
+      description: "Retrieve the given corporation's wallet journal for the given\
+        \ division going 30 days back\n\n---\n\nThis route is cached for up to 3600\
+        \ seconds\n\n---\nRequires one of the following EVE corporation role(s): Accountant,\
+        \ Junior_Accountant"
+      operationId: "get_corporations_corporation_id_wallets_division_journal"
+      parameters:
+      - name: "corporation_id"
+        in: "path"
+        description: "An EVE corporation ID"
+        required: true
+        type: "integer"
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "CorporationId"
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - name: "division"
+        in: "path"
+        description: "Wallet key of the division to fetch journals from"
+        required: true
+        type: "integer"
+        maximum: 7
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "Division"
+      - name: "If-None-Match"
+        in: "header"
+        description: "ETag from a previous request. A 304 will be returned if this\
+          \ matches the current ETag"
+        required: false
+        type: "string"
+        x-exportParamName: "IfNoneMatch"
+      - name: "page"
+        in: "query"
+        description: "Which page of results to return"
+        required: false
+        type: "integer"
+        default: 1
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "token"
+        in: "query"
+        description: "Access token to use if unable to set a header"
+        required: false
+        type: "string"
+        x-exportParamName: "Token"
+      responses:
+        200:
+          description: "Journal entries"
+          schema:
+            type: "array"
+            description: "Journal entries"
+            title: "get_corporations_corporation_id_wallets_division_journal_ok"
+            items:
+              $ref: "#/definitions/get_corporations_corporation_id_wallets_division_journal_200_ok"
+            maxItems: 2500
+          examples:
+            application/json:
+            - amount: -1000
+              balance: 100000.0
+              context_id: 2112625428
+              context_id_type: "character_id"
+              date: "2016-10-24T09:00:00Z"
+              description: "CCP Zoetrope transferred cash from C C P's corporate account\
+                \ to CCP SnowedIn's account"
+              first_party_id: 109299958
+              id: 1234567890
+              ref_type: "corporation_account_withdrawal"
+              second_party_id: 95538921
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            X-Pages:
+              type: "integer"
+              format: "int32"
+              description: "Maximum page number"
+              default: 1
+        304:
+          description: "Not modified"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/unauthorized"
+          examples:
+            application/json:
+              error: "Unauthorized message"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/forbidden"
+          examples:
+            application/json:
+              error: "Forbidden message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      security:
+      - evesso:
+        - "esi-wallet.read_corporation_wallets.v1"
+      x-alternate-versions:
+      - "dev"
+      - "v4"
+      x-cached-seconds: 3600
+      x-required-roles:
+      - "Accountant"
+      - "Junior_Accountant"
   /v4/universe/systems/{system_id}/:
     get:
       tags:
@@ -28320,6 +28165,166 @@ paths:
       x-alternate-versions:
       - "dev"
       - "v4"
+  /v5/characters/{character_id}/wallet/journal/:
+    get:
+      tags:
+      - "Wallet"
+      summary: "Get character wallet journal"
+      description: "Retrieve the given character's wallet journal going 30 days back\n\
+        \n---\n\nThis route is cached for up to 3600 seconds"
+      operationId: "get_characters_character_id_wallet_journal"
+      parameters:
+      - name: "character_id"
+        in: "path"
+        description: "An EVE character ID"
+        required: true
+        type: "integer"
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "CharacterId"
+      - name: "datasource"
+        in: "query"
+        description: "The server name you would like data from"
+        required: false
+        type: "string"
+        default: "tranquility"
+        enum:
+        - "tranquility"
+        - "singularity"
+        x-exportParamName: "Datasource"
+      - name: "If-None-Match"
+        in: "header"
+        description: "ETag from a previous request. A 304 will be returned if this\
+          \ matches the current ETag"
+        required: false
+        type: "string"
+        x-exportParamName: "IfNoneMatch"
+      - name: "page"
+        in: "query"
+        description: "Which page of results to return"
+        required: false
+        type: "integer"
+        default: 1
+        minimum: 1
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "token"
+        in: "query"
+        description: "Access token to use if unable to set a header"
+        required: false
+        type: "string"
+        x-exportParamName: "Token"
+      responses:
+        200:
+          description: "Journal entries"
+          schema:
+            type: "array"
+            description: "Wallet journal entries"
+            title: "get_characters_character_id_wallet_journal_ok"
+            items:
+              $ref: "#/definitions/get_characters_character_id_wallet_journal_200_ok"
+            maxItems: 2500
+          examples:
+            application/json:
+            - amount: -100000
+              balance: 500000.4316
+              context_id: 4
+              context_id_type: "contract_id"
+              date: "2018-02-23T14:31:32Z"
+              description: "Contract Deposit"
+              first_party_id: 2112625428
+              id: 89
+              ref_type: "contract_deposit"
+              second_party_id: 1000132
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            X-Pages:
+              type: "integer"
+              format: "int32"
+              description: "Maximum page number"
+              default: 1
+        304:
+          description: "Not modified"
+          headers:
+            Cache-Control:
+              type: "string"
+              description: "The caching mechanism used"
+            ETag:
+              type: "string"
+              description: "RFC7232 compliant entity tag"
+            Expires:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+            Last-Modified:
+              type: "string"
+              description: "RFC7231 formatted datetime string"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/bad_request"
+          examples:
+            application/json:
+              error: "Bad request message"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/unauthorized"
+          examples:
+            application/json:
+              error: "Unauthorized message"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/forbidden"
+          examples:
+            application/json:
+              error: "Forbidden message"
+        420:
+          description: "Error limited"
+          schema:
+            $ref: "#/definitions/error_limited"
+          examples:
+            application/json:
+              error: "Error limited message"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/internal_server_error"
+          examples:
+            application/json:
+              error: "Internal server error message"
+        503:
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/service_unavailable"
+          examples:
+            application/json:
+              error: "Service unavailable message"
+        504:
+          description: "Gateway timeout"
+          schema:
+            $ref: "#/definitions/gateway_timeout"
+          examples:
+            application/json:
+              error: "Gateway timeout message"
+      security:
+      - evesso:
+        - "esi-wallet.read_character_wallet.v1"
+      x-alternate-versions:
+      - "dev"
+      - "v5"
+      x-cached-seconds: 3600
 securityDefinitions:
   evesso:
     type: "oauth2"
@@ -30108,7 +30113,6 @@ definitions:
     required:
     - "amount"
     - "bid_id"
-    - "bidder_id"
     - "date_bid"
     properties:
       amount:
@@ -30121,11 +30125,6 @@ definitions:
         format: "int32"
         description: "Unique ID for the bid"
         title: "get_contracts_public_bids_contract_id_bid_id"
-      bidder_id:
-        type: "integer"
-        format: "int32"
-        description: "Character ID of the bidder"
-        title: "get_contracts_public_bids_contract_id_bidder_id"
       date_bid:
         type: "string"
         format: "date-time"
@@ -35412,70 +35411,70 @@ definitions:
         title: "post_universe_ids_agents"
         items:
           $ref: "#/definitions/post_universe_ids_agent"
-        maxItems: 1000
+        maxItems: 500
       alliances:
         type: "array"
         description: "alliances array"
         title: "post_universe_ids_alliances"
         items:
           $ref: "#/definitions/post_universe_ids_alliance"
-        maxItems: 1000
+        maxItems: 500
       characters:
         type: "array"
         description: "characters array"
         title: "post_universe_ids_characters"
         items:
           $ref: "#/definitions/post_universe_ids_character"
-        maxItems: 1000
+        maxItems: 500
       constellations:
         type: "array"
         description: "constellations array"
         title: "post_universe_ids_constellations"
         items:
           $ref: "#/definitions/post_universe_ids_constellation"
-        maxItems: 1000
+        maxItems: 500
       corporations:
         type: "array"
         description: "corporations array"
         title: "post_universe_ids_corporations"
         items:
           $ref: "#/definitions/post_universe_ids_corporation"
-        maxItems: 1000
+        maxItems: 500
       factions:
         type: "array"
         description: "factions array"
         title: "post_universe_ids_factions"
         items:
           $ref: "#/definitions/post_universe_ids_faction"
-        maxItems: 1000
+        maxItems: 500
       inventory_types:
         type: "array"
         description: "inventory_types array"
         title: "post_universe_ids_inventory_types"
         items:
           $ref: "#/definitions/post_universe_ids_inventory_type"
-        maxItems: 1000
+        maxItems: 500
       regions:
         type: "array"
         description: "regions array"
         title: "post_universe_ids_regions"
         items:
           $ref: "#/definitions/post_universe_ids_region"
-        maxItems: 1000
+        maxItems: 500
       stations:
         type: "array"
         description: "stations array"
         title: "post_universe_ids_stations"
         items:
           $ref: "#/definitions/post_universe_ids_station"
-        maxItems: 1000
+        maxItems: 500
       systems:
         type: "array"
         description: "systems array"
         title: "post_universe_ids_systems"
         items:
           $ref: "#/definitions/post_universe_ids_system"
-        maxItems: 1000
+        maxItems: 500
     description: "200 ok object"
   get_universe_moons_moon_id_position:
     required:
@@ -36463,233 +36462,6 @@ definitions:
         maxLength: 40
     title: "post_characters_character_id_mail_labels_label"
     description: "label object"
-  get_characters_character_id_notifications_200_ok:
-    required:
-    - "notification_id"
-    - "sender_id"
-    - "sender_type"
-    - "timestamp"
-    - "type"
-    properties:
-      is_read:
-        type: "boolean"
-        description: "is_read boolean"
-        title: "get_characters_character_id_notifications_is_read"
-      notification_id:
-        type: "integer"
-        format: "int64"
-        description: "notification_id integer"
-        title: "get_characters_character_id_notifications_notification_id"
-      sender_id:
-        type: "integer"
-        format: "int32"
-        description: "sender_id integer"
-        title: "get_characters_character_id_notifications_sender_id"
-      sender_type:
-        type: "string"
-        description: "sender_type string"
-        title: "get_characters_character_id_notifications_sender_type"
-        enum:
-        - "character"
-        - "corporation"
-        - "alliance"
-        - "faction"
-        - "other"
-      text:
-        type: "string"
-        description: "text string"
-        title: "get_characters_character_id_notifications_text"
-      timestamp:
-        type: "string"
-        format: "date-time"
-        description: "timestamp string"
-        title: "get_characters_character_id_notifications_timestamp"
-      type:
-        type: "string"
-        description: "type string"
-        title: "get_characters_character_id_notifications_type"
-        enum:
-        - "AcceptedAlly"
-        - "AcceptedSurrender"
-        - "AllAnchoringMsg"
-        - "AllMaintenanceBillMsg"
-        - "AllStrucInvulnerableMsg"
-        - "AllStructVulnerableMsg"
-        - "AllWarCorpJoinedAllianceMsg"
-        - "AllWarDeclaredMsg"
-        - "AllWarInvalidatedMsg"
-        - "AllWarRetractedMsg"
-        - "AllWarSurrenderMsg"
-        - "AllianceCapitalChanged"
-        - "AllyContractCancelled"
-        - "AllyJoinedWarAggressorMsg"
-        - "AllyJoinedWarAllyMsg"
-        - "AllyJoinedWarDefenderMsg"
-        - "BattlePunishFriendlyFire"
-        - "BillOutOfMoneyMsg"
-        - "BillPaidCorpAllMsg"
-        - "BountyClaimMsg"
-        - "BountyESSShared"
-        - "BountyESSTaken"
-        - "BountyPlacedAlliance"
-        - "BountyPlacedChar"
-        - "BountyPlacedCorp"
-        - "BountyYourBountyClaimed"
-        - "BuddyConnectContactAdd"
-        - "CharAppAcceptMsg"
-        - "CharAppRejectMsg"
-        - "CharAppWithdrawMsg"
-        - "CharLeftCorpMsg"
-        - "CharMedalMsg"
-        - "CharTerminationMsg"
-        - "CloneActivationMsg"
-        - "CloneActivationMsg2"
-        - "CloneMovedMsg"
-        - "CloneRevokedMsg1"
-        - "CloneRevokedMsg2"
-        - "ContactAdd"
-        - "ContactEdit"
-        - "ContainerPasswordMsg"
-        - "CorpAllBillMsg"
-        - "CorpAppAcceptMsg"
-        - "CorpAppInvitedMsg"
-        - "CorpAppNewMsg"
-        - "CorpAppRejectCustomMsg"
-        - "CorpAppRejectMsg"
-        - "CorpDividendMsg"
-        - "CorpFriendlyFireDisableTimerCompleted"
-        - "CorpFriendlyFireDisableTimerStarted"
-        - "CorpFriendlyFireEnableTimerCompleted"
-        - "CorpFriendlyFireEnableTimerStarted"
-        - "CorpKicked"
-        - "CorpLiquidationMsg"
-        - "CorpNewCEOMsg"
-        - "CorpNewsMsg"
-        - "CorpOfficeExpirationMsg"
-        - "CorpStructLostMsg"
-        - "CorpTaxChangeMsg"
-        - "CorpVoteCEORevokedMsg"
-        - "CorpVoteMsg"
-        - "CorpWarDeclaredMsg"
-        - "CorpWarFightingLegalMsg"
-        - "CorpWarInvalidatedMsg"
-        - "CorpWarRetractedMsg"
-        - "CorpWarSurrenderMsg"
-        - "CustomsMsg"
-        - "DeclareWar"
-        - "DistrictAttacked"
-        - "DustAppAcceptedMsg"
-        - "EntosisCaptureStarted"
-        - "FWAllianceKickMsg"
-        - "FWAllianceWarningMsg"
-        - "FWCharKickMsg"
-        - "FWCharRankGainMsg"
-        - "FWCharRankLossMsg"
-        - "FWCharWarningMsg"
-        - "FWCorpJoinMsg"
-        - "FWCorpKickMsg"
-        - "FWCorpLeaveMsg"
-        - "FWCorpWarningMsg"
-        - "FacWarCorpJoinRequestMsg"
-        - "FacWarCorpJoinWithdrawMsg"
-        - "FacWarCorpLeaveRequestMsg"
-        - "FacWarCorpLeaveWithdrawMsg"
-        - "FacWarLPDisqualifiedEvent"
-        - "FacWarLPDisqualifiedKill"
-        - "FacWarLPPayoutEvent"
-        - "FacWarLPPayoutKill"
-        - "GameTimeAdded"
-        - "GameTimeReceived"
-        - "GameTimeSent"
-        - "GiftReceived"
-        - "IHubDestroyedByBillFailure"
-        - "IncursionCompletedMsg"
-        - "IndustryTeamAuctionLost"
-        - "IndustryTeamAuctionWon"
-        - "InfrastructureHubBillAboutToExpire"
-        - "InsuranceExpirationMsg"
-        - "InsuranceFirstShipMsg"
-        - "InsuranceInvalidatedMsg"
-        - "InsuranceIssuedMsg"
-        - "InsurancePayoutMsg"
-        - "JumpCloneDeletedMsg1"
-        - "JumpCloneDeletedMsg2"
-        - "KillReportFinalBlow"
-        - "KillReportVictim"
-        - "KillRightAvailable"
-        - "KillRightAvailableOpen"
-        - "KillRightEarned"
-        - "KillRightUnavailable"
-        - "KillRightUnavailableOpen"
-        - "KillRightUsed"
-        - "LocateCharMsg"
-        - "MadeWarMutual"
-        - "MercOfferedNegotiationMsg"
-        - "MissionOfferExpirationMsg"
-        - "MissionTimeoutMsg"
-        - "MoonminingAutomaticFracture"
-        - "MoonminingExtractionCancelled"
-        - "MoonminingExtractionFinished"
-        - "MoonminingExtractionStarted"
-        - "MoonminingLaserFired"
-        - "NPCStandingsGained"
-        - "NPCStandingsLost"
-        - "OfferedSurrender"
-        - "OfferedToAlly"
-        - "OldLscMessages"
-        - "OperationFinished"
-        - "OrbitalAttacked"
-        - "OrbitalReinforced"
-        - "OwnershipTransferred"
-        - "ReimbursementMsg"
-        - "ResearchMissionAvailableMsg"
-        - "RetractsWar"
-        - "SeasonalChallengeCompleted"
-        - "SovAllClaimAquiredMsg"
-        - "SovAllClaimLostMsg"
-        - "SovCommandNodeEventStarted"
-        - "SovCorpBillLateMsg"
-        - "SovCorpClaimFailMsg"
-        - "SovDisruptorMsg"
-        - "SovStationEnteredFreeport"
-        - "SovStructureDestroyed"
-        - "SovStructureReinforced"
-        - "SovStructureSelfDestructCancel"
-        - "SovStructureSelfDestructFinished"
-        - "SovStructureSelfDestructRequested"
-        - "SovereigntyIHDamageMsg"
-        - "SovereigntySBUDamageMsg"
-        - "SovereigntyTCUDamageMsg"
-        - "StationAggressionMsg1"
-        - "StationAggressionMsg2"
-        - "StationConquerMsg"
-        - "StationServiceDisabled"
-        - "StationServiceEnabled"
-        - "StationStateChangeMsg"
-        - "StoryLineMissionAvailableMsg"
-        - "StructureAnchoring"
-        - "StructureCourierContractChanged"
-        - "StructureDestroyed"
-        - "StructureFuelAlert"
-        - "StructureItemsDelivered"
-        - "StructureItemsMovedToSafety"
-        - "StructureLostArmor"
-        - "StructureLostShields"
-        - "StructureOnline"
-        - "StructureServicesOffline"
-        - "StructureUnanchoring"
-        - "StructureUnderAttack"
-        - "StructureWentHighPower"
-        - "StructureWentLowPower"
-        - "StructuresReinforcementChanged"
-        - "TowerAlertMsg"
-        - "TowerResourceAlertMsg"
-        - "TransactionReversalMsg"
-        - "TutorialMsg"
-        - "WarAllyOfferDeclinedMsg"
-        - "WarSurrenderDeclinedMsg"
-        - "WarSurrenderOfferMsg"
-    description: "200 ok object"
   get_characters_character_id_online_ok:
     required:
     - "online"
@@ -39253,146 +39025,6 @@ definitions:
         minimum: 1
         maximum: 7
     description: "200 ok object"
-  get_corporations_corporation_id_structures_service:
-    required:
-    - "name"
-    - "state"
-    properties:
-      name:
-        type: "string"
-        description: "name string"
-        title: "get_corporations_corporation_id_structures_name"
-      state:
-        type: "string"
-        description: "state string"
-        title: "get_corporations_corporation_id_structures_service_state"
-        enum:
-        - "online"
-        - "offline"
-        - "cleanup"
-    description: "service object"
-  get_corporations_corporation_id_structures_200_ok:
-    required:
-    - "corporation_id"
-    - "profile_id"
-    - "reinforce_hour"
-    - "reinforce_weekday"
-    - "state"
-    - "structure_id"
-    - "system_id"
-    - "type_id"
-    properties:
-      corporation_id:
-        type: "integer"
-        format: "int32"
-        description: "ID of the corporation that owns the structure"
-        title: "get_corporations_corporation_id_structures_corporation_id"
-      fuel_expires:
-        type: "string"
-        format: "date-time"
-        description: "Date on which the structure will run out of fuel"
-        title: "get_corporations_corporation_id_structures_fuel_expires"
-      next_reinforce_apply:
-        type: "string"
-        format: "date-time"
-        description: "The date and time when the structure's newly requested reinforcement\
-          \ times (e.g. next_reinforce_hour and next_reinforce_day) will take effect"
-        title: "get_corporations_corporation_id_structures_next_reinforce_apply"
-      next_reinforce_hour:
-        type: "integer"
-        format: "int32"
-        description: "The requested change to reinforce_hour that will take effect\
-          \ at the time shown by next_reinforce_apply"
-        title: "get_corporations_corporation_id_structures_next_reinforce_hour"
-        minimum: 0
-        maximum: 23
-      next_reinforce_weekday:
-        type: "integer"
-        format: "int32"
-        description: "The requested change to reinforce_weekday that will take effect\
-          \ at the time shown by next_reinforce_apply"
-        title: "get_corporations_corporation_id_structures_next_reinforce_weekday"
-        minimum: 0
-        maximum: 6
-      profile_id:
-        type: "integer"
-        format: "int32"
-        description: "The id of the ACL profile for this citadel"
-        title: "get_corporations_corporation_id_structures_profile_id"
-      reinforce_hour:
-        type: "integer"
-        format: "int32"
-        description: "The hour of day that determines the four hour window when the\
-          \ structure will randomly exit its reinforcement periods and become vulnerable\
-          \ to attack against its armor and/or hull. The structure will become vulnerable\
-          \ at a random time that is +/- 2 hours centered on the value of this property"
-        title: "get_corporations_corporation_id_structures_reinforce_hour"
-        minimum: 0
-        maximum: 23
-      reinforce_weekday:
-        type: "integer"
-        format: "int32"
-        description: "The day of the week when the structure exits its final reinforcement\
-          \ period and becomes vulnerable to attack against its hull. Monday is 0\
-          \ and Sunday is 6"
-        title: "get_corporations_corporation_id_structures_reinforce_weekday"
-        minimum: 0
-        maximum: 6
-      services:
-        type: "array"
-        description: "Contains a list of service upgrades, and their state"
-        title: "get_corporations_corporation_id_structures_services"
-        items:
-          $ref: "#/definitions/get_corporations_corporation_id_structures_service"
-        maxItems: 10
-      state:
-        type: "string"
-        description: "state string"
-        title: "get_corporations_corporation_id_structures_state"
-        enum:
-        - "anchor_vulnerable"
-        - "anchoring"
-        - "armor_reinforce"
-        - "armor_vulnerable"
-        - "fitting_invulnerable"
-        - "hull_reinforce"
-        - "hull_vulnerable"
-        - "online_deprecated"
-        - "onlining_vulnerable"
-        - "shield_vulnerable"
-        - "unanchored"
-        - "unknown"
-      state_timer_end:
-        type: "string"
-        format: "date-time"
-        description: "Date at which the structure will move to it's next state"
-        title: "get_corporations_corporation_id_structures_state_timer_end"
-      state_timer_start:
-        type: "string"
-        format: "date-time"
-        description: "Date at which the structure entered it's current state"
-        title: "get_corporations_corporation_id_structures_state_timer_start"
-      structure_id:
-        type: "integer"
-        format: "int64"
-        description: "The Item ID of the structure"
-        title: "get_corporations_corporation_id_structures_structure_id"
-      system_id:
-        type: "integer"
-        format: "int32"
-        description: "The solar system the structure is in"
-        title: "get_corporations_corporation_id_structures_system_id"
-      type_id:
-        type: "integer"
-        format: "int32"
-        description: "The type id of the structure"
-        title: "get_corporations_corporation_id_structures_type_id"
-      unanchors_at:
-        type: "string"
-        format: "date-time"
-        description: "Date at which the structure will unanchor"
-        title: "get_corporations_corporation_id_structures_unanchors_at"
-    description: "200 ok object"
   get_dogma_effects_effect_id_modifier:
     required:
     - "func"
@@ -39740,42 +39372,6 @@ definitions:
         description: "station_system_count integer"
         title: "get_universe_factions_station_system_count"
     description: "200 ok object"
-  post_universe_names_200_ok:
-    required:
-    - "category"
-    - "id"
-    - "name"
-    properties:
-      category:
-        type: "string"
-        description: "category string"
-        title: "post_universe_names_category"
-        enum:
-        - "alliance"
-        - "character"
-        - "constellation"
-        - "corporation"
-        - "inventory_type"
-        - "region"
-        - "solar_system"
-        - "station"
-      id:
-        type: "integer"
-        format: "int32"
-        description: "id integer"
-        title: "post_universe_names_id"
-      name:
-        type: "string"
-        description: "name string"
-        title: "post_universe_names_name"
-    description: "200 ok object"
-  post_universe_names_not_found:
-    properties:
-      error:
-        type: "string"
-        description: "Not found message"
-        title: "post_universe_names_404_not_found"
-    description: "Not found"
   get_universe_stations_station_id_position:
     required:
     - "x"
@@ -41029,225 +40625,183 @@ definitions:
         minimum: 1
         maximum: 7
     description: "200 ok object"
-  get_corporations_corporation_id_wallets_division_journal_200_ok:
+  get_corporations_corporation_id_structures_service:
     required:
-    - "date"
-    - "description"
-    - "id"
-    - "ref_type"
+    - "name"
+    - "state"
     properties:
-      amount:
-        type: "number"
-        format: "double"
-        description: "The amount of ISK given or taken from the wallet as a result\
-          \ of the given transaction. Positive when ISK is deposited into the wallet\
-          \ and negative when ISK is withdrawn"
-        title: "get_corporations_corporation_id_wallets_division_journal_amount"
-      balance:
-        type: "number"
-        format: "double"
-        description: "Wallet balance after transaction occurred"
-        title: "get_corporations_corporation_id_wallets_division_journal_balance"
-      context_id:
-        type: "integer"
-        format: "int64"
-        description: "An ID that gives extra context to the particular transaction.\
-          \ Because of legacy reasons the context is completely different per ref_type\
-          \ and means different things. It is also possible to not have a context_id"
-        title: "get_corporations_corporation_id_wallets_division_journal_context_id"
-      context_id_type:
+      name:
         type: "string"
-        description: "The type of the given context_id if present"
-        title: "get_corporations_corporation_id_wallets_division_journal_context_id_type"
+        description: "name string"
+        title: "get_corporations_corporation_id_structures_name"
+      state:
+        type: "string"
+        description: "state string"
+        title: "get_corporations_corporation_id_structures_service_state"
         enum:
-        - "structure_id"
-        - "station_id"
-        - "market_transaction_id"
-        - "character_id"
-        - "corporation_id"
-        - "alliance_id"
-        - "eve_system"
-        - "industry_job_id"
-        - "contract_id"
-        - "planet_id"
-        - "system_id"
-        - "type_id"
-      date:
+        - "online"
+        - "offline"
+        - "cleanup"
+    description: "service object"
+  get_corporations_corporation_id_structures_200_ok:
+    required:
+    - "corporation_id"
+    - "profile_id"
+    - "reinforce_hour"
+    - "state"
+    - "structure_id"
+    - "system_id"
+    - "type_id"
+    properties:
+      corporation_id:
+        type: "integer"
+        format: "int32"
+        description: "ID of the corporation that owns the structure"
+        title: "get_corporations_corporation_id_structures_corporation_id"
+      fuel_expires:
         type: "string"
         format: "date-time"
-        description: "Date and time of transaction"
-        title: "get_corporations_corporation_id_wallets_division_journal_date"
-      description:
+        description: "Date on which the structure will run out of fuel"
+        title: "get_corporations_corporation_id_structures_fuel_expires"
+      next_reinforce_apply:
         type: "string"
-        description: "The reason for the transaction, mirrors what is seen in the\
-          \ client"
-        title: "get_corporations_corporation_id_wallets_division_journal_description"
-      first_party_id:
+        format: "date-time"
+        description: "The date and time when the structure's newly requested reinforcement\
+          \ times (e.g. next_reinforce_hour and next_reinforce_day) will take effect"
+        title: "get_corporations_corporation_id_structures_next_reinforce_apply"
+      next_reinforce_hour:
         type: "integer"
         format: "int32"
-        description: "The id of the first party involved in the transaction. This\
-          \ attribute has no consistency and is different or non existant for particular\
-          \ ref_types. The description attribute will help make sense of what this\
-          \ attribute means. For more info about the given ID it can be dropped into\
-          \ the /universe/names/ ESI route to determine its type and name"
-        title: "get_corporations_corporation_id_wallets_division_journal_first_party_id"
-      id:
+        description: "The requested change to reinforce_hour that will take effect\
+          \ at the time shown by next_reinforce_apply"
+        title: "get_corporations_corporation_id_structures_next_reinforce_hour"
+        minimum: 0
+        maximum: 23
+      next_reinforce_weekday:
+        type: "integer"
+        format: "int32"
+        description: "The requested change to reinforce_weekday that will take effect\
+          \ at the time shown by next_reinforce_apply"
+        title: "get_corporations_corporation_id_structures_next_reinforce_weekday"
+        minimum: 0
+        maximum: 6
+      profile_id:
+        type: "integer"
+        format: "int32"
+        description: "The id of the ACL profile for this citadel"
+        title: "get_corporations_corporation_id_structures_profile_id"
+      reinforce_hour:
+        type: "integer"
+        format: "int32"
+        description: "The hour of day that determines the four hour window when the\
+          \ structure will randomly exit its reinforcement periods and become vulnerable\
+          \ to attack against its armor and/or hull. The structure will become vulnerable\
+          \ at a random time that is +/- 2 hours centered on the value of this property"
+        title: "get_corporations_corporation_id_structures_reinforce_hour"
+        minimum: 0
+        maximum: 23
+      reinforce_weekday:
+        type: "integer"
+        format: "int32"
+        description: "The day of the week when the structure exits its final reinforcement\
+          \ period and becomes vulnerable to attack against its hull. Monday is 0\
+          \ and Sunday is 6"
+        title: "get_corporations_corporation_id_structures_reinforce_weekday"
+        minimum: 0
+        maximum: 6
+      services:
+        type: "array"
+        description: "Contains a list of service upgrades, and their state"
+        title: "get_corporations_corporation_id_structures_services"
+        items:
+          $ref: "#/definitions/get_corporations_corporation_id_structures_service"
+        maxItems: 10
+      state:
+        type: "string"
+        description: "state string"
+        title: "get_corporations_corporation_id_structures_state"
+        enum:
+        - "anchor_vulnerable"
+        - "anchoring"
+        - "armor_reinforce"
+        - "armor_vulnerable"
+        - "deploy_vulnerable"
+        - "fitting_invulnerable"
+        - "hull_reinforce"
+        - "hull_vulnerable"
+        - "online_deprecated"
+        - "onlining_vulnerable"
+        - "shield_vulnerable"
+        - "unanchored"
+        - "unknown"
+      state_timer_end:
+        type: "string"
+        format: "date-time"
+        description: "Date at which the structure will move to it's next state"
+        title: "get_corporations_corporation_id_structures_state_timer_end"
+      state_timer_start:
+        type: "string"
+        format: "date-time"
+        description: "Date at which the structure entered it's current state"
+        title: "get_corporations_corporation_id_structures_state_timer_start"
+      structure_id:
         type: "integer"
         format: "int64"
-        description: "Unique journal reference ID"
-        title: "get_corporations_corporation_id_wallets_division_journal_id"
-      reason:
-        type: "string"
-        description: "The user stated reason for the transaction. Only applies to\
-          \ some ref_types"
-        title: "get_corporations_corporation_id_wallets_division_journal_reason"
-      ref_type:
-        type: "string"
-        description: "The transaction type for the given transaction. Different transaction\
-          \ types will populate different attributes. Note: If you have an existing\
-          \ XML API application that is using ref_types, you will need to know which\
-          \ string ESI ref_type maps to which integer. You can look at the following\
-          \ file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py"
-        title: "get_corporations_corporation_id_wallets_division_journal_ref_type"
-        enum:
-        - "acceleration_gate_fee"
-        - "advertisement_listing_fee"
-        - "agent_donation"
-        - "agent_location_services"
-        - "agent_miscellaneous"
-        - "agent_mission_collateral_paid"
-        - "agent_mission_collateral_refunded"
-        - "agent_mission_reward"
-        - "agent_mission_reward_corporation_tax"
-        - "agent_mission_time_bonus_reward"
-        - "agent_mission_time_bonus_reward_corporation_tax"
-        - "agent_security_services"
-        - "agent_services_rendered"
-        - "agents_preward"
-        - "alliance_maintainance_fee"
-        - "alliance_registration_fee"
-        - "asset_safety_recovery_tax"
-        - "bounty"
-        - "bounty_prize"
-        - "bounty_prize_corporation_tax"
-        - "bounty_prizes"
-        - "bounty_reimbursement"
-        - "bounty_surcharge"
-        - "brokers_fee"
-        - "clone_activation"
-        - "clone_transfer"
-        - "contraband_fine"
-        - "contract_auction_bid"
-        - "contract_auction_bid_corp"
-        - "contract_auction_bid_refund"
-        - "contract_auction_sold"
-        - "contract_brokers_fee"
-        - "contract_brokers_fee_corp"
-        - "contract_collateral"
-        - "contract_collateral_deposited_corp"
-        - "contract_collateral_payout"
-        - "contract_collateral_refund"
-        - "contract_deposit"
-        - "contract_deposit_corp"
-        - "contract_deposit_refund"
-        - "contract_deposit_sales_tax"
-        - "contract_price"
-        - "contract_price_payment_corp"
-        - "contract_reversal"
-        - "contract_reward"
-        - "contract_reward_deposited"
-        - "contract_reward_deposited_corp"
-        - "contract_reward_refund"
-        - "contract_sales_tax"
-        - "copying"
-        - "corporate_reward_payout"
-        - "corporate_reward_tax"
-        - "corporation_account_withdrawal"
-        - "corporation_bulk_payment"
-        - "corporation_dividend_payment"
-        - "corporation_liquidation"
-        - "corporation_logo_change_cost"
-        - "corporation_payment"
-        - "corporation_registration_fee"
-        - "courier_mission_escrow"
-        - "cspa"
-        - "cspaofflinerefund"
-        - "datacore_fee"
-        - "dna_modification_fee"
-        - "docking_fee"
-        - "duel_wager_escrow"
-        - "duel_wager_payment"
-        - "duel_wager_refund"
-        - "factory_slot_rental_fee"
-        - "gm_cash_transfer"
-        - "industry_job_tax"
-        - "infrastructure_hub_maintenance"
-        - "inheritance"
-        - "insurance"
-        - "jump_clone_activation_fee"
-        - "jump_clone_installation_fee"
-        - "kill_right_fee"
-        - "lp_store"
-        - "manufacturing"
-        - "market_escrow"
-        - "market_fine_paid"
-        - "market_transaction"
-        - "medal_creation"
-        - "medal_issued"
-        - "mission_completion"
-        - "mission_cost"
-        - "mission_expiration"
-        - "mission_reward"
-        - "office_rental_fee"
-        - "operation_bonus"
-        - "opportunity_reward"
-        - "planetary_construction"
-        - "planetary_export_tax"
-        - "planetary_import_tax"
-        - "player_donation"
-        - "player_trading"
-        - "project_discovery_reward"
-        - "project_discovery_tax"
-        - "reaction"
-        - "release_of_impounded_property"
-        - "repair_bill"
-        - "reprocessing_tax"
-        - "researching_material_productivity"
-        - "researching_technology"
-        - "researching_time_productivity"
-        - "resource_wars_reward"
-        - "reverse_engineering"
-        - "security_processing_fee"
-        - "shares"
-        - "sovereignity_bill"
-        - "store_purchase"
-        - "store_purchase_refund"
-        - "transaction_tax"
-        - "upkeep_adjustment_fee"
-        - "war_ally_contract"
-        - "war_fee"
-        - "war_fee_surrender"
-      second_party_id:
+        description: "The Item ID of the structure"
+        title: "get_corporations_corporation_id_structures_structure_id"
+      system_id:
         type: "integer"
         format: "int32"
-        description: "The id of the second party involved in the transaction. This\
-          \ attribute has no consistency and is different or non existant for particular\
-          \ ref_types. The description attribute will help make sense of what this\
-          \ attribute means. For more info about the given ID it can be dropped into\
-          \ the /universe/names/ ESI route to determine its type and name"
-        title: "get_corporations_corporation_id_wallets_division_journal_second_party_id"
-      tax:
-        type: "number"
-        format: "double"
-        description: "Tax amount received. Only applies to tax related transactions"
-        title: "get_corporations_corporation_id_wallets_division_journal_tax"
-      tax_receiver_id:
+        description: "The solar system the structure is in"
+        title: "get_corporations_corporation_id_structures_system_id"
+      type_id:
         type: "integer"
         format: "int32"
-        description: "The corporation ID receiving any tax paid. Only applies to tax\
-          \ related transactions"
-        title: "get_corporations_corporation_id_wallets_division_journal_tax_receiver_id"
+        description: "The type id of the structure"
+        title: "get_corporations_corporation_id_structures_type_id"
+      unanchors_at:
+        type: "string"
+        format: "date-time"
+        description: "Date at which the structure will unanchor"
+        title: "get_corporations_corporation_id_structures_unanchors_at"
     description: "200 ok object"
+  post_universe_names_200_ok:
+    required:
+    - "category"
+    - "id"
+    - "name"
+    properties:
+      category:
+        type: "string"
+        description: "category string"
+        title: "post_universe_names_category"
+        enum:
+        - "alliance"
+        - "character"
+        - "constellation"
+        - "corporation"
+        - "inventory_type"
+        - "region"
+        - "solar_system"
+        - "station"
+        - "faction"
+      id:
+        type: "integer"
+        format: "int32"
+        description: "id integer"
+        title: "post_universe_names_id"
+      name:
+        type: "string"
+        description: "name string"
+        title: "post_universe_names_name"
+    description: "200 ok object"
+  post_universe_names_not_found:
+    properties:
+      error:
+        type: "string"
+        description: "Not found message"
+        title: "post_universe_names_404_not_found"
+    description: "Not found"
   get_universe_types_type_id_dogma_attribute:
     required:
     - "attribute_id"
@@ -41451,6 +41005,237 @@ definitions:
         description: "Not found message"
         title: "get_characters_character_id_404_not_found"
     description: "Not found"
+  get_characters_character_id_notifications_200_ok:
+    required:
+    - "notification_id"
+    - "sender_id"
+    - "sender_type"
+    - "timestamp"
+    - "type"
+    properties:
+      is_read:
+        type: "boolean"
+        description: "is_read boolean"
+        title: "get_characters_character_id_notifications_is_read"
+      notification_id:
+        type: "integer"
+        format: "int64"
+        description: "notification_id integer"
+        title: "get_characters_character_id_notifications_notification_id"
+      sender_id:
+        type: "integer"
+        format: "int32"
+        description: "sender_id integer"
+        title: "get_characters_character_id_notifications_sender_id"
+      sender_type:
+        type: "string"
+        description: "sender_type string"
+        title: "get_characters_character_id_notifications_sender_type"
+        enum:
+        - "character"
+        - "corporation"
+        - "alliance"
+        - "faction"
+        - "other"
+      text:
+        type: "string"
+        description: "text string"
+        title: "get_characters_character_id_notifications_text"
+      timestamp:
+        type: "string"
+        format: "date-time"
+        description: "timestamp string"
+        title: "get_characters_character_id_notifications_timestamp"
+      type:
+        type: "string"
+        description: "type string"
+        title: "get_characters_character_id_notifications_type"
+        enum:
+        - "AcceptedAlly"
+        - "AcceptedSurrender"
+        - "AllAnchoringMsg"
+        - "AllMaintenanceBillMsg"
+        - "AllStrucInvulnerableMsg"
+        - "AllStructVulnerableMsg"
+        - "AllWarCorpJoinedAllianceMsg"
+        - "AllWarDeclaredMsg"
+        - "AllWarInvalidatedMsg"
+        - "AllWarRetractedMsg"
+        - "AllWarSurrenderMsg"
+        - "AllianceCapitalChanged"
+        - "AllyContractCancelled"
+        - "AllyJoinedWarAggressorMsg"
+        - "AllyJoinedWarAllyMsg"
+        - "AllyJoinedWarDefenderMsg"
+        - "BattlePunishFriendlyFire"
+        - "BillOutOfMoneyMsg"
+        - "BillPaidCorpAllMsg"
+        - "BountyClaimMsg"
+        - "BountyESSShared"
+        - "BountyESSTaken"
+        - "BountyPlacedAlliance"
+        - "BountyPlacedChar"
+        - "BountyPlacedCorp"
+        - "BountyYourBountyClaimed"
+        - "BuddyConnectContactAdd"
+        - "CharAppAcceptMsg"
+        - "CharAppRejectMsg"
+        - "CharAppWithdrawMsg"
+        - "CharLeftCorpMsg"
+        - "CharMedalMsg"
+        - "CharTerminationMsg"
+        - "CloneActivationMsg"
+        - "CloneActivationMsg2"
+        - "CloneMovedMsg"
+        - "CloneRevokedMsg1"
+        - "CloneRevokedMsg2"
+        - "CombatOperationFinished"
+        - "ContactAdd"
+        - "ContactEdit"
+        - "ContainerPasswordMsg"
+        - "CorpAllBillMsg"
+        - "CorpAppAcceptMsg"
+        - "CorpAppInvitedMsg"
+        - "CorpAppNewMsg"
+        - "CorpAppRejectCustomMsg"
+        - "CorpAppRejectMsg"
+        - "CorpDividendMsg"
+        - "CorpFriendlyFireDisableTimerCompleted"
+        - "CorpFriendlyFireDisableTimerStarted"
+        - "CorpFriendlyFireEnableTimerCompleted"
+        - "CorpFriendlyFireEnableTimerStarted"
+        - "CorpKicked"
+        - "CorpLiquidationMsg"
+        - "CorpNewCEOMsg"
+        - "CorpNewsMsg"
+        - "CorpOfficeExpirationMsg"
+        - "CorpStructLostMsg"
+        - "CorpTaxChangeMsg"
+        - "CorpVoteCEORevokedMsg"
+        - "CorpVoteMsg"
+        - "CorpWarDeclaredMsg"
+        - "CorpWarFightingLegalMsg"
+        - "CorpWarInvalidatedMsg"
+        - "CorpWarRetractedMsg"
+        - "CorpWarSurrenderMsg"
+        - "CustomsMsg"
+        - "DeclareWar"
+        - "DistrictAttacked"
+        - "DustAppAcceptedMsg"
+        - "EntosisCaptureStarted"
+        - "FWAllianceKickMsg"
+        - "FWAllianceWarningMsg"
+        - "FWCharKickMsg"
+        - "FWCharRankGainMsg"
+        - "FWCharRankLossMsg"
+        - "FWCharWarningMsg"
+        - "FWCorpJoinMsg"
+        - "FWCorpKickMsg"
+        - "FWCorpLeaveMsg"
+        - "FWCorpWarningMsg"
+        - "FacWarCorpJoinRequestMsg"
+        - "FacWarCorpJoinWithdrawMsg"
+        - "FacWarCorpLeaveRequestMsg"
+        - "FacWarCorpLeaveWithdrawMsg"
+        - "FacWarLPDisqualifiedEvent"
+        - "FacWarLPDisqualifiedKill"
+        - "FacWarLPPayoutEvent"
+        - "FacWarLPPayoutKill"
+        - "GameTimeAdded"
+        - "GameTimeReceived"
+        - "GameTimeSent"
+        - "GiftReceived"
+        - "IHubDestroyedByBillFailure"
+        - "IncursionCompletedMsg"
+        - "IndustryOperationFinished"
+        - "IndustryTeamAuctionLost"
+        - "IndustryTeamAuctionWon"
+        - "InfrastructureHubBillAboutToExpire"
+        - "InsuranceExpirationMsg"
+        - "InsuranceFirstShipMsg"
+        - "InsuranceInvalidatedMsg"
+        - "InsuranceIssuedMsg"
+        - "InsurancePayoutMsg"
+        - "JumpCloneDeletedMsg1"
+        - "JumpCloneDeletedMsg2"
+        - "KillReportFinalBlow"
+        - "KillReportVictim"
+        - "KillRightAvailable"
+        - "KillRightAvailableOpen"
+        - "KillRightEarned"
+        - "KillRightUnavailable"
+        - "KillRightUnavailableOpen"
+        - "KillRightUsed"
+        - "LocateCharMsg"
+        - "MadeWarMutual"
+        - "MercOfferedNegotiationMsg"
+        - "MissionOfferExpirationMsg"
+        - "MissionTimeoutMsg"
+        - "MoonminingAutomaticFracture"
+        - "MoonminingExtractionCancelled"
+        - "MoonminingExtractionFinished"
+        - "MoonminingExtractionStarted"
+        - "MoonminingLaserFired"
+        - "NPCStandingsGained"
+        - "NPCStandingsLost"
+        - "OfferedSurrender"
+        - "OfferedToAlly"
+        - "OldLscMessages"
+        - "OperationFinished"
+        - "OrbitalAttacked"
+        - "OrbitalReinforced"
+        - "OwnershipTransferred"
+        - "ReimbursementMsg"
+        - "ResearchMissionAvailableMsg"
+        - "RetractsWar"
+        - "SeasonalChallengeCompleted"
+        - "SovAllClaimAquiredMsg"
+        - "SovAllClaimLostMsg"
+        - "SovCommandNodeEventStarted"
+        - "SovCorpBillLateMsg"
+        - "SovCorpClaimFailMsg"
+        - "SovDisruptorMsg"
+        - "SovStationEnteredFreeport"
+        - "SovStructureDestroyed"
+        - "SovStructureReinforced"
+        - "SovStructureSelfDestructCancel"
+        - "SovStructureSelfDestructFinished"
+        - "SovStructureSelfDestructRequested"
+        - "SovereigntyIHDamageMsg"
+        - "SovereigntySBUDamageMsg"
+        - "SovereigntyTCUDamageMsg"
+        - "StationAggressionMsg1"
+        - "StationAggressionMsg2"
+        - "StationConquerMsg"
+        - "StationServiceDisabled"
+        - "StationServiceEnabled"
+        - "StationStateChangeMsg"
+        - "StoryLineMissionAvailableMsg"
+        - "StructureAnchoring"
+        - "StructureCourierContractChanged"
+        - "StructureDestroyed"
+        - "StructureFuelAlert"
+        - "StructureItemsDelivered"
+        - "StructureItemsMovedToSafety"
+        - "StructureLostArmor"
+        - "StructureLostShields"
+        - "StructureOnline"
+        - "StructureServicesOffline"
+        - "StructureUnanchoring"
+        - "StructureUnderAttack"
+        - "StructureWentHighPower"
+        - "StructureWentLowPower"
+        - "StructuresJobsCancelled"
+        - "StructuresJobsPaused"
+        - "StructuresReinforcementChanged"
+        - "TowerAlertMsg"
+        - "TowerResourceAlertMsg"
+        - "TransactionReversalMsg"
+        - "TutorialMsg"
+        - "WarAllyOfferDeclinedMsg"
+        - "WarSurrenderDeclinedMsg"
+        - "WarSurrenderOfferMsg"
+    description: "200 ok object"
   get_characters_character_id_skills_skill:
     required:
     - "active_skill_level"
@@ -41502,7 +41287,91 @@ definitions:
         description: "Skill points available to be assigned"
         title: "get_characters_character_id_skills_unallocated_sp"
     description: "200 ok object"
-  get_characters_character_id_wallet_journal_200_ok:
+  get_corporations_corporation_id_ok:
+    required:
+    - "ceo_id"
+    - "creator_id"
+    - "member_count"
+    - "name"
+    - "tax_rate"
+    - "ticker"
+    properties:
+      alliance_id:
+        type: "integer"
+        format: "int32"
+        description: "ID of the alliance that corporation is a member of, if any"
+        title: "get_corporations_corporation_id_alliance_id"
+      ceo_id:
+        type: "integer"
+        format: "int32"
+        description: "ceo_id integer"
+        title: "get_corporations_corporation_id_ceo_id"
+      creator_id:
+        type: "integer"
+        format: "int32"
+        description: "creator_id integer"
+        title: "get_corporations_corporation_id_creator_id"
+      date_founded:
+        type: "string"
+        format: "date-time"
+        description: "date_founded string"
+        title: "get_corporations_corporation_id_date_founded"
+      description:
+        type: "string"
+        description: "description string"
+        title: "get_corporations_corporation_id_description"
+      faction_id:
+        type: "integer"
+        format: "int32"
+        description: "faction_id integer"
+        title: "get_corporations_corporation_id_faction_id"
+      home_station_id:
+        type: "integer"
+        format: "int32"
+        description: "home_station_id integer"
+        title: "get_corporations_corporation_id_home_station_id"
+      member_count:
+        type: "integer"
+        format: "int32"
+        description: "member_count integer"
+        title: "get_corporations_corporation_id_member_count"
+      name:
+        type: "string"
+        description: "the full name of the corporation"
+        title: "get_corporations_corporation_id_name"
+      shares:
+        type: "integer"
+        format: "int64"
+        description: "shares integer"
+        title: "get_corporations_corporation_id_shares"
+      tax_rate:
+        type: "number"
+        format: "float"
+        description: "tax_rate number"
+        title: "get_corporations_corporation_id_tax_rate"
+        minimum: 0
+        maximum: 1
+      ticker:
+        type: "string"
+        description: "the short name of the corporation"
+        title: "get_corporations_corporation_id_ticker"
+      url:
+        type: "string"
+        description: "url string"
+        title: "get_corporations_corporation_id_url"
+      war_eligible:
+        type: "boolean"
+        description: "war_eligible boolean"
+        title: "get_corporations_corporation_id_war_eligible"
+    description: "200 ok object"
+  get_corporations_corporation_id_not_found:
+    properties:
+      error:
+        type: "string"
+        description: "Not found message"
+        title: "get_corporations_corporation_id_404_not_found"
+    description: "Not found"
+  get_corporations_corporation_id_wallets_division_journal_200_ok:
     required:
     - "date"
     - "description"
@@ -41515,23 +41384,23 @@ definitions:
         description: "The amount of ISK given or taken from the wallet as a result\
           \ of the given transaction. Positive when ISK is deposited into the wallet\
           \ and negative when ISK is withdrawn"
-        title: "get_characters_character_id_wallet_journal_amount"
+        title: "get_corporations_corporation_id_wallets_division_journal_amount"
       balance:
         type: "number"
         format: "double"
         description: "Wallet balance after transaction occurred"
-        title: "get_characters_character_id_wallet_journal_balance"
+        title: "get_corporations_corporation_id_wallets_division_journal_balance"
       context_id:
         type: "integer"
         format: "int64"
         description: "An ID that gives extra context to the particular transaction.\
           \ Because of legacy reasons the context is completely different per ref_type\
           \ and means different things. It is also possible to not have a context_id"
-        title: "get_characters_character_id_wallet_journal_context_id"
+        title: "get_corporations_corporation_id_wallets_division_journal_context_id"
       context_id_type:
         type: "string"
         description: "The type of the given context_id if present"
-        title: "get_characters_character_id_wallet_journal_context_id_type"
+        title: "get_corporations_corporation_id_wallets_division_journal_context_id_type"
         enum:
         - "structure_id"
         - "station_id"
@@ -41549,12 +41418,12 @@ definitions:
         type: "string"
         format: "date-time"
         description: "Date and time of transaction"
-        title: "get_characters_character_id_wallet_journal_date"
+        title: "get_corporations_corporation_id_wallets_division_journal_date"
       description:
         type: "string"
         description: "The reason for the transaction, mirrors what is seen in the\
           \ client"
-        title: "get_characters_character_id_wallet_journal_description"
+        title: "get_corporations_corporation_id_wallets_division_journal_description"
       first_party_id:
         type: "integer"
         format: "int32"
@@ -41563,25 +41432,25 @@ definitions:
           \ ref_types. The description attribute will help make sense of what this\
           \ attribute means. For more info about the given ID it can be dropped into\
           \ the /universe/names/ ESI route to determine its type and name"
-        title: "get_characters_character_id_wallet_journal_first_party_id"
+        title: "get_corporations_corporation_id_wallets_division_journal_first_party_id"
       id:
         type: "integer"
         format: "int64"
         description: "Unique journal reference ID"
-        title: "get_characters_character_id_wallet_journal_id"
+        title: "get_corporations_corporation_id_wallets_division_journal_id"
       reason:
         type: "string"
         description: "The user stated reason for the transaction. Only applies to\
           \ some ref_types"
-        title: "get_characters_character_id_wallet_journal_reason"
+        title: "get_corporations_corporation_id_wallets_division_journal_reason"
       ref_type:
         type: "string"
-        description: "The transaction type for the given transaction. Different transaction\
-          \ types will populate different attributes. Note: If you have an existing\
-          \ XML API application that is using ref_types, you will need to know which\
-          \ string ESI ref_type maps to which integer. You can look at the following\
-          \ file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py"
-        title: "get_characters_character_id_wallet_journal_ref_type"
+        description: "\"The transaction type for the given. transaction. Different\
+          \ transaction types will populate different attributes. Note: If you have\
+          \ an existing XML API application that is using ref_types, you will need\
+          \ to know which string ESI ref_type maps to which integer. You can look\
+          \ at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py\""
+        title: "get_corporations_corporation_id_wallets_division_journal_ref_type"
         enum:
         - "acceleration_gate_fee"
         - "advertisement_listing_fee"
@@ -41695,6 +41564,7 @@ definitions:
         - "sovereignity_bill"
         - "store_purchase"
         - "store_purchase_refund"
+        - "structure_gate_jump"
         - "transaction_tax"
         - "upkeep_adjustment_fee"
         - "war_ally_contract"
@@ -41708,99 +41578,19 @@ definitions:
           \ ref_types. The description attribute will help make sense of what this\
           \ attribute means. For more info about the given ID it can be dropped into\
           \ the /universe/names/ ESI route to determine its type and name"
-        title: "get_characters_character_id_wallet_journal_second_party_id"
+        title: "get_corporations_corporation_id_wallets_division_journal_second_party_id"
       tax:
         type: "number"
         format: "double"
         description: "Tax amount received. Only applies to tax related transactions"
-        title: "get_characters_character_id_wallet_journal_tax"
+        title: "get_corporations_corporation_id_wallets_division_journal_tax"
       tax_receiver_id:
         type: "integer"
         format: "int32"
         description: "The corporation ID receiving any tax paid. Only applies to tax\
           \ related transactions"
-        title: "get_characters_character_id_wallet_journal_tax_receiver_id"
+        title: "get_corporations_corporation_id_wallets_division_journal_tax_receiver_id"
     description: "200 ok object"
-  get_corporations_corporation_id_ok:
-    required:
-    - "ceo_id"
-    - "creator_id"
-    - "member_count"
-    - "name"
-    - "tax_rate"
-    - "ticker"
-    properties:
-      alliance_id:
-        type: "integer"
-        format: "int32"
-        description: "ID of the alliance that corporation is a member of, if any"
-        title: "get_corporations_corporation_id_alliance_id"
-      ceo_id:
-        type: "integer"
-        format: "int32"
-        description: "ceo_id integer"
-        title: "get_corporations_corporation_id_ceo_id"
-      creator_id:
-        type: "integer"
-        format: "int32"
-        description: "creator_id integer"
-        title: "get_corporations_corporation_id_creator_id"
-      date_founded:
-        type: "string"
-        format: "date-time"
-        description: "date_founded string"
-        title: "get_corporations_corporation_id_date_founded"
-      description:
-        type: "string"
-        description: "description string"
-        title: "get_corporations_corporation_id_description"
-      faction_id:
-        type: "integer"
-        format: "int32"
-        description: "faction_id integer"
-        title: "get_corporations_corporation_id_faction_id"
-      home_station_id:
-        type: "integer"
-        format: "int32"
-        description: "home_station_id integer"
-        title: "get_corporations_corporation_id_home_station_id"
-      member_count:
-        type: "integer"
-        format: "int32"
-        description: "member_count integer"
-        title: "get_corporations_corporation_id_member_count"
-      name:
-        type: "string"
-        description: "the full name of the corporation"
-        title: "get_corporations_corporation_id_name"
-      shares:
-        type: "integer"
-        format: "int64"
-        description: "shares integer"
-        title: "get_corporations_corporation_id_shares"
-      tax_rate:
-        type: "number"
-        format: "float"
-        description: "tax_rate number"
-        title: "get_corporations_corporation_id_tax_rate"
-        minimum: 0
-        maximum: 1
-      ticker:
-        type: "string"
-        description: "the short name of the corporation"
-        title: "get_corporations_corporation_id_ticker"
-      url:
-        type: "string"
-        description: "url string"
-        title: "get_corporations_corporation_id_url"
-    description: "200 ok object"
-  get_corporations_corporation_id_not_found:
-    properties:
-      error:
-        type: "string"
-        description: "Not found message"
-        title: "get_corporations_corporation_id_404_not_found"
-    description: "Not found"
   get_universe_systems_system_id_planet:
     required:
     - "planet_id"
@@ -41926,6 +41716,226 @@ definitions:
         description: "Not found message"
         title: "get_universe_systems_system_id_404_not_found"
     description: "Not found"
+  get_characters_character_id_wallet_journal_200_ok:
+    required:
+    - "date"
+    - "description"
+    - "id"
+    - "ref_type"
+    properties:
+      amount:
+        type: "number"
+        format: "double"
+        description: "The amount of ISK given or taken from the wallet as a result\
+          \ of the given transaction. Positive when ISK is deposited into the wallet\
+          \ and negative when ISK is withdrawn"
+        title: "get_characters_character_id_wallet_journal_amount"
+      balance:
+        type: "number"
+        format: "double"
+        description: "Wallet balance after transaction occurred"
+        title: "get_characters_character_id_wallet_journal_balance"
+      context_id:
+        type: "integer"
+        format: "int64"
+        description: "An ID that gives extra context to the particular transaction.\
+          \ Because of legacy reasons the context is completely different per ref_type\
+          \ and means different things. It is also possible to not have a context_id"
+        title: "get_characters_character_id_wallet_journal_context_id"
+      context_id_type:
+        type: "string"
+        description: "The type of the given context_id if present"
+        title: "get_characters_character_id_wallet_journal_context_id_type"
+        enum:
+        - "structure_id"
+        - "station_id"
+        - "market_transaction_id"
+        - "character_id"
+        - "corporation_id"
+        - "alliance_id"
+        - "eve_system"
+        - "industry_job_id"
+        - "contract_id"
+        - "planet_id"
+        - "system_id"
+        - "type_id"
+      date:
+        type: "string"
+        format: "date-time"
+        description: "Date and time of transaction"
+        title: "get_characters_character_id_wallet_journal_date"
+      description:
+        type: "string"
+        description: "The reason for the transaction, mirrors what is seen in the\
+          \ client"
+        title: "get_characters_character_id_wallet_journal_description"
+      first_party_id:
+        type: "integer"
+        format: "int32"
+        description: "The id of the first party involved in the transaction. This\
+          \ attribute has no consistency and is different or non existant for particular\
+          \ ref_types. The description attribute will help make sense of what this\
+          \ attribute means. For more info about the given ID it can be dropped into\
+          \ the /universe/names/ ESI route to determine its type and name"
+        title: "get_characters_character_id_wallet_journal_first_party_id"
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Unique journal reference ID"
+        title: "get_characters_character_id_wallet_journal_id"
+      reason:
+        type: "string"
+        description: "The user stated reason for the transaction. Only applies to\
+          \ some ref_types"
+        title: "get_characters_character_id_wallet_journal_reason"
+      ref_type:
+        type: "string"
+        description: "\"The transaction type for the given. transaction. Different\
+          \ transaction types will populate different attributes. Note: If you have\
+          \ an existing XML API application that is using ref_types, you will need\
+          \ to know which string ESI ref_type maps to which integer. You can look\
+          \ at the following file to see string->int mappings: https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py\""
+        title: "get_characters_character_id_wallet_journal_ref_type"
+        enum:
+        - "acceleration_gate_fee"
+        - "advertisement_listing_fee"
+        - "agent_donation"
+        - "agent_location_services"
+        - "agent_miscellaneous"
+        - "agent_mission_collateral_paid"
+        - "agent_mission_collateral_refunded"
+        - "agent_mission_reward"
+        - "agent_mission_reward_corporation_tax"
+        - "agent_mission_time_bonus_reward"
+        - "agent_mission_time_bonus_reward_corporation_tax"
+        - "agent_security_services"
+        - "agent_services_rendered"
+        - "agents_preward"
+        - "alliance_maintainance_fee"
+        - "alliance_registration_fee"
+        - "asset_safety_recovery_tax"
+        - "bounty"
+        - "bounty_prize"
+        - "bounty_prize_corporation_tax"
+        - "bounty_prizes"
+        - "bounty_reimbursement"
+        - "bounty_surcharge"
+        - "brokers_fee"
+        - "clone_activation"
+        - "clone_transfer"
+        - "contraband_fine"
+        - "contract_auction_bid"
+        - "contract_auction_bid_corp"
+        - "contract_auction_bid_refund"
+        - "contract_auction_sold"
+        - "contract_brokers_fee"
+        - "contract_brokers_fee_corp"
+        - "contract_collateral"
+        - "contract_collateral_deposited_corp"
+        - "contract_collateral_payout"
+        - "contract_collateral_refund"
+        - "contract_deposit"
+        - "contract_deposit_corp"
+        - "contract_deposit_refund"
+        - "contract_deposit_sales_tax"
+        - "contract_price"
+        - "contract_price_payment_corp"
+        - "contract_reversal"
+        - "contract_reward"
+        - "contract_reward_deposited"
+        - "contract_reward_deposited_corp"
+        - "contract_reward_refund"
+        - "contract_sales_tax"
+        - "copying"
+        - "corporate_reward_payout"
+        - "corporate_reward_tax"
+        - "corporation_account_withdrawal"
+        - "corporation_bulk_payment"
+        - "corporation_dividend_payment"
+        - "corporation_liquidation"
+        - "corporation_logo_change_cost"
+        - "corporation_payment"
+        - "corporation_registration_fee"
+        - "courier_mission_escrow"
+        - "cspa"
+        - "cspaofflinerefund"
+        - "datacore_fee"
+        - "dna_modification_fee"
+        - "docking_fee"
+        - "duel_wager_escrow"
+        - "duel_wager_payment"
+        - "duel_wager_refund"
+        - "factory_slot_rental_fee"
+        - "gm_cash_transfer"
+        - "industry_job_tax"
+        - "infrastructure_hub_maintenance"
+        - "inheritance"
+        - "insurance"
+        - "jump_clone_activation_fee"
+        - "jump_clone_installation_fee"
+        - "kill_right_fee"
+        - "lp_store"
+        - "manufacturing"
+        - "market_escrow"
+        - "market_fine_paid"
+        - "market_transaction"
+        - "medal_creation"
+        - "medal_issued"
+        - "mission_completion"
+        - "mission_cost"
+        - "mission_expiration"
+        - "mission_reward"
+        - "office_rental_fee"
+        - "operation_bonus"
+        - "opportunity_reward"
+        - "planetary_construction"
+        - "planetary_export_tax"
+        - "planetary_import_tax"
+        - "player_donation"
+        - "player_trading"
+        - "project_discovery_reward"
+        - "project_discovery_tax"
+        - "reaction"
+        - "release_of_impounded_property"
+        - "repair_bill"
+        - "reprocessing_tax"
+        - "researching_material_productivity"
+        - "researching_technology"
+        - "researching_time_productivity"
+        - "resource_wars_reward"
+        - "reverse_engineering"
+        - "security_processing_fee"
+        - "shares"
+        - "sovereignity_bill"
+        - "store_purchase"
+        - "store_purchase_refund"
+        - "structure_gate_jump"
+        - "transaction_tax"
+        - "upkeep_adjustment_fee"
+        - "war_ally_contract"
+        - "war_fee"
+        - "war_fee_surrender"
+      second_party_id:
+        type: "integer"
+        format: "int32"
+        description: "The id of the second party involved in the transaction. This\
+          \ attribute has no consistency and is different or non existant for particular\
+          \ ref_types. The description attribute will help make sense of what this\
+          \ attribute means. For more info about the given ID it can be dropped into\
+          \ the /universe/names/ ESI route to determine its type and name"
+        title: "get_characters_character_id_wallet_journal_second_party_id"
+      tax:
+        type: "number"
+        format: "double"
+        description: "Tax amount received. Only applies to tax related transactions"
+        title: "get_characters_character_id_wallet_journal_tax"
+      tax_receiver_id:
+        type: "integer"
+        format: "int32"
+        description: "The corporation ID receiving any tax paid. Only applies to tax\
+          \ related transactions"
+        title: "get_characters_character_id_wallet_journal_tax_receiver_id"
+    description: "200 ok object"
 parameters:
   Accept-Language:
     name: "Accept-Language"

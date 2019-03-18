@@ -38,7 +38,7 @@ type GetCorporationsCorporationIdStructures200Ok struct {
 	ReinforceHour int32 `json:"reinforce_hour"`
 
 	// The day of the week when the structure exits its final reinforcement period and becomes vulnerable to attack against its hull. Monday is 0 and Sunday is 6
-	ReinforceWeekday int32 `json:"reinforce_weekday"`
+	ReinforceWeekday int32 `json:"reinforce_weekday,omitempty"`
 
 	// Contains a list of service upgrades, and their state
 	Services []GetCorporationsCorporationIdStructuresService `json:"services,omitempty"`

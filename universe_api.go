@@ -1733,6 +1733,7 @@ func (a *UniverseApiService) GetUniverseStationsStationId(ctx context.Context, s
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "datasource" (string) The server name you would like data from
+     @param "filter" (string) Only list public structures that have this service online
      @param "ifNoneMatch" (string) ETag from a previous request. A 304 will be returned if this matches the current ETag
  @return []int64*/
 func (a *UniverseApiService) GetUniverseStructures(ctx context.Context, localVarOptionals map[string]interface{}) ([]int64,  *http.Response, error) {
@@ -1754,12 +1755,18 @@ func (a *UniverseApiService) GetUniverseStructures(ctx context.Context, localVar
 	if err := typeCheckParameter(localVarOptionals["datasource"], "string", "datasource"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["filter"], "string", "filter"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(localVarOptionals["ifNoneMatch"], "string", "ifNoneMatch"); err != nil {
 		return successPayload, nil, err
 	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["datasource"].(string); localVarOk {
 		localVarQueryParams.Add("datasource", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["filter"].(string); localVarOk {
+		localVarQueryParams.Add("filter", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2488,8 +2495,8 @@ func (a *UniverseApiService) PostUniverseIds(ctx context.Context, names []string
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UniverseApiService Get names and categories for a set of ID&#39;s
- Resolve a set of IDs to names and categories. Supported ID&#39;s for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types  --- 
+/* UniverseApiService Get names and categories for a set of IDs
+ Resolve a set of IDs to names and categories. Supported ID&#39;s for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types, Factions  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param ids The ids to resolve
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2505,7 +2512,7 @@ func (a *UniverseApiService) PostUniverseNames(ctx context.Context, ids []int32,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/v2/universe/names/"
+	localVarPath := a.client.cfg.BasePath + "/v3/universe/names/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -107,7 +107,7 @@ func (a *FittingsApiService) DeleteCharactersCharacterIdFittingsFittingId(ctx co
 }
 
 /* FittingsApiService Get fittings
- Return fittings of a character  ---  This route is cached for up to 300 seconds
+ Return fittings of a character  ---  This route is cached for up to 300 seconds  --- Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/fittings/)
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -197,7 +197,7 @@ func (a *FittingsApiService) GetCharactersCharacterIdFittings(ctx context.Contex
 }
 
 /* FittingsApiService Create fitting
- Save a new fitting for a character  --- 
+ Save a new fitting for a character  ---  Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#POST-/characters/{character_id}/fittings/)
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param fitting Details about the new fitting
