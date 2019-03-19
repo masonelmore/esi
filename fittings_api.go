@@ -107,7 +107,7 @@ func (a *FittingsApiService) DeleteCharactersCharacterIdFittingsFittingId(ctx co
 }
 
 /* FittingsApiService Get fittings
- Return fittings of a character  ---  This route is cached for up to 300 seconds  --- Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/fittings/)
+ Return fittings of a character  ---  This route is cached for up to 300 seconds
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -125,7 +125,7 @@ func (a *FittingsApiService) GetCharactersCharacterIdFittings(ctx context.Contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fittings/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/fittings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -197,7 +197,7 @@ func (a *FittingsApiService) GetCharactersCharacterIdFittings(ctx context.Contex
 }
 
 /* FittingsApiService Create fitting
- Save a new fitting for a character  ---  Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#POST-/characters/{character_id}/fittings/)
+ Save a new fitting for a character  --- 
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param fitting Details about the new fitting
@@ -215,7 +215,7 @@ func (a *FittingsApiService) PostCharactersCharacterIdFittings(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/v1/characters/{character_id}/fittings/"
+	localVarPath := a.client.cfg.BasePath + "/v2/characters/{character_id}/fittings/"
 	localVarPath = strings.Replace(localVarPath, "{"+"character_id"+"}", fmt.Sprintf("%v", characterId), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -12,8 +12,8 @@ package esi
 // item object
 type GetCharactersCharacterIdFittingsItem struct {
 
-	// flag integer
-	Flag int32 `json:"flag"`
+	// flag string
+	Flag string `json:"flag"`
 
 	// quantity integer
 	Quantity int32 `json:"quantity"`
