@@ -256,7 +256,7 @@ func (a *FleetsApiService) DeleteFleetsFleetIdWingsWingId(ctx context.Context, f
 }
 
 /* FleetsApiService Get character fleet info
- Return the fleet ID the character is in, if any.  ---  This route is cached for up to 60 seconds
+ Return the fleet ID the character is in, if any.  ---  This route is cached for up to 60 seconds  --- Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/fleet/)
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @param characterId An EVE character ID
  @param optional (nil or map[string]interface{}) with one or more of:
