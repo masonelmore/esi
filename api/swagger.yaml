@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "An OpenAPI for EVE Online"
-  version: "0.8.9"
+  version: "1.2.3"
   title: "EVE Swagger Interface"
 host: "esi.evetech.net"
 schemes:
@@ -1930,7 +1930,7 @@ paths:
       - "Character"
       summary: "Get corporation history"
       description: "Get a list of all the corporations a character has been a member\
-        \ of\n\n---\n\nThis route is cached for up to 3600 seconds"
+        \ of\n\n---\n\nThis route is cached for up to 86400 seconds"
       operationId: "get_characters_character_id_corporationhistory"
       parameters:
       - name: "character_id"
@@ -2044,7 +2044,7 @@ paths:
       - "dev"
       - "legacy"
       - "v1"
-      x-cached-seconds: 3600
+      x-cached-seconds: 86400
   /v1/characters/{character_id}/fatigue/:
     get:
       tags:
@@ -2559,7 +2559,6 @@ paths:
       - evesso:
         - "esi-characters.read_fw_stats.v1"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/characters/{character_id}/implants/:
@@ -3153,7 +3152,6 @@ paths:
       - evesso:
         - "esi-location.read_location.v1"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
       x-cached-seconds: 5
@@ -5098,7 +5096,7 @@ paths:
       - "Location"
       summary: "Get current ship"
       description: "Get the current ship type, name and id\n\n---\n\nThis route is\
-        \ cached for up to 5 seconds"
+        \ cached for up to 5 seconds\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/characters/{character_id}/ship/)"
       operationId: "get_characters_character_id_ship"
       parameters:
       - name: "character_id"
@@ -5223,7 +5221,6 @@ paths:
       - evesso:
         - "esi-location.read_ship_type.v1"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
       x-cached-seconds: 5
@@ -8420,7 +8417,7 @@ paths:
       - "Faction Warfare"
       summary: "Overview of a corporation involved in faction warfare"
       description: "Statistics about a corporation involved in faction warfare\n\n\
-        ---\n\nThis route expires daily at 11:05"
+        ---\n\nThis route expires daily at 11:05\n\n---\n[Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#GET-/corporations/{corporation_id}/fw/stats/)"
       operationId: "get_corporations_corporation_id_fw_stats"
       parameters:
       - name: "corporation_id"
@@ -8553,7 +8550,6 @@ paths:
       - evesso:
         - "esi-corporations.read_fw_stats.v1"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
       x-required-roles: []
@@ -13376,7 +13372,6 @@ paths:
             application/json:
               error: "Gateway timeout message"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/fw/leaderboards/characters/:
@@ -13510,7 +13505,6 @@ paths:
             application/json:
               error: "Gateway timeout message"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/fw/leaderboards/corporations/:
@@ -13644,7 +13638,6 @@ paths:
             application/json:
               error: "Gateway timeout message"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/fw/stats/:
@@ -13760,7 +13753,6 @@ paths:
             application/json:
               error: "Gateway timeout message"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/fw/wars/:
@@ -13867,7 +13859,6 @@ paths:
             application/json:
               error: "Gateway timeout message"
       x-alternate-versions:
-      - "dev"
       - "legacy"
       - "v1"
   /v1/incursions/:
@@ -22351,7 +22342,6 @@ paths:
       - evesso:
         - "esi-location.read_online.v1"
       x-alternate-versions:
-      - "dev"
       - "v2"
       x-cached-seconds: 60
   /v2/characters/{character_id}/orders/:
@@ -24205,7 +24195,6 @@ paths:
             application/json:
               error: "Gateway timeout message"
       x-alternate-versions:
-      - "dev"
       - "v2"
       x-cached-seconds: 1800
   /v2/search/:
@@ -31283,8 +31272,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       grantable_roles_at_base:
@@ -31343,8 +31330,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       grantable_roles_at_hq:
@@ -31403,8 +31388,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       grantable_roles_at_other:
@@ -31463,8 +31446,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles:
@@ -31523,8 +31504,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles_at_base:
@@ -31583,8 +31562,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles_at_hq:
@@ -31643,8 +31620,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles_at_other:
@@ -31703,8 +31678,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
     description: "200 ok object"
@@ -31788,8 +31761,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       old_roles:
@@ -31848,8 +31819,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       role_type:
@@ -32158,8 +32127,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       grantable_roles_at_base:
@@ -32218,8 +32185,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       grantable_roles_at_hq:
@@ -32278,8 +32243,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       grantable_roles_at_other:
@@ -32338,8 +32301,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       name:
@@ -32402,8 +32363,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles_at_base:
@@ -32462,8 +32421,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles_at_hq:
@@ -32522,8 +32479,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       roles_at_other:
@@ -32582,8 +32537,6 @@ definitions:
           - "Starbase_Defense_Operator"
           - "Starbase_Fuel_Technician"
           - "Station_Manager"
-          - "Terrestrial_Combat_Officer"
-          - "Terrestrial_Logistics_Officer"
           - "Trader"
         maxItems: 50
       title_id:
@@ -41739,6 +41692,7 @@ definitions:
         - "KillRightUsed"
         - "LocateCharMsg"
         - "MadeWarMutual"
+        - "MercOfferRetractedMsg"
         - "MercOfferedNegotiationMsg"
         - "MissionOfferExpirationMsg"
         - "MissionTimeoutMsg"
@@ -41753,6 +41707,7 @@ definitions:
         - "MutualWarInviteSent"
         - "NPCStandingsGained"
         - "NPCStandingsLost"
+        - "OfferToAllyRetracted"
         - "OfferedSurrender"
         - "OfferedToAlly"
         - "OldLscMessages"
