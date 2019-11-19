@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "An OpenAPI for EVE Online"
-  version: "1.2.5"
+  version: "1.2.9"
   title: "EVE Swagger Interface"
 host: "esi.evetech.net"
 schemes:
@@ -11915,6 +11915,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -11953,6 +11954,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "token"
         in: "query"
@@ -11996,6 +11998,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -12652,6 +12655,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -12690,6 +12694,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "token"
         in: "query"
@@ -12728,6 +12733,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -14226,6 +14232,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -14257,6 +14264,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -14289,6 +14297,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -14769,6 +14778,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -14800,6 +14810,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "market_group_id"
         in: "path"
@@ -14836,6 +14847,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -15762,6 +15774,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -15800,6 +15813,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -15830,6 +15844,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -17121,6 +17136,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -17152,6 +17168,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -17184,6 +17201,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -17389,6 +17407,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -17420,6 +17439,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -17458,6 +17478,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -17654,6 +17675,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "category_id"
         in: "path"
@@ -17692,6 +17714,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -17721,6 +17744,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -17923,6 +17947,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "constellation_id"
         in: "path"
@@ -17961,6 +17986,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -17993,6 +18019,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -18435,6 +18462,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -18473,6 +18501,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -18503,6 +18532,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -18597,6 +18627,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -18621,6 +18652,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - in: "body"
         name: "names"
@@ -18665,6 +18697,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
         400:
           description: "Bad request"
           schema:
@@ -18969,6 +19002,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -19000,6 +19034,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -19031,6 +19066,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -19225,6 +19261,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -19256,6 +19293,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "region_id"
         in: "path"
@@ -19291,6 +19329,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -24219,6 +24258,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "categories"
         in: "query"
@@ -24272,6 +24312,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "search"
         in: "query"
@@ -24318,6 +24359,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -24509,6 +24551,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -24540,6 +24583,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       responses:
         200:
@@ -24576,6 +24620,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -26042,6 +26087,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "categories"
         in: "query"
@@ -26104,6 +26150,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "search"
         in: "query"
@@ -26156,6 +26203,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -26733,6 +26781,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "corporation_id"
         in: "path"
@@ -26772,6 +26821,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "page"
         in: "query"
@@ -26822,6 +26872,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -27030,6 +27081,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -27061,6 +27113,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "type_id"
         in: "path"
@@ -27095,6 +27148,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -27865,6 +27919,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "AcceptLanguage"
       - name: "datasource"
         in: "query"
@@ -27896,6 +27951,7 @@ paths:
         - "ja"
         - "ru"
         - "zh"
+        - "ko"
         x-exportParamName: "Language"
       - name: "system_id"
         in: "path"
@@ -27942,6 +27998,7 @@ paths:
               - "ja"
               - "ru"
               - "zh"
+              - "ko"
             ETag:
               type: "string"
               description: "RFC7232 compliant entity tag"
@@ -42009,6 +42066,7 @@ parameters:
     - "ja"
     - "ru"
     - "zh"
+    - "ko"
     x-exportParamName: "AcceptLanguage"
   If-None-Match:
     name: "If-None-Match"
@@ -42070,6 +42128,7 @@ parameters:
     - "ja"
     - "ru"
     - "zh"
+    - "ko"
     x-exportParamName: "Language"
   page:
     name: "page"
